@@ -24,9 +24,9 @@ if ("${CMAKE_BUILD_TYPE}" STREQUAL "")
 endif()
 
 
-if (NOT ${CMAKE_SYSTEM_NAME} STREQUAL "FreeBSD")
+if (NOT ${CMAKE_SYSTEM_NAME} STREQUAL "OpenBSD")
 
-    error("This file is designed to be used only for FreeBSD systems...")
+    message(FATAL_ERROR "This file is designed to be used only at OpenBSD systems...")
 
 endif ()
 
