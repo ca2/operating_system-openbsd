@@ -3,12 +3,12 @@
 
 #define index freebsd_bsd_index
 
-#ifndef FREEBSD
-#define FREEBSD 1
+#ifndef OPENBSD
+#define OPENBSD 1
 #endif
 
-#ifndef _FREEBSD
-#define _FREEBSD 1
+#ifndef _OPENBSD
+#define _OPENBSD 1
 #endif
 
 //#include <strings.h>
