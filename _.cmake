@@ -146,8 +146,6 @@ if (${OPERATING_SYSTEM} STREQUAL "freebsd")
 
     set(APPINDICATOR_PKG_MODULE "ayatana-appindicator3-0.1")
 
-    set(MPG123_PKG_MODULE "libmpg123")
-
 elseif (${OPERATING_SYSTEM} STREQUAL "netbsd")
 
     set(NETBSD TRUE)
@@ -157,8 +155,6 @@ elseif (${OPERATING_SYSTEM} STREQUAL "netbsd")
     message(STATUS "NETBSD has been set TRUE")
 
     set(APPINDICATOR_PKG_MODULE "ayatana-appindicator3-0.1")
-
-    set(MPG123_PKG_MODULE "libmpg123")
 
 elseif ("${OPERATING_SYSTEM}" STREQUAL "openbsd")
 
@@ -175,8 +171,6 @@ elseif ("${OPERATING_SYSTEM}" STREQUAL "openbsd")
 else ()
 
     set(APPINDICATOR_PKG_MODULE "appindicator3-0.1")
-
-    set(MPG123_PKG_MODULE "mpg123")
 
 endif ()
 
@@ -377,7 +371,6 @@ endif ()
 #set(static_apex_pkgconfig libcrypto libssl libarchive)
 #set(static_database_cairo_pkgconfig freetype2 pango cairo pangocairo)
 #set(static_database_sqlite3_pkgconfig sqlite3)
-#set(static_mpg123_pkgconfig ${MPG123_PKG_MODULE})
 #set(static_desktop_environment_gnome_pkgconfig glib-2.0 gtk+-3.0 gdk-3.0 ${APPINDICATOR_PKG_MODULE})
 #set(static_desktop_environment_kde_pkgconfig Qt5X11Extras Qt5Core Qt5UiTools)
 
