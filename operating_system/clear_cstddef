@@ -1,0 +1,16 @@
+
+
+#undef __POSIX_VISIBLE
+#undef __XPG_VISIBLE
+#undef __ISO_C_VISIBLE
+#undef __BSD_VISIBLE
+#undef _XOPEN_SOURCE
+#undef _XOPEN_SOURCE_EXTENDED
+#undef _XOPEN_VERSION
+#undef _POSIX_C_SOURCE
+#undef _POSIX_SOURCE
+#undef _ANSI_SOURCE
+
+#undef _SYS_CDEFS_H_
+ 
+
