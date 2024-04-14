@@ -28,13 +28,10 @@ list(APPEND library_references
    aqua
    aura
    acme_posix
-   acme_darwin
    acme_openbsd
    apex_posix
-   apex_darwin
    apex_openbsd
    aura_posix
-   aura_darwin
    )
 
 
@@ -104,7 +101,6 @@ target_include_directories(static_${PROJECT_NAME} PRIVATE ${library_include_dire
 list(APPEND library_include_directories ${CMAKE_CURRENT_SOURCE_DIR})
 list(APPEND library_include_directories ${CMAKE_CURRENT_SOURCE_DIR}/..)
 list(APPEND library_include_directories ${CMAKE_CURRENT_SOURCE_DIR}/../..)
-list(APPEND library_include_directories ${CMAKE_CURRENT_SOURCE_DIR}/../../operating_system-darwin)
 list(APPEND library_include_directories ${CMAKE_CURRENT_SOURCE_DIR}/../../operating_system-posix)
 
 

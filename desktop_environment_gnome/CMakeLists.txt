@@ -36,16 +36,13 @@ list(APPEND library_source
 list(APPEND library_references
    acme
    acme_posix
-   acme_darwin
    acme_openbsd
    apex
    apex_posix
-   apex_darwin
    apex_openbsd
    aqua
    aura
    aura_posix
-   aura_darwin
    aura_openbsd
    windowing_x11
    node_gtk
@@ -78,7 +75,6 @@ endif ()
 list(APPEND library_include_directories ${CMAKE_CURRENT_SOURCE_DIR})
 list(APPEND library_include_directories ${CMAKE_CURRENT_SOURCE_DIR}/..)
 list(APPEND library_include_directories ${CMAKE_CURRENT_SOURCE_DIR}/../..)
-list(APPEND library_include_directories ${CMAKE_CURRENT_SOURCE_DIR}/../../operating_system-darwin)
 list(APPEND library_include_directories ${CMAKE_CURRENT_SOURCE_DIR}/../../operating_system-posix)
 
 

@@ -6,13 +6,13 @@
 //#include "file.h"
 
 
-__FACTORY_EXPORT void acme_darwin_factory(::factory::factory * pfactory);
+__FACTORY_EXPORT void acme_posix_factory(::factory::factory * pfactory);
 
 
 __FACTORY_EXPORT void acme_openbsd_factory(::factory::factory * pfactory)
 {
 
-   acme_darwin_factory(pfactory);
+   acme_posix_factory(pfactory);
 
    pfactory->add_factory_item < ::acme_openbsd::node, ::acme::node >();
    pfactory->add_factory_item < ::acme_openbsd::acme_directory, ::acme_directory >();

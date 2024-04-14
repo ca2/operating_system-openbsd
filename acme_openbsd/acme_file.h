@@ -6,7 +6,7 @@
 #pragma once
 
 
-#include "acme_darwin/acme_file.h"
+#include "acme_posix/acme_file.h"
 
 
 namespace acme_openbsd
@@ -14,7 +14,7 @@ namespace acme_openbsd
 
 
    class CLASS_DECL_ACME acme_file :
-      virtual public ::acme_darwin::acme_file
+      virtual public ::acme_posix::acme_file
    {
    public:
 

@@ -2,7 +2,7 @@
 #pragma once
 
 
-#include "acme_darwin/acme_directory.h"
+#include "acme_posix/acme_directory.h"
 
 
 namespace acme_openbsd
@@ -10,7 +10,7 @@ namespace acme_openbsd
 
 
    class CLASS_DECL_ACME_OPENBSD acme_directory :
-      virtual public ::acme_darwin::acme_directory
+      virtual public ::acme_posix::acme_directory
    {
    public:
 

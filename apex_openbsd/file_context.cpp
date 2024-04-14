@@ -23,7 +23,7 @@ namespace apex_openbsd
    {
 
 
-      ::apex_darwin::file_context::initialize(pparticle);
+      ::apex_posix::file_context::initialize(pparticle);
 
    }
 

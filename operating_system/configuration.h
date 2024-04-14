@@ -56,13 +56,13 @@ using errno_t = int;
 
 #define PLATFORM_COMMON_NAMESPACE posix
 
-#define PLATFORM_FAMILY_NAMESPACE darwin
+#define PLATFORM_FAMILY_NAMESPACE bsd
 
 #define PLATFORM_STRING "openbsd"
 
 #define PLATFORM_COMMON_STRING "posix"
 
-#define PLATFORM_FAMILY_STRING "darwin"
+#define PLATFORM_FAMILY_STRING "bsd"
 
 #define DEFAULT_DIR_SEPARATOR "/"
 

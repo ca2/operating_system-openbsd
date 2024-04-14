@@ -1,7 +1,7 @@
 #pragma once
 
 
-#include "apex_darwin/file_context.h"
+#include "apex_posix/file_context.h"
 
 
 namespace apex_openbsd
@@ -9,7 +9,7 @@ namespace apex_openbsd
 
 
    class CLASS_DECL_APEX_OPENBSD file_context :
-      virtual public ::apex_darwin::file_context
+      virtual public ::apex_posix::file_context
    {
    public:
 

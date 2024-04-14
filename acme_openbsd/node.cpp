@@ -28,7 +28,7 @@ namespace acme_openbsd
 
       //auto estatus =
 
-      ::acme_darwin::node::initialize(pparticle);
+      ::acme_posix::node::initialize(pparticle);
 
 //      if (!estatus)
 //      {

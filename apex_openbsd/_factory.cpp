@@ -16,7 +16,7 @@
 #include "service_handler.h"
 
 
-DECLARE_FACTORY(apex_darwin);
+DECLARE_FACTORY(apex_posix);
 
 
 DECLARE_FACTORY(acme_openbsd);
@@ -25,7 +25,7 @@ DECLARE_FACTORY(acme_openbsd);
 IMPLEMENT_FACTORY(apex_openbsd)
 {
 
-   apex_darwin_factory(pfactory);
+   apex_posix_factory(pfactory);
 
    acme_openbsd_factory(pfactory);
 
