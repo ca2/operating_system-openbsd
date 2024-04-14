@@ -148,6 +148,10 @@ if (${OPERATING_SYSTEM} STREQUAL "freebsd")
 
     message(STATUS "FREEBSD has been set TRUE")
 
+    add_compile_definitions(__BSD__)
+
+    message(STATUS "added __BSD__ compile definition!!")
+
     set(APPINDICATOR_PKG_MODULE "ayatana-appindicator3-0.1")
 
 elseif (${OPERATING_SYSTEM} STREQUAL "netbsd")
@@ -157,6 +161,10 @@ elseif (${OPERATING_SYSTEM} STREQUAL "netbsd")
     add_compile_definitions(NETBSD)
 
     message(STATUS "NETBSD has been set TRUE")
+
+    add_compile_definitions(__BSD__)
+
+    message(STATUS "added __BSD__ compile definition!!")
 
     set(APPINDICATOR_PKG_MODULE "ayatana-appindicator3-0.1")
 
@@ -170,7 +178,11 @@ elseif ("${OPERATING_SYSTEM}" STREQUAL "openbsd")
 
     add_compile_definitions(OPENBSD)
 
-    message(STATUS "RASPBERRYPIOS defined!!")
+    message(STATUS "added OPENBSD compile definition!!")
+
+    add_compile_definitions(__BSD__)
+
+    message(STATUS "added __BSD__ compile definition!!")
 
 else ()
 
