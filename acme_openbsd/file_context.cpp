@@ -3,7 +3,7 @@
 #include "acme/filesystem/filesystem/acme_directory.h"
 
 
-namespace apex_openbsd
+namespace acme_openbsd
 {
 
 
@@ -23,7 +23,7 @@ namespace apex_openbsd
    {
 
 
-      ::apex_posix::file_context::initialize(pparticle);
+      ::acme_posix::file_context::initialize(pparticle);
 
    }
 
@@ -31,7 +31,7 @@ namespace apex_openbsd
    void file_context::init_system()
    {
 
-      ::file_context::init_system();
+      ::acme_posix::file_context::init_system();
 
    }
 
@@ -39,7 +39,7 @@ namespace apex_openbsd
    void file_context::init_context()
    {
 
-      ::file_context::init_context();
+      ::acme_posix::file_context::init_context();
 
 
    }
@@ -57,7 +57,7 @@ namespace apex_openbsd
    }
 
 
-} // namespace apex_openbsd
+} // namespace acme_openbsd
 
 
 

@@ -1,11 +1,7 @@
 #pragma once
 
 
-<<<<<<< Updated upstream
 #include "operating_system-posix/acme_posix/_.h"
-=======
-#include "operating_system-darwin/acme_posix/_.h"
->>>>>>> Stashed changes
 
 
 #if defined(_acme_openbsd_project)
@@ -13,7 +9,6 @@
 #else
 #define CLASS_DECL_ACME_OPENBSD  CLASS_DECL_IMPORT
 #endif
-
 
 
 CLASS_DECL_ACME_OPENBSD ::user::enum_desktop get_edesktop();

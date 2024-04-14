@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../../library/libstatic_apex_openbsd.a CMakeFiles/static_apex_openbsd.dir/_.cpp.o CMakeFiles/static_apex_openbsd.dir/_factory.cpp.o CMakeFiles/static_apex_openbsd.dir/framework.cpp.o CMakeFiles/static_apex_openbsd.dir/launcher.cpp.o CMakeFiles/static_apex_openbsd.dir/node.cpp.o CMakeFiles/static_apex_openbsd.dir/os_context.cpp.o CMakeFiles/static_apex_openbsd.dir/service_handler.cpp.o
+/usr/bin/ranlib ../../../library/libstatic_apex_openbsd.a

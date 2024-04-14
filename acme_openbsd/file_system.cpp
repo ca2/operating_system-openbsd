@@ -2,7 +2,7 @@
 #include "file_system.h"
 
 
-namespace apex_openbsd
+namespace acme_openbsd
 {
 
 
@@ -34,7 +34,7 @@ namespace apex_openbsd
    }
 
 
-} // namespace apex_openbsd
+} // namespace acme_openbsd
 
 
 

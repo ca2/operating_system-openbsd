@@ -1,15 +1,15 @@
 #pragma once
 
 
-#include "apex/filesystem/filesystem/dir_context.h"
+#include "acme_posix/dir_context.h"
 
 
-namespace apex_openbsd
+namespace acme_openbsd
 {
 
 
-   class CLASS_DECL_APEX_OPENBSD dir_context :
-      virtual public ::dir_context
+   class CLASS_DECL_ACME_OPENBSD dir_context :
+      virtual public ::acme_posix::dir_context
    {
    public:
 
@@ -32,7 +32,7 @@ namespace apex_openbsd
    };
 
 
-} // namespace apex_openbsd
+} // namespace acme_openbsd
 
 
 

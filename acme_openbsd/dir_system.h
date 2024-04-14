@@ -1,14 +1,14 @@
 #pragma once
 
 
-#include "apex/filesystem/filesystem/dir_system.h"
+#include "acme/filesystem/filesystem/dir_system.h"
 
 
-namespace apex_openbsd
+namespace acme_openbsd
 {
 
 
-   class CLASS_DECL_APEX_OPENBSD dir_system :
+   class CLASS_DECL_ACME_OPENBSD dir_system :
       virtual public ::dir_system
    {
    public:
@@ -27,7 +27,7 @@ namespace apex_openbsd
    };
 
 
-} // namespace apex_openbsd
+} // namespace acme_openbsd
 
 
 

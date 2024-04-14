@@ -12,6 +12,14 @@ list(APPEND library_source
    acme_file.h
    acme_path.cpp
    acme_path.h
+   dir_context.cpp
+   dir_context.h
+   dir_system.cpp
+   dir_system.h
+   file_context.cpp
+   file_context.h
+   file_system.cpp
+   file_system.h
    #file.cpp
    #file.h
    framework.cpp

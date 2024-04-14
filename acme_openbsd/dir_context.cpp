@@ -3,7 +3,7 @@
 #include "acme/filesystem/filesystem/listing.h"
 
 
-namespace apex_openbsd
+namespace acme_openbsd
 {
 
 
@@ -24,7 +24,7 @@ namespace apex_openbsd
    void dir_context::initialize(::particle * pparticle)
    {
 
-      ::dir_context::initialize(pparticle);
+      ::acme_posix::dir_context::initialize(pparticle);
 
    }
 
@@ -32,7 +32,7 @@ namespace apex_openbsd
    void dir_context::init_system()
    {
 
-      ::dir_context::init_system();
+      ::acme_posix::dir_context::init_system();
 
    }
 
@@ -40,7 +40,7 @@ namespace apex_openbsd
    void dir_context::init_context()
    {
 
-      ::dir_context::init_context();
+      ::acme_posix::dir_context::init_context();
 
    }
 
@@ -59,7 +59,7 @@ namespace apex_openbsd
    }
 
 
-} // namespace apex_openbsd
+} // namespace acme_openbsd
 
 
 

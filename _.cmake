@@ -13,7 +13,7 @@ set(USE_PKGCONFIG TRUE)
 set(NO_PRECOMPILED_HEADER TRUE)
 set(PLATFORM_NAME "openbsd")
 set(HAS_ALSA FALSE)
-
+set(CURL_NANO_HTTP TRUE)
 
 #set(GLOBAL_EXTRA_COMPILER_FLAGS -fnon-call-exceptions -nostdinc -nostdinc++ -I/usr/include/c++/v1 -I/usr/include -I/usr/local/include)
 #set(GLOBAL_EXTRA_LINKER_FLAGS -nodefaultlibs -lc++ -lcxxrt -lthr -lm -lc -lgcc_s)
