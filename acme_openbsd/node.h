@@ -7,7 +7,7 @@
 #pragma once
 
 
-#include "acme_darwin/node.h"
+#include "acme_posix/node.h"
 
 
 namespace acme_openbsd
@@ -15,7 +15,7 @@ namespace acme_openbsd
 
 
    class CLASS_DECL_ACME_OPENBSD node :
-      virtual public ::acme_darwin::node
+      virtual public ::acme_posix::node
    {
    public:
 
