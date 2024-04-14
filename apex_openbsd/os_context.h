@@ -4,7 +4,7 @@
 #include "apex_posix/os_context.h"
 
 
-namespace apex_freebsd
+namespace apex_openbsd
 {
 
 
@@ -27,7 +27,7 @@ namespace apex_freebsd
       void terminate_processes_by_title(const ::string & strName) override;
 
 
-      virtual bool freebsd_can_exec(const char *file);
+      virtual bool openbsd_can_exec(const char *file);
 
 
       //virtual ::file::path get_module_path(HMODULE hmodule) override;
@@ -87,7 +87,7 @@ namespace apex_freebsd
    };
 
 
-} // namespace apex_freebsd
+} // namespace apex_openbsd
 
 
 

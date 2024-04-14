@@ -1,11 +1,11 @@
 #include "framework.h"
 #include "gnome_gnome.h"
-//#include "apex/os/freebsd/appindicator.h"
+//#include "apex/os/openbsd/appindicator.h"
 
 
 
 //
-//namespace freebsd
+//namespace openbsd
 //{
 //
 //
@@ -16,7 +16,7 @@
 //
 //   }
 //
-//} // namespace freebsd
+//} // namespace openbsd
 
 namespace os
 {

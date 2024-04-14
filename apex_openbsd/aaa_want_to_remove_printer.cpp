@@ -5,7 +5,7 @@
 #include <Gdiplus.h>
 
 
-namespace freebsd
+namespace openbsd
 {
 
 
@@ -75,7 +75,7 @@ namespace freebsd
       close();
    }
 
-   bool printer::document_properties::initialize(::freebsd::printer * pprinter, DEVMODE * pdevmode)
+   bool printer::document_properties::initialize(::openbsd::printer * pprinter, DEVMODE * pdevmode)
    {
       UNREFERENCED_PARAMETER(pdevmode);
       if(m_pdevmode != nullptr)
@@ -120,7 +120,7 @@ namespace freebsd
    }
 
 
-} // namespace freebsd
+} // namespace openbsd
 
 
 

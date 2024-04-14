@@ -1,7 +1,7 @@
 #pragma once
 
 
-namespace freebsd
+namespace openbsd
 {
 
 
@@ -25,7 +25,7 @@ namespace freebsd
          virtual ~document_properties();
 
 
-         virtual bool initialize(::freebsd::printer * pprinter, DEVMODE * pdevmode = nullptr);
+         virtual bool initialize(::openbsd::printer * pprinter, DEVMODE * pdevmode = nullptr);
          virtual bool close();
          virtual ::draw2d::graphics * create_graphics();
 

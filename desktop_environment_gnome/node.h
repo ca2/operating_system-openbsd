@@ -8,7 +8,7 @@
 #pragma once
 
 
-#include "aura_freebsd/node.h"
+#include "aura_openbsd/node.h"
 #include "node_gnome/node.h"
 
 
@@ -17,7 +17,7 @@ namespace desktop_environment_gnome
 
 
    class CLASS_DECL_DESKTOP_ENVIRONMENT_GNOME node :
-      virtual public ::aura_freebsd::node,
+      virtual public ::aura_openbsd::node,
       virtual public ::node_gnome::node
    {
    public:
@@ -83,9 +83,9 @@ namespace desktop_environment_gnome
 
       //virtual void _os_process_user_theme_color(string strTheme);
 
-      //virtual ::node_freebsd::appindicator * appindicator_allocate() override;
+      //virtual ::node_openbsd::appindicator * appindicator_allocate() override;
 
-      //virtual void appindicator_destroy(::freebsd::appindicator * pappindicator) override;
+      //virtual void appindicator_destroy(::openbsd::appindicator * pappindicator) override;
 
       //virtual void enum_display_monitors(::aura::session * psession) override;
 

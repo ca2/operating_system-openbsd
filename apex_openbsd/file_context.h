@@ -4,11 +4,11 @@
 #include "apex_darwin/file_context.h"
 
 
-namespace apex_freebsd
+namespace apex_openbsd
 {
 
 
-   class CLASS_DECL_APEX_FREEBSD file_context :
+   class CLASS_DECL_APEX_OPENBSD file_context :
       virtual public ::apex_darwin::file_context
    {
    public:
@@ -31,7 +31,7 @@ namespace apex_freebsd
    };
 
 
-} // namespace apex_freebsd
+} // namespace apex_openbsd
 
 
 

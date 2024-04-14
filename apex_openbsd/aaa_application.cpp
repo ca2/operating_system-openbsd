@@ -181,7 +181,7 @@
 //   }
 //
 //
-//} // namespace freebsd
+//} // namespace openbsd
 
 
 
@@ -193,7 +193,7 @@
 //{
 //
 //
-//   ::comm::command * pmaininitdata = new ::freebsd::command;
+//   ::comm::command * pmaininitdata = new ::openbsd::command;
 //
 //
 //   pmaininitdata->m_hInstance = hInstance;

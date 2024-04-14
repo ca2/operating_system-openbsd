@@ -3,10 +3,10 @@
 //#include "acme_windows/acme.h"
 //#include "apex_windows/apex.h"
 #include "node.h"
-//#include "node/os/freebsd/_c.h"
+//#include "node/os/openbsd/_c.h"
 
 
-namespace aura_freebsd
+namespace aura_openbsd
 {
 
 
@@ -44,11 +44,11 @@ namespace aura_freebsd
    void node::initialize(::particle * pparticle)
    {
 
-      //INFORMATION("aura::freebsd::node::initialize");
+      //INFORMATION("aura::openbsd::node::initialize");
 
       //auto estatus =
 
-      ::apex_freebsd::node::initialize(pparticle);
+      ::apex_openbsd::node::initialize(pparticle);
 
 //      if (!estatus)
 //      {
@@ -472,7 +472,7 @@ namespace aura_freebsd
 //      }
 
 
-} // namespace aura_freebsd
+} // namespace aura_openbsd
 
 
 

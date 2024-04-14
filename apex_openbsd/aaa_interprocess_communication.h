@@ -2,7 +2,7 @@
 #pragma once
 
 
-namespace apex_freebsd
+namespace apex_openbsd
 {
 
 
@@ -127,7 +127,7 @@ namespace apex_freebsd
    CLASS_DECL_APEX string app_install(string strPlatform = "");
 
 
-} // namespace apex_freebsd
+} // namespace apex_openbsd
 
 
 

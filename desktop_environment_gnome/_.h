@@ -1,7 +1,7 @@
 #pragma once
 
 
-#include "aura_freebsd/_.h"
+#include "aura_openbsd/_.h"
 #include "node_gnome/_.h"
 
 

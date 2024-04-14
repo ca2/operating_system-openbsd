@@ -9,7 +9,7 @@
 #include "acme_darwin/acme_file.h"
 
 
-namespace acme_freebsd
+namespace acme_openbsd
 {
 
 
@@ -29,7 +29,7 @@ namespace acme_freebsd
    };
 
 
-} // namespace acme_freebsd
+} // namespace acme_openbsd
 
 
 

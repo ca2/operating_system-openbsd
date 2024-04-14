@@ -83,7 +83,7 @@ void sn_start_context();
 //
 //
 //
-//gboolean freebsd_start_system(gpointer data)
+//gboolean openbsd_start_system(gpointer data)
 //{
 //
 //   GApplication * papp = g_application_get_default ();

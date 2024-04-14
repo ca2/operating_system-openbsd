@@ -243,7 +243,7 @@
 
 /* --- Soname of the standard C library. --- */
 
-#if defined(VGO_freebsd) || defined(VGO_solaris)
+#if defined(VGO_openbsd) || defined(VGO_solaris)
 # if defined(MUSL_LIBC)
 #  define  VG_Z_LIBC_SONAME  libcZdZa              // libc.*
 #else
@@ -278,7 +278,7 @@
 
 /* --- Soname of the pthreads library. --- */
 
-#if defined(VGO_freebsd)
+#if defined(VGO_openbsd)
 # if defined(MUSL_LIBC)
 #  define  VG_Z_LIBPTHREAD_SONAME  libcZdZa              // libc.*
 #else
@@ -294,17 +294,17 @@
 
 /* --- Sonames for Linux ELF linkers, plus unencoded versions. --- */
 
-#if defined(VGO_freebsd)
+#if defined(VGO_openbsd)
 
-#define  VG_Z_LD_FREEBSD_SO_3         ldZhfreebsdZdsoZd3           // ld-freebsd.so.3
-#define  VG_U_LD_FREEBSD_SO_3         "ld-freebsd.so.3"
+#define  VG_Z_LD_OPENBSD_SO_3         ldZhopenbsdZdsoZd3           // ld-openbsd.so.3
+#define  VG_U_LD_OPENBSD_SO_3         "ld-openbsd.so.3"
 
-#define  VG_Z_LD_FREEBSD_SO_2         ldZhfreebsdZdsoZd2           // ld-freebsd.so.2
-#define  VG_U_LD_FREEBSD_SO_2         "ld-freebsd.so.2"
+#define  VG_Z_LD_OPENBSD_SO_2         ldZhopenbsdZdsoZd2           // ld-openbsd.so.2
+#define  VG_U_LD_OPENBSD_SO_2         "ld-openbsd.so.2"
 
-#define  VG_Z_LD_FREEBSD_X86_64_SO_2  ldZhfreebsdZhx86Zh64ZdsoZd2
-                                                        // ld-freebsd-x86-64.so.2
-#define  VG_U_LD_FREEBSD_X86_64_SO_2  "ld-freebsd-x86-64.so.2"
+#define  VG_Z_LD_OPENBSD_X86_64_SO_2  ldZhopenbsdZhx86Zh64ZdsoZd2
+                                                        // ld-openbsd-x86-64.so.2
+#define  VG_U_LD_OPENBSD_X86_64_SO_2  "ld-openbsd-x86-64.so.2"
 
 #define  VG_Z_LD64_SO_1             ld64ZdsoZd1                // ld64.so.1
 #define  VG_U_LD64_SO_1             "ld64.so.1"
@@ -313,8 +313,8 @@
 #define  VG_Z_LD_SO_1               ldZdsoZd1                  // ld.so.1
 #define  VG_U_LD_SO_1               "ld.so.1"
 
-#define  VG_U_LD_FREEBSD_AARCH64_SO_1 "ld-freebsd-aarch64.so.1"
-#define  VG_U_LD_FREEBSD_ARMHF_SO_3   "ld-freebsd-armhf.so.3"
+#define  VG_U_LD_OPENBSD_AARCH64_SO_1 "ld-openbsd-aarch64.so.1"
+#define  VG_U_LD_OPENBSD_ARMHF_SO_3   "ld-openbsd-armhf.so.3"
 
 #endif
 

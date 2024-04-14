@@ -5,7 +5,7 @@
 ::user::enum_desktop _get_edesktop();
 
 
-namespace acme_freebsd
+namespace acme_openbsd
 {
 
 
@@ -53,7 +53,7 @@ namespace acme_freebsd
 //      return string(wsz);
 //
 //   }
-//#include "aura/os/freebsd/_c.h"
+//#include "aura/os/openbsd/_c.h"
 //
 //
 //   bool node::_os_calc_app_dark_mode()
@@ -62,7 +62,7 @@ namespace acme_freebsd
 //      try
 //      {
 //
-//         ::freebsd::registry::key key;
+//         ::openbsd::registry::key key;
 //
 //         key.open(HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize");
 //
@@ -103,7 +103,7 @@ namespace acme_freebsd
 //      try
 //      {
 //
-//         ::freebsd::registry::key key;
+//         ::openbsd::registry::key key;
 //
 //         key.open(HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize");
 //
@@ -167,7 +167,7 @@ namespace acme_freebsd
 //   void node::set_console_colors(::u32 dwScreenColors, ::u32 dwPopupColors, ::u32 dwWindowAlpha)
 //   {
 //
-//      ::freebsd::registry::key key(HKEY_CURRENT_USER, "Console", true);
+//      ::openbsd::registry::key key(HKEY_CURRENT_USER, "Console", true);
 //
 //      key._set("ScreenColors", dwScreenColors);
 //      key._set("PopupColors", dwPopupColors);
@@ -180,7 +180,7 @@ namespace acme_freebsd
 //   ::e_status node::set_system_dark_mode1(bool bSet)
 //   {
 //
-//      ::freebsd::registry::key key(HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize", true);
+//      ::openbsd::registry::key key(HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize", true);
 //
 //      ::u32 dwSystemUseLightTheme;
 //      if (bSet)
@@ -201,7 +201,7 @@ namespace acme_freebsd
 //   ::e_status node::set_app_dark_mode1(bool bSet)
 //   {
 //
-//      ::freebsd::registry::key key(HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize", true);
+//      ::openbsd::registry::key key(HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize", true);
 //
 //      ::u32 dwAppsUseLightTheme;
 //      if (bSet)
@@ -225,7 +225,7 @@ namespace acme_freebsd
 //
 //      double dTimeZone = 0.;
 //
-//#ifdef FREEBSD
+//#ifdef OPENBSD
 //      {
 //         //time_t t = time(nullptr);
 //
@@ -457,12 +457,12 @@ namespace acme_freebsd
 //   ::e_status node::get_firefox_installation_info(string& strPathToExe, string& strInstallDirectory)
 //   {
 //
-//#ifdef FREEBSD_DESKTOP
+//#ifdef OPENBSD_DESKTOP
 //
 //      try
 //      {
 //
-//         ::freebsd::registry::key key(HKEY_LOCAL_MACHINE, "SOFTWARE\\Mozilla\\Mozilla Firefox");
+//         ::openbsd::registry::key key(HKEY_LOCAL_MACHINE, "SOFTWARE\\Mozilla\\Mozilla Firefox");
 //
 //         string strCurrentVersion;
 //
@@ -571,7 +571,7 @@ namespace acme_freebsd
    void node::install_crash_dump_reporting(const string & strModuleNameWithTheExeExtension)
    {
 
-//      ::freebsd::registry::key k;
+//      ::openbsd::registry::key k;
 //
 //      string strKey = "SOFTWARE\\Microsoft\\Windows\\Windows Error Reporting\\LocalDumps\\" + strModuleNameWithTheExeExtension;
 //
@@ -735,7 +735,7 @@ namespace acme_freebsd
    }
 
 
-} // namespace acme_freebsd
+} // namespace acme_openbsd
 
 
 

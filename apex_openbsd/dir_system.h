@@ -4,11 +4,11 @@
 #include "apex/filesystem/filesystem/dir_system.h"
 
 
-namespace apex_freebsd
+namespace apex_openbsd
 {
 
 
-   class CLASS_DECL_APEX_FREEBSD dir_system :
+   class CLASS_DECL_APEX_OPENBSD dir_system :
       virtual public ::dir_system
    {
    public:
@@ -27,7 +27,7 @@ namespace apex_freebsd
    };
 
 
-} // namespace apex_freebsd
+} // namespace apex_openbsd
 
 
 

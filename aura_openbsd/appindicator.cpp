@@ -5,7 +5,7 @@
 #include "appindicator.h"
 
 
-namespace aura_freebsd
+namespace aura_openbsd
 {
 
 
@@ -23,7 +23,7 @@ namespace aura_freebsd
    }
 
 
-} // namespace aura_freebsd
+} // namespace aura_openbsd
 
 
 

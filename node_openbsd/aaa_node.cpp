@@ -6,7 +6,7 @@ namespace aura
 {
 
 
-   namespace freebsd
+   namespace openbsd
    {
 
 
@@ -30,7 +30,7 @@ namespace aura
       e_status node::initialize(::object* pobject)
       {
 
-         auto estatus = ::apex::freebsd::node::initialize(pobject);
+         auto estatus = ::apex::openbsd::node::initialize(pobject);
 
          if(!estatus)
          {
@@ -500,7 +500,7 @@ namespace aura
 
 
 
-   } // namespace freebsd
+   } // namespace openbsd
 
 
 } // namespace aura

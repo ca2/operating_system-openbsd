@@ -1,10 +1,10 @@
 #pragma once
 
 
-#include "acme/node/freebsd/_freebsd.h"
+#include "acme/node/openbsd/_openbsd.h"
 
 
-#include "_node_freebsd.h"
+#include "_node_openbsd.h"
 
 
 #include "interprocess_communication.h"

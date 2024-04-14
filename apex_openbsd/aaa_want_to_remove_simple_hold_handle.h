@@ -1,7 +1,7 @@
 #pragma once
 
 
-#ifdef FREEBSD
+#ifdef OPENBSD
 
 class CLASS_DECL_APEX simple_hold_handle
 {

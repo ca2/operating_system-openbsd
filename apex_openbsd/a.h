@@ -1,4 +1,4 @@
-_freebsd.h
+_openbsd.h
 buffer.h
 command.h
 console.h
@@ -26,4 +26,4 @@ thread.h
 tts_speaker.h
 uac_tools.h
 user.h
-freebsd.h
+openbsd.h

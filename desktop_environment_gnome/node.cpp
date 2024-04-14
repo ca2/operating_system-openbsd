@@ -94,7 +94,7 @@ namespace desktop_environment_gnome
 ////      ////
 ////      ////      //auto idle_source = g_idle_source_new();
 ////      ////
-////      ////      //g_source_set_callback(idle_source, &freebsd_start_system, (::apex::system *) m_psystem, nullptr);
+////      ////      //g_source_set_callback(idle_source, &openbsd_start_system, (::apex::system *) m_psystem, nullptr);
 ////      ////
 ////      ////      //g_source_attach(idle_source, g_main_context_default());
 ////      ////
@@ -195,7 +195,7 @@ namespace desktop_environment_gnome
 
       ///auto estatus =
 
-      ::aura_freebsd::node::initialize(pparticle);
+      ::aura_openbsd::node::initialize(pparticle);
 
 //      if(!estatus)
 //      {
@@ -223,7 +223,7 @@ namespace desktop_environment_gnome
 //   void node::os_calc_user_dark_mode()
 //   {
 //
-//      ::freebsd::aura::node::os_calc_user_dark_mode();
+//      ::openbsd::aura::node::os_calc_user_dark_mode();
 //
 //   }
 
@@ -482,7 +482,7 @@ namespace desktop_environment_gnome
 //
 //      return str;
 //
-//      //return ::freebsd_g_direct_get_file_icon_path(pszPath, iSize);
+//      //return ::openbsd_g_direct_get_file_icon_path(pszPath, iSize);
 //
 //   }
 
@@ -494,7 +494,7 @@ namespace desktop_environment_gnome
 //
 //      return str;
 //
-//      //return ::freebsd_g_direct_get_file_content_type(pszPath);
+//      //return ::openbsd_g_direct_get_file_content_type(pszPath);
 //
 //   }
 //
@@ -569,7 +569,7 @@ namespace desktop_environment_gnome
 //   }
 
 
-//   ::nfreebsd::appindicator * node::appindicator_allocate()
+//   ::nopenbsd::appindicator * node::appindicator_allocate()
 //   {
 //
 //      return new ::node_gnome::appindicator();
@@ -577,10 +577,10 @@ namespace desktop_environment_gnome
 //   }
 //
 //
-//   void node::appindicator_destroy(::freebsd::appindicator * pappindicator)
+//   void node::appindicator_destroy(::openbsd::appindicator * pappindicator)
 //   {
 //
-//      //::freebsd::appindicator_destroy(pappindicator);
+//      //::openbsd::appindicator_destroy(pappindicator);
 //
 //      delete pappindicator;
 //

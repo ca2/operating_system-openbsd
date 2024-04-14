@@ -13,7 +13,7 @@ namespace desktop_environment_xfce
 
 
    class CLASS_DECL_DESKTOP_ENVIRONMENT_XFCE node :
-      virtual public ::aura::freebsd::node,
+      virtual public ::aura::openbsd::node,
       virtual public ::node_xfce::node
    {
    public:
@@ -69,9 +69,9 @@ namespace desktop_environment_xfce
 
       //virtual void _os_process_user_theme_color(string strTheme);
 
-      //virtual ::node_freebsd::appindicator * appindicator_allocate() override;
+      //virtual ::node_openbsd::appindicator * appindicator_allocate() override;
 
-      //virtual void appindicator_destroy(::freebsd::appindicator * pappindicator) override;
+      //virtual void appindicator_destroy(::openbsd::appindicator * pappindicator) override;
 
       //virtual void enum_display_monitors(::aura::session * psession) override;
 

@@ -91,8 +91,8 @@ typedef
          all the old x87 FPU gunk
          segment registers */
 
-      /* HACK to e.g. make tls on amd64-freebsd/solaris work.  %fs only ever seems
-         to hold a constant value (zero on freebsd main thread, 0x63 in other
+      /* HACK to e.g. make tls on amd64-openbsd/solaris work.  %fs only ever seems
+         to hold a constant value (zero on openbsd main thread, 0x63 in other
          threads), and so guest_FS_CONST holds
          the 64-bit offset associated with this constant %fs value. */
       /* 200 */ ULong guest_FS_CONST;
@@ -156,11 +156,11 @@ typedef
       /* Used for Darwin syscall dispatching. */
       ULong guest_SC_CLASS;
 
-      /* HACK to make e.g. tls on darwin work, wine on freebsd work, ...
+      /* HACK to make e.g. tls on darwin work, wine on openbsd work, ...
          %gs only ever seems to hold a constant value (e.g. 0x60 on darwin,
-         0x6b on freebsd), and so guest_GS_CONST holds the 64-bit offset
+         0x6b on openbsd), and so guest_GS_CONST holds the 64-bit offset
          associated with this constant %gs value.  (A direct analogue
-         of the %fs-const hack for amd64-freebsd/solaris). */
+         of the %fs-const hack for amd64-openbsd/solaris). */
       ULong guest_GS_CONST;
 
       /* Needed for Darwin (but mandated for all guest architectures):

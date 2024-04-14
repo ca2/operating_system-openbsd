@@ -1,7 +1,7 @@
 #pragma once
 
 
-#define index freebsd_bsd_index
+#define index openbsd_bsd_index
 
 #ifndef OPENBSD
 #define OPENBSD 1
@@ -335,7 +335,7 @@ typedef void * PVOID;
 #define WINBOOL int
 
 
-#ifndef FREEBSD
+#ifndef OPENBSD
 #define offsetof(type, member)  __builtin_offsetof (type, member)
 #endif
 

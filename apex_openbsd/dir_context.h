@@ -4,11 +4,11 @@
 #include "apex/filesystem/filesystem/dir_context.h"
 
 
-namespace apex_freebsd
+namespace apex_openbsd
 {
 
 
-   class CLASS_DECL_APEX_FREEBSD dir_context :
+   class CLASS_DECL_APEX_OPENBSD dir_context :
       virtual public ::dir_context
    {
    public:
@@ -32,7 +32,7 @@ namespace apex_freebsd
    };
 
 
-} // namespace apex_freebsd
+} // namespace apex_openbsd
 
 
 

@@ -26,7 +26,7 @@ string empty_get_file_content_type(string)
 
 //PFN_GET_FILE_CONTENT_TYPE g_pfnGetFileContentType = &empty_get_file_content_type;
 //
-//string freebsd_get_file_content_type(string strPath)
+//string openbsd_get_file_content_type(string strPath)
 //{
 //
 //   return (*g_pfnGetFileContentType)(strPath);
@@ -41,7 +41,7 @@ string empty_get_file_content_type(string)
 //}
 
 
-namespace apex_freebsd
+namespace apex_openbsd
 {
 
 
@@ -901,7 +901,7 @@ namespace apex_freebsd
    }
 
 
-   //#elif defined(FREEBSD)
+   //#elif defined(OPENBSD)
    //            }
    //
    //#elif defined(MACos_context)
@@ -979,7 +979,7 @@ namespace apex_freebsd
 
       strTarget = get_context()->m_papexcontext->defer_process_path(path);
 
-      if(freebsd_can_exec(strTarget))
+      if(openbsd_can_exec(strTarget))
       {
 
          //int iPid;
@@ -1070,7 +1070,7 @@ namespace apex_freebsd
 //   void os_context::list_process(::file::path_array & patha, u32_array & uaPid)
 //   {
 //
-//      ::output_debug_string("freebsd::os_context::list_process");
+//      ::output_debug_string("openbsd::os_context::list_process");
 //
 //      ::file::listing listing;
 //
@@ -1108,7 +1108,7 @@ namespace apex_freebsd
 //   }
 
 
-   bool os_context::freebsd_can_exec(const char *file)
+   bool os_context::openbsd_can_exec(const char *file)
    {
 
       struct stat st;
@@ -1204,7 +1204,7 @@ namespace apex_freebsd
    }
 
 
-} // namespace apex_freebsd
+} // namespace apex_openbsd
 
 
 

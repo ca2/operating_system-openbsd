@@ -3,17 +3,17 @@
 
 #include "apex/_.h"
 #include "apex_posix/_.h"
-#include "acme_freebsd/_.h"
+#include "acme_openbsd/_.h"
 
 
-#if defined(_APEX_FREEBSD_LIBRARY)
-#define CLASS_DECL_APEX_FREEBSD  CLASS_DECL_EXPORT
+#if defined(_apex_openbsd_project)
+#define CLASS_DECL_APEX_OPENBSD  CLASS_DECL_EXPORT
 #else
-#define CLASS_DECL_APEX_FREEBSD  CLASS_DECL_IMPORT
+#define CLASS_DECL_APEX_OPENBSD  CLASS_DECL_IMPORT
 #endif
 
 
-namespace apex_freebsd
+namespace apex_openbsd
 {
 
 
@@ -26,7 +26,7 @@ namespace apex_freebsd
    class node;
 
 
-} // namespace apex_freebsd
+} // namespace apex_openbsd
 
 
 

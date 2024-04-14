@@ -34,26 +34,26 @@
 #include "pub_tool_basics.h"           // ThreadID
 #include "libvex.h"                    // VexArchInfo
 
-#if defined(VGP_x86_freebsd) || defined(VGP_x86_solaris)
+#if defined(VGP_x86_openbsd) || defined(VGP_x86_solaris)
 #  define VG_MIN_INSTR_SZB          1  // min length of native instruction
 #  define VG_MAX_INSTR_SZB         16  // max length of native instruction
 #  define VG_CLREQ_SZB             14  // length of a client request, may
                                        //   be larger than VG_MAX_INSTR_SZB
 #  define VG_STACK_REDZONE_SZB      0  // number of addressable bytes below %RSP
 
-#elif defined(VGP_amd64_freebsd) || defined(VGP_amd64_solaris)
+#elif defined(VGP_amd64_openbsd) || defined(VGP_amd64_solaris)
 #  define VG_MIN_INSTR_SZB          1
 #  define VG_MAX_INSTR_SZB         16
 #  define VG_CLREQ_SZB             19
 #  define VG_STACK_REDZONE_SZB    128
 
-#elif defined(VGP_ppc32_freebsd)
+#elif defined(VGP_ppc32_openbsd)
 #  define VG_MIN_INSTR_SZB          4
 #  define VG_MAX_INSTR_SZB          4 
 #  define VG_CLREQ_SZB             20
 #  define VG_STACK_REDZONE_SZB      0
 
-#elif defined(VGP_ppc64be_freebsd)  || defined(VGP_ppc64le_freebsd)
+#elif defined(VGP_ppc64be_openbsd)  || defined(VGP_ppc64le_openbsd)
 #  define VG_MIN_INSTR_SZB          4
 #  define VG_MAX_INSTR_SZB          4 
 #  define VG_CLREQ_SZB             20
@@ -61,19 +61,19 @@
                                        // from 64-bit PowerPC ELF ABI 
                                        // Supplement 1.7
 
-#elif defined(VGP_arm_freebsd)
+#elif defined(VGP_arm_openbsd)
 #  define VG_MIN_INSTR_SZB          2
 #  define VG_MAX_INSTR_SZB          4 
 #  define VG_CLREQ_SZB             20
 #  define VG_STACK_REDZONE_SZB      0
 
-#elif defined(VGP_arm64_freebsd)
+#elif defined(VGP_arm64_openbsd)
 #  define VG_MIN_INSTR_SZB          4
 #  define VG_MAX_INSTR_SZB          4 
 #  define VG_CLREQ_SZB             20
 #  define VG_STACK_REDZONE_SZB      0
 
-#elif defined(VGP_s390x_freebsd)
+#elif defined(VGP_s390x_openbsd)
 #  define VG_MIN_INSTR_SZB          2
 #  define VG_MAX_INSTR_SZB          6
 #  define VG_CLREQ_SZB             10
@@ -92,13 +92,13 @@
 #  define VG_CLREQ_SZB             19
 #  define VG_STACK_REDZONE_SZB    128
 
-#elif defined(VGP_mips32_freebsd)
+#elif defined(VGP_mips32_openbsd)
 #  define VG_MIN_INSTR_SZB          4
 #  define VG_MAX_INSTR_SZB          4 
 #  define VG_CLREQ_SZB             20
 #  define VG_STACK_REDZONE_SZB      0
 
-#elif defined(VGP_mips64_freebsd)
+#elif defined(VGP_mips64_openbsd)
 #  define VG_MIN_INSTR_SZB          4
 #  define VG_MAX_INSTR_SZB          4 
 #  define VG_CLREQ_SZB             20
@@ -167,7 +167,7 @@ extern SizeT VG_(thread_get_altstack_size) ( ThreadId tid );
 // Given a pointer to a function as obtained by "& functionname" in C,
 // produce a pointer to the actual entry point for the function.  For
 // most platforms it's the identity function.  Unfortunately, on
-// ppc64-freebsd it isn't (sigh).
+// ppc64-openbsd it isn't (sigh).
 extern void* VG_(fnptr_to_fnentry)( void* );
 
 /* Returns the size of the largest guest register that we will

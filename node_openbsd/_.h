@@ -2,14 +2,14 @@
 
 
 #include "aura/_.h"
-#include "apex_freebsd/_.h"
+#include "apex_openbsd/_.h"
 #include "operating_system-posix/aura_posix/_.h"
 
 
-#if defined(_NODE_FREEBSD_LIBRARY)
-#define CLASS_DECL_NODE_FREEBSD  CLASS_DECL_EXPORT
+#if defined(_NODE_OPENBSD_LIBRARY)
+#define CLASS_DECL_NODE_OPENBSD  CLASS_DECL_EXPORT
 #else
-#define CLASS_DECL_NODE_FREEBSD  CLASS_DECL_IMPORT
+#define CLASS_DECL_NODE_OPENBSD  CLASS_DECL_IMPORT
 #endif
 
 
@@ -17,8 +17,8 @@
 #include "_const.h"
 
 
-CLASS_DECL_NODE_FREEBSD ::user::enum_desktop get_edesktop();
-CLASS_DECL_NODE_FREEBSD ::user::enum_desktop calculate_edesktop();
+CLASS_DECL_NODE_OPENBSD ::user::enum_desktop get_edesktop();
+CLASS_DECL_NODE_OPENBSD ::user::enum_desktop calculate_edesktop();
 
 
 

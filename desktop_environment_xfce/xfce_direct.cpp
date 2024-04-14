@@ -44,9 +44,9 @@
 //
 //#endif
 
-//bool freebsd_g_direct_app_indicator_new(const char * pszId, const char * pszIcon, const char * pszFolder, user_notify_icon_bridge * pbridge);
-// /void freebsd_g_direct_app_indicator_term(AppIndicator * pindicator);
-//void freebsd_g_direct_app_indicator_step(void * pvoidInd);
+//bool openbsd_g_direct_app_indicator_new(const char * pszId, const char * pszIcon, const char * pszFolder, user_notify_icon_bridge * pbridge);
+// /void openbsd_g_direct_app_indicator_term(AppIndicator * pindicator);
+//void openbsd_g_direct_app_indicator_step(void * pvoidInd);
 
 
 
@@ -133,7 +133,7 @@ void g_safe_free(void * pfree)
 
 
 
-const char * freebsd_g_direct_get_file_icon_path(const char * pszPath, int iSize)
+const char * openbsd_g_direct_get_file_icon_path(const char * pszPath, int iSize)
 {
 
    GFile * pfile = g_file_new_for_path (pszPath);
@@ -235,7 +235,7 @@ const char * freebsd_g_direct_get_file_icon_path(const char * pszPath, int iSize
 }
 
 
-const char * freebsd_g_direct_get_file_content_type(const char * pszPath)
+const char * openbsd_g_direct_get_file_content_type(const char * pszPath)
 {
 
    GFile * pfile = g_file_new_for_path (pszPath);

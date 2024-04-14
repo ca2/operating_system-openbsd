@@ -140,13 +140,13 @@ set(PTHREAD TRUE)
 
 #message(STATUS "DISTRO is ${DISTRO}")
 
-if (${OPERATING_SYSTEM} STREQUAL "freebsd")
+if (${OPERATING_SYSTEM} STREQUAL "openbsd")
 
     set(BSD_LIKE TRUE)
 
-    add_compile_definitions(FREEBSD)
+    add_compile_definitions(OPENBSD)
 
-    message(STATUS "FREEBSD has been set TRUE")
+    message(STATUS "OPENBSD has been set TRUE")
 
     add_compile_definitions(__BSD__)
 
@@ -281,7 +281,7 @@ set(default_imaging "imaging_freeimage")
 set(default_write_text "write_text_pango")
 set(default_audio "audio_sndio")
 set(default_music_midi "music_midi_alsa")
-set(default_node "node_freebsd")
+set(default_node "node_openbsd")
 set(default_audio_mixer "audio_mixer_alsa")
 set(default_gpu "gpu_opengl")
 #add_compile_definitions(default_draw2d=draw2d_cairo)

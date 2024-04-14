@@ -1,5 +1,5 @@
 #include "app/appseed/axis/axis/axis/axis.h"
-#include "aura/node/freebsd/freebsd.h"
+#include "aura/node/openbsd/openbsd.h"
 
 
 const char * g_psz_br_init_symbol_app = "";

@@ -24,9 +24,9 @@
 #include <stdio.h>
 #include <string.h>
 
-#if __APPLE__ || __freebsd__
+#if __APPLE__ || __openbsd__
 #include <sys/resource.h>
-#endif // __APPLE__ || __freebsd__
+#endif // __APPLE__ || __openbsd__
 
 #include "spshell.h"
 #include "cmd.h"
@@ -767,7 +767,7 @@ static void image_test(void)
 
 static void print_resource_usage()
 {
-#if __APPLE__ || __freebsd__
+#if __APPLE__ || __openbsd__
 	struct rusage r_usage;
 	int res;
 
@@ -777,7 +777,7 @@ static void print_resource_usage()
 
 #if __APPLE__
 #define TV_USEC_FORMAT "d"
-#elif __freebsd__
+#elif __openbsd__
 #define TV_USEC_FORMAT "ld"
 #endif
 		printf("  User time:   %ld.%03" TV_USEC_FORMAT "s\n", r_usage.ru_utime.tv_sec, r_usage.ru_utime.tv_usec / 1000);
@@ -786,7 +786,7 @@ static void print_resource_usage()
 
 #if __APPLE__
 #define MAXRSS_UNITS "bytes"
-#elif __freebsd__
+#elif __openbsd__
 #define MAXRSS_UNITS "kilobytes"
 #endif
 		printf("  Peak memory usage: %ld " MAXRSS_UNITS " (ru_maxrss)\n", r_usage.ru_maxrss); // integral max resident set size
@@ -795,7 +795,7 @@ static void print_resource_usage()
 	} else {
 		perror("getrusage() failed");
 	}
-#endif // __APPLE__ || __freebsd__
+#endif // __APPLE__ || __openbsd__
 }
 
 /**

@@ -2,11 +2,11 @@
 #pragma once
 
 
-namespace apex_freebsd
+namespace apex_openbsd
 {
 
 
-   class CLASS_DECL_APEX_FREEBSD launcher :
+   class CLASS_DECL_APEX_OPENBSD launcher :
       virtual public ::launcher
    {
    public:
@@ -18,7 +18,7 @@ namespace apex_freebsd
    };
 
 
-} // namespace apex_freebsd
+} // namespace apex_openbsd
 
 
 

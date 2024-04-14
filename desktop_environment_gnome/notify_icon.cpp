@@ -3,16 +3,16 @@
 //
 
 #include "framework.h"
-//#include "apex/os/freebsd/gnome_gnome.h"
+//#include "apex/os/openbsd/gnome_gnome.h"
 #include "aura/user/_user.h"
 
 
 static ::user::notify_icon * g_pnotifyiconLast = nullptr;
 
 
-#ifdef FREEBSD
+#ifdef OPENBSD
 
-#include "aura/os/freebsd/appindicator.h"
+#include "aura/os/openbsd/appindicator.h"
 
 #endif
 
@@ -30,7 +30,7 @@ namespace node_gnome
 
       //m_nid.cbSize = sizeof(m_nid);
 
-#elif defined(FREEBSD)
+#elif defined(OPENBSD)
 
       m_pindicator = nullptr;
 
@@ -106,7 +106,7 @@ namespace node_gnome
       //m_nid.uFlags               = NIF_ICON | NIF_MESSAGE;
       //m_nid.uCallbackMessage     = MessageNotifyIcon;
 
-#elif defined(FREEBSD)
+#elif defined(OPENBSD)
 
 #elif defined(MACOS)
 
@@ -136,7 +136,7 @@ namespace node_gnome
 
       //}
 
-#elif defined(FREEBSD) && !defined(RASPBIAN)
+#elif defined(OPENBSD) && !defined(RASPBIAN)
 
       {
 
@@ -374,7 +374,7 @@ namespace node_gnome
 //      return true;
 //
 //
-//#elif defined(FREEBSD) && !defined(RASPBIAN)
+//#elif defined(OPENBSD) && !defined(RASPBIAN)
 //
 //      if(m_pindicator)
 //      {
@@ -471,12 +471,12 @@ namespace node_gnome
    ::e_status notify_icon::step()
    {
 
-#if defined(FREEBSD)
+#if defined(OPENBSD)
 
 //      main_async([&]
 //      {
 //
-//         freebsd_g_direct_app_indicator_step(m_pindicator);
+//         openbsd_g_direct_app_indicator_step(m_pindicator);
 //
 //      });
 
@@ -487,7 +487,7 @@ namespace node_gnome
    }
 
 
-//#if defined(FREEBSD) || defined(MACOS)
+//#if defined(OPENBSD) || defined(MACOS)
 
 
    int notify_icon::_get_notification_area_action_count()

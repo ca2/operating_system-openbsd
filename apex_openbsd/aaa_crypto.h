@@ -1,11 +1,11 @@
 #pragma once
 
 //
-//namespace freebsd
+//namespace openbsd
 //{
 //
 //
-//   class CLASS_DECL_APEX_FREEBSD crypto :
+//   class CLASS_DECL_APEX_OPENBSD crypto :
 //      virtual public ::crypto::crypto
 //   {
 //   public:

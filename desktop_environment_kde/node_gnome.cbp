@@ -21,8 +21,8 @@
 					<Add option="-fPIC" />
 					<Add option="-g" />
 					<Add option="-D_DEBUG" />
-					<Add directory="$(WORKSPACE_DIR)/../../../archive/platform-freebsd" />
-					<Add directory="$(WORKSPACE_DIR)/../../../archive/platform-freebsd/_include" />
+					<Add directory="$(WORKSPACE_DIR)/../../../archive/platform-openbsd" />
+					<Add directory="$(WORKSPACE_DIR)/../../../archive/platform-openbsd/_include" />
 				</Compiler>
 			</Target>
 			<Target title="stage">
@@ -72,7 +72,7 @@
 			<Add option="-Wno-attributes" />
 			<Add option="-Winvalid-pch" />
 			<Add option="-Wno-conversion-null" />
-			<Add option="-DFREEBSD" />
+			<Add option="-DOPENBSD" />
 			<Add option="-D_AUDIO_ALSA_LIBRARY" />
 			<Add directory="." />
 			<Add directory="$(PROJECT_DIR)" />

@@ -3,7 +3,7 @@
 #include "acme/filesystem/filesystem/acme_directory.h"
 
 
-namespace apex_freebsd
+namespace apex_openbsd
 {
 
 
@@ -57,7 +57,7 @@ namespace apex_freebsd
    }
 
 
-} // namespace apex_freebsd
+} // namespace apex_openbsd
 
 
 

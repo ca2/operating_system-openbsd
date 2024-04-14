@@ -1,7 +1,7 @@
 #include "framework.h"
 
 
-namespace freebsd
+namespace openbsd
 {
 
 
@@ -16,13 +16,13 @@ namespace freebsd
       //single_lock synchronouslock(&pMap->m_mutex, true);
 
       array < oswindow > oswindowaRemove;
-      array < __pointer(::freebsd::window) > wndptraRemove;
+      array < __pointer(::openbsd::window) > wndptraRemove;
 
       //POSITION pos = pMap->m_temporaryMap.get_start_position();
       //while (pos != nullptr)
       //{
       //   HANDLE h; // just used for asserts
-      //   ::freebsd::window * pTemp;
+      //   ::openbsd::window * pTemp;
       //   pMap->m_temporaryMap.get_next_assoc(pos, h, pTemp);
 
       //   if(!::IsWindow((oswindow) h))
@@ -49,6 +49,6 @@ namespace freebsd
    }
 
 
-} // namespace freebsd
+} // namespace openbsd
 
 

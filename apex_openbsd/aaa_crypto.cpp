@@ -5,19 +5,19 @@
 //#include <shlobj.h>
 
 
-//#include "freebsd_dir.h"
-//#include "freebsd_factory.h"
-//#include "freebsd_port_forward.h"
-//#include "freebsd_dir.h"
-//#include "freebsd_file_system.h"
-//#include "freebsd_file_set.h"
+//#include "openbsd_dir.h"
+//#include "openbsd_factory.h"
+//#include "openbsd_port_forward.h"
+//#include "openbsd_dir.h"
+//#include "openbsd_file_system.h"
+//#include "openbsd_file_set.h"
 #include "crypto.h"
-//#include "freebsd_ip_enum.h"
+//#include "openbsd_ip_enum.h"
 
 i32 crypto_encrypt(memory & storageEncrypt, const memory & storageDecrypt, memory & key);
 i32 crypto_decrypt(memory & storageDecrypt, const memory & storageEncrypt, memory & key);
 //
-//namespace freebsd
+//namespace openbsd
 //{
 //
 //
@@ -206,7 +206,7 @@ i32 crypto_decrypt(memory & storageDecrypt, const memory & storageEncrypt, memor
 //   }
 //
 //
-//} // namespace freebsd
+//} // namespace openbsd
 //
 //
 //

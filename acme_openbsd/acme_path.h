@@ -5,11 +5,11 @@
 #include "acme_darwin/acme_path.h"
 
 
-namespace acme_freebsd
+namespace acme_openbsd
 {
 
 
-   class CLASS_DECL_ACME_FREEBSD acme_path :
+   class CLASS_DECL_ACME_OPENBSD acme_path :
       virtual public ::acme_darwin::acme_path
    {
    public:
@@ -25,7 +25,7 @@ namespace acme_freebsd
    };
 
 
-} // namespace acme_freebsd
+} // namespace acme_openbsd
 
 
 

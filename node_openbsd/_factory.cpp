@@ -5,7 +5,7 @@
 ::user::enum_desktop get_edesktop();
 
 
-__FACTORY_EXPORT void node_freebsd_factory(::factory::factory * pfactory)
+__FACTORY_EXPORT void node_openbsd_factory(::factory::factory * pfactory)
 {
 
    auto edesktop = get_edesktop();
@@ -89,11 +89,11 @@ __FACTORY_EXPORT void node_freebsd_factory(::factory::factory * pfactory)
 //#endif
 
 
-//      apex_freebsd_factory( pfactory);
+//      apex_openbsd_factory( pfactory);
 //
 //   aura_posix_factory( pfactory);
 //
-//   pfactory->add_factory_item < ::aura::freebsd::node, ::acme::node >();
+//   pfactory->add_factory_item < ::aura::openbsd::node, ::acme::node >();
 
 }
 

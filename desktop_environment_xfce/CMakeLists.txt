@@ -36,14 +36,14 @@ list(APPEND library_source
 list(APPEND library_references
    acme
    acme_posix
-   acme_freebsd
+   acme_openbsd
    apex
    apex_posix
-   apex_freebsd
+   apex_openbsd
    aqua
    aura
    aura_posix
-   aura_freebsd
+   aura_openbsd
    windowing_x11
    node_gtk
    node_xfce
@@ -63,7 +63,7 @@ if (MSVC)
    target_link_options(desktop_environment_xfce PRIVATE "/DEFAULTLIB:msvcrt$<$<CONFIG:Debug>:d>")
    target_link_options(desktop_environment_xfce PRIVATE "/SUBSYSTEM:WINDOWS")
    target_link_libraries(desktop_environment_xfce PRIVATE ${library_references})
-elseif(FREEBSD OR FREEBSD)
+elseif(OPENBSD OR OPENBSD)
    pkg_check_modules(PKGCONFIG glib-2.0 gtk+-3.0 gdk-3.0 appindicator3-0.1)
    target_compile_options(desktop_environment_xfce PRIVATE -fpermissive)
       target_compile_options(desktop_environment_xfce PRIVATE ${PKGCONFIG_CFLAGS})

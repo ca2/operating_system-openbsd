@@ -4,11 +4,11 @@
 #include "apex/parallelization/service_handler.h"
 
 
-namespace apex_freebsd
+namespace apex_openbsd
 {
 
 
-   class CLASS_DECL_APEX_FREEBSD service_handler :
+   class CLASS_DECL_APEX_OPENBSD service_handler :
       virtual public ::service_handler
    {
    public:
@@ -66,7 +66,7 @@ namespace apex_freebsd
    };
 
 
-} // namespace apex_freebsd
+} // namespace apex_openbsd
 
 
 

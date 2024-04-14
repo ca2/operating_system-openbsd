@@ -38,13 +38,13 @@
     <ClInclude Include="tts_speaker.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="aaa_node_freebsd.h">
+    <ClInclude Include="aaa_node_openbsd.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="aaa_node_freebsd_private.h">
+    <ClInclude Include="aaa_node_openbsd_private.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="aaa_freebsd.h">
+    <ClInclude Include="aaa_openbsd.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="crypto.h">
@@ -176,7 +176,7 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="apex_freebsd.def">
+    <None Include="apex_openbsd.def">
       <Filter>Source Files</Filter>
     </None>
   </ItemGroup>

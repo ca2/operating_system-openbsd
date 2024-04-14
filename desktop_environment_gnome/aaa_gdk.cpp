@@ -740,7 +740,7 @@ namespace desktop_environment_gnome
 
 
 
-#ifdef FREEBSD
+#ifdef OPENBSD
 static void
 log_handler (const gchar   *log_domain,
              GLogLevelFlags log_level,

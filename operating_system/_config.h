@@ -16,19 +16,19 @@
 
 
 
-#define OPERATING_SYSTEM_NAMESPACE freebsd
+#define OPERATING_SYSTEM_NAMESPACE openbsd
 
 #define PLATFORM_COMMON_NAMESPACE posix
 
-#define PLATFORM_STRING "freebsd"
+#define PLATFORM_STRING "openbsd"
 
 #define PLATFORM_COMMON_STRING "posix"
 
 #define DEFAULT_DIR_SEPARATOR "/"
 
-#define OPERATING_SYSTEM_NAME "freebsd"
+#define OPERATING_SYSTEM_NAME "openbsd"
 
-#define OPERATING_SYSTEM_NAMESPACE freebsd
+#define OPERATING_SYSTEM_NAMESPACE openbsd
 
 
 

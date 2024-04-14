@@ -11,7 +11,7 @@
 
 #pragma once
 
-#ifdef FREEBSD
+#ifdef OPENBSD
 
 template<typename T> class process_data
 {
