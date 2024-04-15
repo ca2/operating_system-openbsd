@@ -753,7 +753,7 @@ namespace acme_openbsd
       if (acmefile()->exists("/etc/os-release"))
       {
       
-         printf("/etc/os-release exists?!?!");
+//         printf("/etc/os-release exists?!?!");
 
          auto set = acmefile()->parse_standard_configuration("/etc/os-release");
 
@@ -782,7 +782,7 @@ namespace acme_openbsd
       else
       {
       
-         printf("/etc/os-release doesnt exist?!?!");
+//         printf("/etc/os-release doesnt exist?!?!");
       
          ::string strUnameA = get_unix_shell_command_output("uname -a");
 
@@ -796,7 +796,7 @@ namespace acme_openbsd
          {
          
             psummary->m_strDistro = "openbsd";
-            psummary->m_strDistroBranch = "bsd";
+//            psummary->m_strDistroBranch = "bsd";
             psummary->m_strDistroRelease = strUnameR;
             psummary->m_strDistroFamily = "openbsd";
          

@@ -291,6 +291,9 @@ set(default_gpu "gpu_opengl")
 #add_compile_definitions(default_music_midi=music_midi_alsa)
 #add_compile_definitions(default_node=node_linux)
 
+list(APPEND global_library_references
+            c)
+
 
 if (LXDE_DESKTOP)
 
