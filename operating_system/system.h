@@ -11,30 +11,6 @@
 #define _OPENBSD 1
 #endif
 
-//#include <strings.h>
-//#include <string.h>
-//
-//
-//#include <errno.h>
-//
-//
-//#include <stdarg.h>
-//#include <stdlib.h>
-//#include <stdio.h>
-//
-//
-//#include <limits.h>
-////#define sync unistd_sync
-////#include <unistd.h>
-////#undef sync
-//
-//#include <ctype.h>
-//#include <wchar.h>
-//#include <wctype.h>
-
-//#include "__standard_type.h"
-
-
 #define __cdecl
 #define _stdcall
 
@@ -42,9 +18,7 @@
 
 #include <stdarg.h>
 
-
 #include <cstddef>
-
 
 // Ubuntu apt-get install libx11-dev
 // CentOS yum install libX11-devel
