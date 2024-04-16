@@ -128,9 +128,6 @@ output/libnode_openbsd.so: operating_system/operating_system-openbsd/node_openbs
 output/libnode_openbsd.so: operating_system/operating_system-openbsd/node_openbsd/CMakeFiles/node_openbsd.dir/_.cpp.o
 output/libnode_openbsd.so: operating_system/operating_system-openbsd/node_openbsd/CMakeFiles/node_openbsd.dir/_factory.cpp.o
 output/libnode_openbsd.so: operating_system/operating_system-openbsd/node_openbsd/CMakeFiles/node_openbsd.dir/build.make
-output/libnode_openbsd.so: output/libacme_openbsd.so
-output/libnode_openbsd.so: output/libaura_posix.so
-output/libnode_openbsd.so: output/libacme.so
 output/libnode_openbsd.so: operating_system/operating_system-openbsd/node_openbsd/CMakeFiles/node_openbsd.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/camilo/cmake/integration/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX shared library ../../../output/libnode_openbsd.so"
 	cd /home/camilo/cmake/integration/operating_system/operating_system-openbsd/node_openbsd && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/node_openbsd.dir/link.txt --verbose=$(VERBOSE)

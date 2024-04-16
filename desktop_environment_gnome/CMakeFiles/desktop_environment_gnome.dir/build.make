@@ -164,18 +164,6 @@ output/libdesktop_environment_gnome.so: operating_system/operating_system-openbs
 output/libdesktop_environment_gnome.so: operating_system/operating_system-openbsd/desktop_environment_gnome/CMakeFiles/desktop_environment_gnome.dir/framework.cpp.o
 output/libdesktop_environment_gnome.so: operating_system/operating_system-openbsd/desktop_environment_gnome/CMakeFiles/desktop_environment_gnome.dir/node.cpp.o
 output/libdesktop_environment_gnome.so: operating_system/operating_system-openbsd/desktop_environment_gnome/CMakeFiles/desktop_environment_gnome.dir/build.make
-output/libdesktop_environment_gnome.so: output/libnode_gnome.so
-output/libdesktop_environment_gnome.so: output/libwindowing_x11.so
-output/libdesktop_environment_gnome.so: output/libaura_openbsd.so
-output/libdesktop_environment_gnome.so: output/libapex_openbsd.so
-output/libdesktop_environment_gnome.so: output/libacme_openbsd.so
-output/libdesktop_environment_gnome.so: output/libaura_posix.so
-output/libdesktop_environment_gnome.so: output/libapex_posix.so
-output/libdesktop_environment_gnome.so: output/libacme_posix.so
-output/libdesktop_environment_gnome.so: output/libaura.so
-output/libdesktop_environment_gnome.so: output/libapex.so
-output/libdesktop_environment_gnome.so: output/libacme.so
-output/libdesktop_environment_gnome.so: output/libaqua.so
 output/libdesktop_environment_gnome.so: operating_system/operating_system-openbsd/desktop_environment_gnome/CMakeFiles/desktop_environment_gnome.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/camilo/cmake/integration/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX shared library ../../../output/libdesktop_environment_gnome.so"
 	cd /home/camilo/cmake/integration/operating_system/operating_system-openbsd/desktop_environment_gnome && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/desktop_environment_gnome.dir/link.txt --verbose=$(VERBOSE)
