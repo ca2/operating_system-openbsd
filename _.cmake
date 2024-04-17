@@ -138,21 +138,29 @@ set(USE_OPENSSL TRUE)
 set(PTHREAD TRUE)
 
 
-#message(STATUS "DISTRO is ${DISTRO}")
+message(STATUS "OPERATING_SYSTEM is ${OPERATING_SYSTEM}")
 
 if (${OPERATING_SYSTEM} STREQUAL "openbsd")
 
+    set(OPENBSD TRUE)
+
+    message(STATUS "OPENBSD has been set TRUE")
+
     set(BSD_LIKE TRUE)
+
+    set(DONT_USE_PKG_CONFIG FALSE)
 
     add_compile_definitions(OPENBSD)
 
-    message(STATUS "OPENBSD has been set TRUE")
+    message(STATUS "added OPENBSD compile definition!!")
 
     add_compile_definitions(__BSD__)
 
     message(STATUS "added __BSD__ compile definition!!")
 
-    set(APPINDICATOR_PKG_MODULE "ayatana-appindicator3-0.1")
+    set(APPINDICATOR_PKG_MODULE "")
+
+    set(HAS_NO_APPINDICATOR TRUE)
 
 elseif (${OPERATING_SYSTEM} STREQUAL "netbsd")
 
@@ -168,29 +176,15 @@ elseif (${OPERATING_SYSTEM} STREQUAL "netbsd")
 
     set(APPINDICATOR_PKG_MODULE "ayatana-appindicator3-0.1")
 
-elseif ("${OPERATING_SYSTEM}" STREQUAL "openbsd")
-
-    set(OPENBSD TRUE)
-
-    set(BSD_LIKE TRUE)
-
-    set(DONT_USE_PKG_CONFIG FALSE)
-
-    add_compile_definitions(OPENBSD)
-
-    message(STATUS "added OPENBSD compile definition!!")
-
-    add_compile_definitions(__BSD__)
-
-    message(STATUS "added __BSD__ compile definition!!")
-
 else ()
 
     set(APPINDICATOR_PKG_MODULE "appindicator3-0.1")
 
 endif ()
 
+
 message(STATUS "DISTRO_RELEASE is ${DISTRO_RELEASE}")
+
 
 set(MIDI FALSE)
 set(ALSA_MIDI FALSE)
