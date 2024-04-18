@@ -15,6 +15,11 @@ set(PLATFORM_NAME "openbsd")
 set(HAS_ALSA FALSE)
 set(CURL_NANO_HTTP TRUE)
 
+
+SET(CMAKE_SKIP_BUILD_RPATH FALSE)
+SET(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
+SET(CMAKE_INSTALL_RPATH "\${ORIGIN}")
+
 #set(GLOBAL_EXTRA_COMPILER_FLAGS -fnon-call-exceptions -nostdinc -nostdinc++ -I/usr/include/c++/v1 -I/usr/include -I/usr/local/include)
 #set(GLOBAL_EXTRA_LINKER_FLAGS -nodefaultlibs -lc++ -lcxxrt -lthr -lm -lc -lgcc_s)
 #set(GLOBAL_EXTRA_LINKER_FLAGS -L/usr/lib)

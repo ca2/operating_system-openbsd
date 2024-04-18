@@ -4,7 +4,9 @@
 #include "framework.h"
 #include "node.h"
 #include "gnome_shared.h"
+#if !defined(OPENBSD)
 #include "appindicator.h"
+#endif
 //#include "gdk.h"
 #include "windowing_x11/windowing_x11.h"
 

@@ -45,10 +45,15 @@ list(APPEND library_references
    aura_posix
    aura_openbsd
    windowing_x11
-   node_gtk
+   #node_gtk
    node_gnome
    )
 
+if(${HAS_GTK4})
+    list(APPEND library_references node_gtk4)
+elseif(${HAS_GTK3})
+    list(APPEND library_references node_gtk3)
+endif()
 
 add_library(desktop_environment_gnome SHARED ${library_source})
 
@@ -68,7 +73,7 @@ elseif (${OPENBSD})
    target_compile_options(desktop_environment_gnome PRIVATE ${PKGCONFIG_CFLAGS})
    target_link_options(desktop_environment_gnome PRIVATE ${PKGCONFIG_LDFLAGS})
    #target_link_options(desktop_environment_gnome PRIVATE -Wl,-rpath=$ORIGIN)
-   target_link_libraries(desktop_environment_gnome PRIVATE ${library_references} ${PKGCONFIG_LIBRARIES})
+   target_link_libraries(desktop_environment_gnome PRIVATE ${library_references} ${PKGCONFIG_LIBRARIES} ${global_library_references})
    target_link_options(desktop_environment_gnome PRIVATE -Wl,-z,defs)
 endif ()
 
