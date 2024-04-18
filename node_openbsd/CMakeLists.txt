@@ -41,7 +41,7 @@ elseif(${OPENBSD})
    pkg_check_modules(PKGCONFIG x11)
    target_compile_options(node_openbsd PRIVATE ${PKGCONFIG_CFLAGS})
    target_link_options(node_openbsd PRIVATE ${PKGCONFIG_LDFLAGS})
-   target_link_libraries(node_openbsd PRIVATE dl pthread ${library_references})
+   target_link_libraries(node_openbsd PRIVATE pthread ${library_references} ${global_library_references})
    target_link_options(node_openbsd PRIVATE -Wl,-z,defs)
 
 
