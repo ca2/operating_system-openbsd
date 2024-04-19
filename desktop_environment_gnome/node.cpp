@@ -26,7 +26,7 @@ namespace desktop_environment_gnome
 
       m_pNodeDesktopEnvironmentGnome = this;
 
-      //deferx_initialize_x11();
+      //deferx_initializex_x11();
 
       m_pGtkSettingsDefault = nullptr;
 
