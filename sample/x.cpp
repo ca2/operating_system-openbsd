@@ -10,7 +10,7 @@ int main(void) {
    char *msg = "Hello, World!";
    int s;
 
-   d = XOpenDisplay(NULL);
+   d = XOpenxDisplay(NULL);
    if (d == NULL) {
       fprintf(stderr, "Cannot open display\n");
       exit(1);
