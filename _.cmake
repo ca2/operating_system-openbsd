@@ -16,6 +16,9 @@ set(HAS_ALSA FALSE)
 set(CURL_NANO_HTTP TRUE)
 
 
+cmake_policy(SET CMP0060 NEW)
+
+
 SET(CMAKE_SKIP_BUILD_RPATH FALSE)
 SET(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
 SET(CMAKE_INSTALL_RPATH "\${ORIGIN}")
@@ -276,6 +279,13 @@ if (KDE_DESKTOP)
     #            set(knotifications_cflags -I/usr/include/KF5/KNotifications)
     #        endif()
 endif ()
+
+if(${HAS_GTK3})
+
+    set(WITH_XCB TRUE)
+    add_compile_definitions(WITH_XCB=1)
+
+endif()
 
 set(default_draw2d "draw2d_cairo")
 set(default_imaging "imaging_freeimage")
