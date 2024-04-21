@@ -51,7 +51,7 @@ namespace node_gnome
    bool monitor::get_monitor_rectangle(::RECTANGLE_I32 * prectangle)
    {
 
-      synchronous_lock sl(user_mutex());
+      _synchronous_lock sl(user_mutex());
 
       GdkDisplay * pdisplay = gdk_display_get_default();
 
@@ -86,7 +86,7 @@ namespace node_gnome
    bool monitor::get_workspace_rectangle(::RECTANGLE_I32 *prectangle)
    {
 
-      synchronous_lock sl(user_mutex());
+      _synchronous_lock sl(user_mutex());
 
       GdkDisplay * pdisplay = gdk_display_get_default();
 
