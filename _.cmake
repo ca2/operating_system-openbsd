@@ -24,6 +24,10 @@ SET(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
 SET(CMAKE_INSTALL_RPATH "\${ORIGIN}")
 SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS ON)
+
 
 #set(GLOBAL_EXTRA_COMPILER_FLAGS -fnon-call-exceptions -nostdinc -nostdinc++ -I/usr/include/c++/v1 -I/usr/include -I/usr/local/include)
 #set(GLOBAL_EXTRA_LINKER_FLAGS -nodefaultlibs -lc++ -lcxxrt -lthr -lm -lc -lgcc_s)
@@ -45,7 +49,25 @@ endif ()
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 
-    SET(CMAKE_CXX_FLAGS "-fPIC -fexceptions -fnon-call-exceptions -frtti")
+    set(CMAKE_CXX_FLAGS "-fPIC -fexceptions -fnon-call-exceptions -frtti")
+
+    message(STATUS "GNU compiler")
+
+elseif (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+
+    message(STATUS "compiler is ${CMAKE_CXX_COMPILER_ID}")
+
+    message(STATUS "compile_features are ${CMAKE_CXX_COMPILE_FEATURES}")
+
+    #set(CMAKE_CXX_COMPILE_FEATURES ${CMAKE_CXX_COMPILE_FEATURES} cxx_std_20)
+
+    add_compile_options(-pthread -gdwarf-2)
+
+    link_libraries(pthread)
+
+else()
+
+    message(STATUS "compiler is ${CMAKE_CXX_COMPILER_ID}")
 
 endif ()
 
@@ -203,7 +225,6 @@ set(INTERPROCESS_COMMUNICATION_SYSTEM_5 TRUE)
 add_compile_definitions(WITH_X11)
 add_compile_definitions(WITH_SN)
 add_compile_definitions(WITH_XI)
-link_libraries(pthread)
 include(FindPkgConfig)
 
 if (EXISTS $ENV{HOME}/__config/xfce.txt)
