@@ -42,7 +42,7 @@ endif()
 
 if (NOT ${CMAKE_SYSTEM_NAME} STREQUAL "OpenBSD")
 
-    message(FATAL_ERROR "This file is designed to be used only at OpenBSD systems...")
+    message(FATAL_ERROR "File originally designed for OpenBSD systems...")
 
 endif ()
 
@@ -61,7 +61,9 @@ elseif (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
 
     #set(CMAKE_CXX_COMPILE_FEATURES ${CMAKE_CXX_COMPILE_FEATURES} cxx_std_20)
 
-    add_compile_options(-pthread -gdwarf-2)
+    #add_compile_options(-pthread -gdwarf-5 -fvar-tracking-assignments -fPIC -fexceptions -fnon-call-exceptions -frtti)
+
+    add_compile_options(-pthread -gdwarf-4 -fPIC -fexceptions -fnon-call-exceptions -frtti)
 
     link_libraries(pthread)
 
