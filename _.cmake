@@ -88,15 +88,17 @@ elseif ($ENV{XDG_CURRENT_DESKTOP} STREQUAL "ubuntu:GNOME")
     set(DESKTOP_ENVIRONMENT_NAME "gnome")
 elseif ($ENV{XDG_CURRENT_DESKTOP} STREQUAL "GNOME")
     set(GNOME_DESKTOP TRUE)
+    set(GTK_BASED_DESKTOP TRUE)
     message(STATUS "System is GNOME")
     set(DESKTOP_ENVIRONMENT_NAME "gnome")
+    message(STATUS "including ${WORKSPACE_FOLDER}/operating_system/operating_system-posix/_gnome_desktop.cmake")
+    include(${WORKSPACE_FOLDER}/operating_system/operating_system-posix/_gnome_desktop.cmake)
 elseif ($ENV{XDG_CURRENT_DESKTOP} STREQUAL "LXDE")
     set(LXDE_DESKTOP TRUE)
     message(STATUS "System is LXDE")
     set(DESKTOP_ENVIRONMENT_NAME "lxde")
 endif ()
 
-include(${WORKSPACE_FOLDER}/operating_system/operating_system-posix/_desktop.cmake)
 
 message(STATUS "DESKTOP_ENVIRONMENT_NAME is ${DESKTOP_ENVIRONMENT_NAME}")
 
@@ -236,7 +238,7 @@ if (EXISTS $ENV{HOME}/__config/xfce.txt)
 
 endif ()
 
-if (KDE_DESKTOP)
+if (${KDE_DESKTOP})
 
     set(WITH_XCB TRUE)
     add_compile_definitions(WITH_XCB=1)
@@ -366,17 +368,17 @@ if (XFCE_DESKTOP)
 endif ()
 
 
-if (GNOME_DESKTOP)
+if (${GTK_BASED_DESKTOP})
 
 
-    message(STATUS "Adding GNOME/X11 dependency.")
+    message(STATUS "Adding GTK/X11 dependency.")
 
     list(APPEND app_common_dependencies
-            desktop_environment_gnome)
+            desktop_environment_gtk_based)
 
 
     list(APPEND static_app_common_dependencies
-            static_desktop_environment_gnome
+            static_desktop_environment_gtk_based
             static_node_gnome
             static_node_gtk
             static_node_linux

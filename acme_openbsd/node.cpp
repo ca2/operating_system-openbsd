@@ -784,9 +784,9 @@ namespace acme_openbsd
       
 //         printf("/etc/os-release doesnt exist?!?!");
       
-         ::string strUnameA = get_unix_shell_command_output("uname -a");
+         ::string strUnameA = get_posix_shell_command_output("uname -a");
 
-         ::string strUnameR = get_unix_shell_command_output("uname -r");
+         ::string strUnameR = get_posix_shell_command_output("uname -r");
          
          strUnameA.trim();
          
