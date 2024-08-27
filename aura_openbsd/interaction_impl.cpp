@@ -837,7 +837,7 @@ namespace aura_openbsd
    */
    void interaction_impl::pre_translate_message(::message::message * pmessage)
    {
-      UNREFERENCED_PARAMETER(pmessage);
+      __UNREFERENCED_PARAMETER(pmessage);
       // no default processing
    }
 
@@ -1716,7 +1716,7 @@ namespace aura_openbsd
       bool interaction_impl::GetScrollInfo(i32 nBar, LPSCROLLINFO pScrollInfo, ::u32 nMask)
 
       {
-         UNREFERENCED_PARAMETER(nMask);
+         __UNREFERENCED_PARAMETER(nMask);
          ASSERT(pScrollInfo != nullptr);
 
 
@@ -2174,7 +2174,7 @@ namespace aura_openbsd
    void interaction_impl::on_message_create(::message::message * pmessage)
    {
 
-      UNREFERENCED_PARAMETER(pmessage);
+      __UNREFERENCED_PARAMETER(pmessage);
 
 //      Default();
 
@@ -2657,7 +2657,7 @@ namespace aura_openbsd
    void interaction_impl::SetFont(::write_text::font* pfont, bool bRedraw)
    {
 
-      UNREFERENCED_PARAMETER(bRedraw);
+      __UNREFERENCED_PARAMETER(bRedraw);
 
       //ASSERT(::is_window((oswindow) get_handle())); m_pfont = new ::write_text::font(*pfont);
 

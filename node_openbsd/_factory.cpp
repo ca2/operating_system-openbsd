@@ -2,13 +2,20 @@
 #include "acme/platform/system.h"
 
 
+namespace nano::user
+{
+
+
 ::user::enum_desktop get_edesktop();
+
+
+} // namespace nano::user
 
 
 __FACTORY_EXPORT void node_openbsd_factory(::factory::factory * pfactory)
 {
 
-   auto edesktop = get_edesktop();
+   auto edesktop = ::nano::user::get_edesktop();
 
    ::e_status estatus = ::success_none;
 
@@ -23,7 +30,7 @@ __FACTORY_EXPORT void node_openbsd_factory(::factory::factory * pfactory)
    else if (edesktop & ::user::e_desktop_gnome)
    {
 
-      auto & pfactoryGnome = pfactory->system()->factory("desktop_environment", "gnome");
+      auto & pfactoryGnome = pfactory->system()->factory("desktop_environment", "gtk_based");
 
       pfactoryGnome->merge_to_global_factory();
 
@@ -39,7 +46,7 @@ __FACTORY_EXPORT void node_openbsd_factory(::factory::factory * pfactory)
    else
    {
 
-      auto & pfactoryGnome = pfactory->system()->factory("desktop_environment", "gnome");
+      auto & pfactoryGnome = pfactory->system()->factory("desktop_environment", "gtk_based");
 
       if (!pfactoryGnome)
       {

@@ -14,7 +14,7 @@
 void gdk_branch(const ::procedure & procedure);
 
 
-namespace desktop_environment_gnome
+namespace desktop_environment_gtk_based
 {
 
 
@@ -24,7 +24,7 @@ namespace desktop_environment_gnome
    node::node()
    {
 
-      m_pNodeDesktopEnvironmentGnome = this;
+      m_pNodeDesktopEnvironmentGtkBased = this;
 
       //deferx_initializex_x11();
 
@@ -208,7 +208,7 @@ namespace desktop_environment_gnome
 
       //estatus =
 
-      ::node_gnome::node::initialize(pparticle);
+      ::node_gtk_based::node::initialize(pparticle);
 
 //      if(!estatus)
 //      {
@@ -709,7 +709,7 @@ namespace desktop_environment_gnome
 //   }
 
 
-} // namespace desktop_environment_gnome
+} // namespace desktop_environment_gtk_based
 
 
 

@@ -46,7 +46,8 @@ list(APPEND library_references
    aura_openbsd
    windowing_x11
    #node_gtk
-   node_gnome
+   node_gdk
+   node_gtk_based
    )
 
 if(${HAS_GTK4})
