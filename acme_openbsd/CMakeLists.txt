@@ -6,16 +6,16 @@ list(APPEND library_source
    _.cpp
    _.h
    _factory.cpp
-   acme_directory.cpp
-   acme_directory.h
-   acme_file.cpp
-   acme_file.h
-   acme_path.cpp
-   acme_path.h
-   dir_context.cpp
-   dir_context.h
-   dir_system.cpp
-   dir_system.h
+   #acme_directory.cpp
+   #acme_directory.h
+   #acme_file.cpp
+   #acme_file.h
+   #acme_path.cpp
+   #acme_path.h
+   directory_context.cpp
+   directory_context.h
+   directory_system.cpp
+   directory_system.h
    file_context.cpp
    file_context.h
    file_system.cpp
@@ -26,6 +26,8 @@ list(APPEND library_source
    framework.h
    node.cpp
    node.h
+   path_system.cpp
+   path_system.h
    )
 
 

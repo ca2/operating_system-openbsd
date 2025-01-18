@@ -1,10 +1,10 @@
 #include "framework.h"
 #include "node.h"
 #include "acme/operating_system/summary.h"
-#include "acme/filesystem/filesystem/acme_file.h"
+#include "acme/filesystem/filesystem/file_system.h"
 
 
-::user::enum_desktop _get_edesktop();
+//::user::enum_desktop _get_edesktop();
 
 
 namespace acme_openbsd
@@ -750,12 +750,12 @@ namespace acme_openbsd
       //}
 
       // freedesktop.org and systemd
-      if (acmefile()->exists("/etc/os-release"))
+      if (file_system()->exists("/etc/os-release"))
       {
       
 //         printf("/etc/os-release exists?!?!");
 
-         auto set = acmefile()->parse_standard_configuration("/etc/os-release");
+         auto set = file_system()->parse_standard_configuration("/etc/os-release");
 
          psummary->m_strDistro = set["ID"];
          psummary->m_strDistroBranch = set["VARIANT_ID"];
@@ -763,7 +763,7 @@ namespace acme_openbsd
          psummary->m_strDistroRelease = set["VERSION_ID"];
          psummary->m_strDistroFamily = set["ID_LIKE"];
 
-         strsize iDot = psummary->m_strDistroRelease.find_index('.');
+         auto iDot = psummary->m_strDistroRelease.find_index('.');
 
          if(iDot > 0)
          {
@@ -792,7 +792,7 @@ namespace acme_openbsd
          
          strUnameR.trim();
          
-         if(strUnameA.case_insensitive_begins("openbsd ") && strUnameR.has_char())
+         if(strUnameA.case_insensitive_begins("openbsd ") && strUnameR.has_character())
          {
          
             psummary->m_strDistro = "openbsd";

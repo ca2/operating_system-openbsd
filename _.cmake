@@ -2,6 +2,16 @@
 
 message(STATUS "CMAKE_SYSTEM_NAME is ${CMAKE_SYSTEM_NAME}")
 
+
+
+execute_process(COMMAND uname -m OUTPUT_VARIABLE __SYSTEM_ARCHITECTURE)
+string(STRIP ${__SYSTEM_ARCHITECTURE} __SYSTEM_ARCHITECTURE)
+
+execute_process(COMMAND uname -s OUTPUT_VARIABLE __OPERATING_SYSTEM)
+string(STRIP ${__OPERATING_SYSTEM} __OPERATING_SYSTEM)
+string(TOLOWER ${__OPERATING_SYSTEM} __OPERATING_SYSTEM)
+
+
 #FIND_PACKAGE(PkgConfig)
 
 #include(FindPkgConfig)
@@ -12,6 +22,8 @@ message(STATUS "CMAKE_SYSTEM_NAME is ${CMAKE_SYSTEM_NAME}")
 set(USE_PKGCONFIG TRUE)
 set(NO_PRECOMPILED_HEADER TRUE)
 set(PLATFORM_NAME "openbsd")
+set(TOOL_RELEASE_NAME "openbsd")
+set(OPERATING_SYSTEM_TOOL_FOLDER "tool-openbsd")
 set(HAS_ALSA FALSE)
 set(CURL_NANO_HTTP TRUE)
 
@@ -63,7 +75,9 @@ elseif (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
 
     #add_compile_options(-pthread -gdwarf-5 -fvar-tracking-assignments -fPIC -fexceptions -fnon-call-exceptions -frtti)
 
-    add_compile_options(-pthread -gdwarf-4 -fPIC -fexceptions -fnon-call-exceptions -frtti)
+    #add_compile_options(-pthread -gdwarf-4 -fPIC -fexceptions -fnon-call-exceptions -frtti)
+    
+    add_compile_options(-pthread -fPIC -fexceptions -fnon-call-exceptions -frtti)
 
     link_libraries(pthread)
 
@@ -91,8 +105,8 @@ elseif ($ENV{XDG_CURRENT_DESKTOP} STREQUAL "GNOME")
     set(GTK_BASED_DESKTOP TRUE)
     message(STATUS "System is GNOME")
     set(DESKTOP_ENVIRONMENT_NAME "gnome")
-    message(STATUS "including ${WORKSPACE_FOLDER}/operating_system/operating_system-posix/_gnome_desktop.cmake")
-    include(${WORKSPACE_FOLDER}/operating_system/operating_system-posix/_gnome_desktop.cmake)
+    message(STATUS "including ${WORKSPACE_FOLDER}/operating_system/operating_system-posix/_gtk_based_desktop.cmake")
+    include(${WORKSPACE_FOLDER}/operating_system/operating_system-posix/_gtk_based_desktop.cmake)
 elseif ($ENV{XDG_CURRENT_DESKTOP} STREQUAL "LXDE")
     set(LXDE_DESKTOP TRUE)
     message(STATUS "System is LXDE")
@@ -183,6 +197,8 @@ if (${OPERATING_SYSTEM} STREQUAL "openbsd")
     message(STATUS "OPENBSD has been set TRUE")
 
     set(BSD_LIKE TRUE)
+    
+    set(__BSD__ TRUE)
 
     set(DONT_USE_PKG_CONFIG FALSE)
 
@@ -385,7 +401,7 @@ if (${GTK_BASED_DESKTOP})
             static_node_linux
             static_windowing_x11)
 
-    set(default_windowing "windowing_x11")
+    set(default_windowing "windowing_gtk4")
 
     add_compile_definitions(DESKTOP_ENVIRONMENT_GNOME)
 
@@ -438,6 +454,11 @@ endif ()
 #    set(static_desktop_environment_pkgconfig ${static_desktop_environment_gnome_pkgconfig})
 #endif()
 #
+
+list(APPEND static_acme_libraries
+            static_acme
+            static_acme_posix
+            static_acme_openbsd)
 
 
 set(LIBCXX_TARGETING_MSVC OFF)
