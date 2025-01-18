@@ -91,8 +91,8 @@ elseif ($ENV{XDG_CURRENT_DESKTOP} STREQUAL "GNOME")
     set(GTK_BASED_DESKTOP TRUE)
     message(STATUS "System is GNOME")
     set(DESKTOP_ENVIRONMENT_NAME "gnome")
-    message(STATUS "including ${WORKSPACE_FOLDER}/operating_system/operating_system-posix/_gnome_desktop.cmake")
-    include(${WORKSPACE_FOLDER}/operating_system/operating_system-posix/_gnome_desktop.cmake)
+    message(STATUS "including ${WORKSPACE_FOLDER}/operating_system/operating_system-posix/_gtk_based_desktop.cmake")
+    include(${WORKSPACE_FOLDER}/operating_system/operating_system-posix/_gtk_based_desktop.cmake)
 elseif ($ENV{XDG_CURRENT_DESKTOP} STREQUAL "LXDE")
     set(LXDE_DESKTOP TRUE)
     message(STATUS "System is LXDE")
@@ -384,8 +384,16 @@ if (${GTK_BASED_DESKTOP})
             static_node_gtk
             static_node_linux
             static_windowing_x11)
+if(${HAS_GTK4})
+    list(APPEND static_acme_libraries
+            static_acme
+            static_acme_posix
+            static_acme_openbsd
+            static_acme_windowing_gtk4
+            static_nano_graphics_cairo)
 
-    set(default_windowing "windowing_x11")
+    set(default_windowing "windowing_gtk4")
+endif()
 
     add_compile_definitions(DESKTOP_ENVIRONMENT_GNOME)
 

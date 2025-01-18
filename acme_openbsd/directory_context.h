@@ -1,15 +1,15 @@
 #pragma once
 
 
-#include "acme_posix/dir_context.h"
+#include "acme_posix/directory_context.h"
 
 
 namespace acme_openbsd
 {
 
 
-   class CLASS_DECL_ACME_OPENBSD dir_context :
-      virtual public ::acme_posix::dir_context
+   class CLASS_DECL_ACME_OPENBSD directory_context :
+      virtual public ::acme_posix::directory_context
    {
    public:
 

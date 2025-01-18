@@ -2,21 +2,28 @@
 #pragma once
 
 
-#include "acme_posix/acme_directory.h"
+#include "acme_posix/directory_system.h"
 
 
 namespace acme_openbsd
 {
 
 
-   class CLASS_DECL_ACME_OPENBSD acme_directory :
-      virtual public ::acme_posix::acme_directory
+   class CLASS_DECL_ACME_OPENBSD directory_system :
+      virtual public ::acme_posix::directory_system
    {
    public:
 
 
-      acme_directory();
-      ~acme_directory() override;
+      directory_system();
+      ~directory_system() override;
+
+
+            void initialize(::particle * pparticle) override;
+
+
+      void init_system() override;
+
 
       virtual ::file::path install() override;
       virtual ::file::path default_install() override;

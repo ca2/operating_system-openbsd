@@ -45,6 +45,7 @@ using platform_char = char;
 #define DEBUG_BREAK __builtin_debugtrap()
 
 #include <concepts>
+#include <new>
 
 
 #define MAX_PATH 321
@@ -315,3 +316,6 @@ typedef void * PVOID;
 
 
 
+#ifdef _TIME_H_
+#error "time.h already included WHAT!!!!!!"
+#endif

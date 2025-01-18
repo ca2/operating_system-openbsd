@@ -11,7 +11,7 @@
 #endif
 
 
-CLASS_DECL_ACME_OPENBSD ::user::enum_desktop get_edesktop();
+//CLASS_DECL_ACME_OPENBSD ::user::enum_desktop get_edesktop();
 
 
 
