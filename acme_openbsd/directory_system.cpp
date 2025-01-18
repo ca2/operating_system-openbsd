@@ -90,18 +90,26 @@ namespace acme_openbsd
    }
 
 
-   ::file::path directory_system::public_system()
+   //::file::path directory_system::public_system()
+   //{
+
+      //return public_root() / "system";
+
+   //}
+
+
+   //::file::path directory_system::system()
+   //{
+
+      //return ca2roaming() / "system";
+
+   //}
+
+
+   ::file::path directory_system::userconfig()
    {
 
-      return public_root() / "system";
-
-   }
-
-
-   ::file::path directory_system::system()
-   {
-
-      return ca2roaming() / "system";
+      return ca2roaming() / "user/config";
 
    }
 
@@ -148,7 +156,7 @@ namespace acme_openbsd
 
       ::file::path pathSystemShortName = localconfig() / "system_short_name.txt";
 
-      return m_pacmefile->as_string(pathSystemShortName).trimmed();
+      return file_system()->as_string(pathSystemShortName).trimmed();
 
    }
 
@@ -181,7 +189,7 @@ namespace acme_openbsd
    ::string directory_system::appid()
    {
 
-      ::file::path path = m_pacmefile->module();
+      ::file::path path = file_system()->module();
 
       path = file_path_folder(path);
 
@@ -243,7 +251,7 @@ namespace acme_openbsd
 
    #else
 
-      return acmefile()->module().folder(4);
+      return file_system()->module().folder(4);
 
    #endif
 
@@ -274,7 +282,7 @@ namespace acme_openbsd
 
    #else
 
-      return acmefile()->module().folder(4);
+      return file_system()->module().folder(4);
 
    #endif
 
@@ -310,7 +318,7 @@ namespace acme_openbsd
 
    #else
 
-      return acmefile()->module().folder(4);
+      return file_system()->module().folder(4);
 
    #endif
 
@@ -500,7 +508,7 @@ namespace acme_openbsd
 
       string strCandidate;
 
-      for (i32 i = 0; i < stra.get_count(); i++)
+      for (int i = 0; i < stra.get_count(); i++)
       {
 
          strCandidate = stra[i] / pszTopic;

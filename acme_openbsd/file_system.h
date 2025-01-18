@@ -1,7 +1,7 @@
 #pragma once
 
 
-#include "acme/filesystem/filesystem/file_system.h"
+#include "acme_posix/file_system.h"
 
 
 namespace acme_openbsd
@@ -9,7 +9,7 @@ namespace acme_openbsd
 
 
    class CLASS_DECL_ACME_OPENBSD file_system:
-      virtual public ::file_system
+      virtual public ::acme_posix::file_system
    {
    public:
 

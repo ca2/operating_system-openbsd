@@ -14,8 +14,8 @@ namespace acme_openbsd
    public:
 
 
-      dir_context();
-      ~dir_context() override;
+      directory_context();
+      ~directory_context() override;
 
 
       void initialize(::particle * pparticle) override;

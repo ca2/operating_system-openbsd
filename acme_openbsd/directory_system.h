@@ -34,8 +34,9 @@ namespace acme_openbsd
       virtual ::file::path appdata() override; // appdata
       virtual ::file::path archive() override;
       virtual ::file::path tool() override;
-      virtual ::file::path public_system() override;
-      virtual ::file::path system() override;
+      //virtual ::file::path public_system() override;
+      //virtual ::file::path system() override;
+      virtual ::file::path userconfig() override;
       virtual ::file::path config() override;
       virtual ::file::path local() override;
       virtual ::file::path sensitive() override;
