@@ -172,13 +172,13 @@ namespace draw2d_gdiplus
    }
 
 
-   bool bitmap::CreateDIBitmap(::draw2d::graphics * pgraphics, int cx, int cy, u32 flInit, const void *pjBits, UINT iUsage)
+   bool bitmap::CreateDIBitmap(::draw2d::graphics * pgraphics, int cx, int cy, unsigned int flInit, const void *pjBits, UINT iUsage)
    {
       return false;
    }
 
 
-   u32 bitmap::SetBitmapBits(u32 dwCount, const void * pBits)
+   unsigned int bitmap::SetBitmapBits(unsigned int dwCount, const void * pBits)
 
    {
 
@@ -187,7 +187,7 @@ namespace draw2d_gdiplus
       return 0;
 
    }
-   u32 bitmap::GetBitmapBits(u32 dwCount, LPVOID pBits) const
+   unsigned int bitmap::GetBitmapBits(unsigned int dwCount, LPVOID pBits) const
 
    {
       //return ::GetBitmapBits((HBITMAP)get_handle(), dwCount, pBits);

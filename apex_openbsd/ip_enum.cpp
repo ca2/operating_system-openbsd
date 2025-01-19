@@ -114,7 +114,7 @@ namespace apex_openbsd
 
          string str;
 
-         ::u32 dwRetval = getaddrinfo(szHostname, nullptr, &hints, &result);
+         unsigned int dwRetval = getaddrinfo(szHostname, nullptr, &hints, &result);
          if (dwRetval != 0)
          {
             printf("getaddrinfo failed with error: %d\n", dwRetval);
@@ -173,7 +173,7 @@ namespace apex_openbsd
                //// The buffer length is changed by each call to WSAAddresstoString
                //// So we need to set it for each iteration through the loop for safety
                //ipbufferlength = 46;
-               //iRetval = WSAAddressToString(sockaddr_ip, (::u32)ptr->ai_addrlen, nullptr,
+               //iRetval = WSAAddressToString(sockaddr_ip, (unsigned int)ptr->ai_addrlen, nullptr,
                // ipstringbuffer, &ipbufferlength);
                //if (iRetval)
                // printf("WSAAddressToString failed with %u\n", WSAGetLastError());
@@ -204,7 +204,7 @@ namespace apex_openbsd
          //hints.ai_flags = AI_NUMERICHOST;
          int i = 0;
 
-         ::u32 dwRetval = getaddrinfo(szHostname, nullptr, &hints, &result);
+         unsigned int dwRetval = getaddrinfo(szHostname, nullptr, &hints, &result);
          if (dwRetval != 0)
          {
             printf("getaddrinfo failed with error: %d\n", dwRetval);
@@ -270,7 +270,7 @@ namespace apex_openbsd
                //// The buffer length is changed by each call to WSAAddresstoString
                //// So we need to set it for each iteration through the loop for safety
                //ipbufferlength = 46;
-               //iRetval = WSAAddressToString(sockaddr_ip, (::u32)ptr->ai_addrlen, nullptr,
+               //iRetval = WSAAddressToString(sockaddr_ip, (unsigned int)ptr->ai_addrlen, nullptr,
                // ipstringbuffer, &ipbufferlength);
                //if (iRetval)
                // printf("WSAAddressToString failed with %u\n", WSAGetLastError());

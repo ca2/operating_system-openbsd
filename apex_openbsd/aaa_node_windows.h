@@ -6,7 +6,7 @@
 
 //#include "exception.h"
 
-string get_error_message(::u32 dwError);
+string get_error_message(unsigned int dwError);
 
 
 //CLASS_DECL_APEX_OPENBSD bool __initialize();
@@ -33,7 +33,7 @@ string get_error_message(::u32 dwError);
 
 
 //void CLASS_DECL_APEX_OPENBSD __cdecl _ca2_purecall();
-//void CLASS_DECL_APEX_OPENBSD __cdecl _null_se_translator(u32 uiCode, EXCEPTION_POINTERS * ppointers);
+//void CLASS_DECL_APEX_OPENBSD __cdecl _null_se_translator(unsigned int uiCode, EXCEPTION_POINTERS * ppointers);
 //bool CLASS_DECL_APEX_OPENBSD __openbsd_init();
 i32 CLASS_DECL_APEX_OPENBSD __openbsd_main(::apex::system * psystem, ::create * pmaininitdata);
 
@@ -91,8 +91,8 @@ i32 CLASS_DECL_APEX_OPENBSD __openbsd_main(::apex::system * psystem, ::create * 
 
 #define __set_dialog_control_id(oswindow, nID)     SetWindowLong(oswindow, GWL_ID, nID)
 #define __set_dialog_control_id_(oswindow, nID)     oswindow->SetWindowLong(GWL_ID, nID)
-#define __get_dialog_control_id(oswindow)         ((::u32)(::u16)::GetDlgCtrlID(oswindow))
-#define __get_dialog_control_id_(oswindow)         ((::u32)(::u16)oswindow->GetDlgCtrlId())
+#define __get_dialog_control_id(oswindow)         ((unsigned int)(::u16)::GetDlgCtrlID(oswindow))
+#define __get_dialog_control_id_(oswindow)         ((unsigned int)(::u16)oswindow->GetDlgCtrlId())
 
 
 //#include "pipe.h"
@@ -122,17 +122,17 @@ i32 CLASS_DECL_APEX_OPENBSD __openbsd_main(::apex::system * psystem, ::create * 
 //
 //   CLASS_DECL_APEX_OPENBSD bool        shell_get_special_folder_path(::windowing::window * pwindow,::file::path &str,i32 csidl,bool fCreate);
 //   CLASS_DECL_APEX_OPENBSD ::file::path  shell_get_special_folder_path(i32 csidl, bool fCreate = true, ::windowing::window * pwindow = nullptr);
-//   CLASS_DECL_APEX_OPENBSD ::u32       get_file_attributes(const char * pFileName);
+//   CLASS_DECL_APEX_OPENBSD unsigned int       get_file_attributes(const char * pFileName);
 //
-//   CLASS_DECL_APEX_OPENBSD ::u32       get_current_directory(string & str);
-//   CLASS_DECL_APEX_OPENBSD ::u32       get_temp_path(string & str);
+//   CLASS_DECL_APEX_OPENBSD unsigned int       get_current_directory(string & str);
+//   CLASS_DECL_APEX_OPENBSD unsigned int       get_temp_path(string & str);
 //   CLASS_DECL_APEX_OPENBSD ::i32        reg_query_value(HKEY hkey,const char * pszSubKey,string & str);
 //
-//   CLASS_DECL_APEX_OPENBSD HICON       extract_icon(HINSTANCE hInst,const char * pszExeFileName,::u32 nIconIndex);
+//   CLASS_DECL_APEX_OPENBSD HICON       extract_icon(HINSTANCE hInst,const char * pszExeFileName,unsigned int nIconIndex);
 //
 //   CLASS_DECL_APEX_OPENBSD bool        delete_file(const char * pFileName);
 //
-//   CLASS_DECL_APEX_OPENBSD i32     get_menu_string(HMENU hMenu,::u32 uDItem,string & str,::u32 flags);
+//   CLASS_DECL_APEX_OPENBSD i32     get_menu_string(HMENU hMenu,unsigned int uDItem,string & str,unsigned int flags);
 //   CLASS_DECL_APEX_OPENBSD void        time_to_filetime(::object * pobject,const ::datetime::time& time,LPFILETIME pFileTime);
 //
 //
@@ -149,7 +149,7 @@ i32 CLASS_DECL_APEX_OPENBSD __openbsd_main(::apex::system * psystem, ::create * 
 //CLASS_DECL_APEX_OPENBSD void __set_resource_handle(HINSTANCE hInstResource);
 //
 //CLASS_DECL_APEX_OPENBSD HINSTANCE __get_resource_handle();
-//CLASS_DECL_APEX_OPENBSD HINSTANCE __find_string_resource_handle(::u32 nID);
+//CLASS_DECL_APEX_OPENBSD HINSTANCE __find_string_resource_handle(unsigned int nID);
 //
 
 CLASS_DECL_APEX_OPENBSD __pointer(::apex::application) __get_app();

@@ -1327,7 +1327,7 @@ namespace draw2d_gdiplus
    //}
 
 
-   //bool graphics::PatBlt(double x, double y, double nWidth, double nHeight, u32 dwRop)
+   //bool graphics::PatBlt(double x, double y, double nWidth, double nHeight, unsigned int dwRop)
    //{
 
    //   //ASSERT(get_handle1() != nullptr);
@@ -1757,7 +1757,7 @@ namespace draw2d_gdiplus
    }
 
 
-   //bool graphics::draw_raw(const  xDst, i32 yDst, i32 nDstWidth, i32 nDstHeight, ::draw2d::graphics * pgraphicsSrc, double xSrc, i32 ySrc, i32 nSrcWidth, i32 nSrcHeight, u32 dwRop)
+   //bool graphics::draw_raw(const  xDst, i32 yDst, i32 nDstWidth, i32 nDstHeight, ::draw2d::graphics * pgraphicsSrc, double xSrc, i32 ySrc, i32 nSrcWidth, i32 nSrcHeight, unsigned int dwRop)
    //{
 
    //   if (pgraphicsSrc == nullptr)
@@ -2413,7 +2413,7 @@ namespace draw2d_gdiplus
 
    //   return false;
    //}
-   //u32 graphics::GetFontLanguageInfo()
+   //unsigned int graphics::GetFontLanguageInfo()
    //{
    //   //ASSERT(get_handle1() != nullptr);
    //   //return ::GetFontLanguageInfo(get_handle1());
@@ -2423,7 +2423,7 @@ namespace draw2d_gdiplus
    //}
 
 
-   //u32 graphics::GetCharacterPlacement(const char * pString, strsize nCount, strsize nMaxExtent, LPGCP_RESULTS lpResults, u32 dwFlags)
+   //unsigned int graphics::GetCharacterPlacement(const char * pString, strsize nCount, strsize nMaxExtent, LPGCP_RESULTS lpResults, unsigned int dwFlags)
 
    //{
 
@@ -2437,7 +2437,7 @@ namespace draw2d_gdiplus
    //}
 
 
-   //u32 graphics::GetCharacterPlacement(string & str, strsize nMaxExtent, LPGCP_RESULTS pResults, u32 dwFlags)
+   //unsigned int graphics::GetCharacterPlacement(string & str, strsize nMaxExtent, LPGCP_RESULTS pResults, unsigned int dwFlags)
 
    //{
 
@@ -2540,9 +2540,9 @@ namespace draw2d_gdiplus
 
    //   return false;
    //}
-   //u32 graphics::GetFontData(u32 dwTable, u32 dwOffset, LPVOID pData,
+   //unsigned int graphics::GetFontData(unsigned int dwTable, unsigned int dwOffset, LPVOID pData,
 
-   //                          u32 cbData)
+   //                          unsigned int cbData)
    //{
    //   //ASSERT(get_handle2() != nullptr);
    //   //return ::GetFontData(get_handle2(), dwTable, dwOffset, pData, cbData);
@@ -2559,9 +2559,9 @@ namespace draw2d_gdiplus
 
    //   return -1;
    //}
-   //u32 graphics::GetGlyphOutline(UINT nChar, const ::e_align & ealign, const ::e_draw_text & edrawtext, LPGLYPHMETRICS pgm,
+   //unsigned int graphics::GetGlyphOutline(UINT nChar, const ::e_align & ealign, const ::e_draw_text & edrawtext, LPGLYPHMETRICS pgm,
 
-   //                              u32 cbBuffer, LPVOID pBuffer, const MAT2* lpmat2)
+   //                              unsigned int cbBuffer, LPVOID pBuffer, const MAT2* lpmat2)
 
    //{
    //   //ASSERT(get_handle2() != nullptr);
@@ -2653,7 +2653,7 @@ namespace draw2d_gdiplus
 
    
    //bool graphics::MaskBlt(double x, double y, double nWidth, double nHeight, ::draw2d::graphics * pgraphicsSrc,
-   //                       double xSrc, i32 ySrc, ::draw2d::bitmap& maskBitmap, double xMask, i32 yMask, u32 dwRop)
+   //                       double xSrc, i32 ySrc, ::draw2d::bitmap& maskBitmap, double xMask, i32 yMask, unsigned int dwRop)
    //{
    //   //ASSERT(get_handle1() != nullptr);
    //   //return ::MaskBlt(get_handle1(), x, y, nWidth, nHeight, GDIPLUS_HDC(pgraphicsSrc),
@@ -4417,7 +4417,7 @@ namespace draw2d_gdiplus
       return true;
    }
 
-   bool graphics::ModifyWorldTransform(const XFORM* pXform,u32 iMode)
+   bool graphics::ModifyWorldTransform(const XFORM* pXform,unsigned int iMode)
    {
 
       if (::is_null(m_pgraphics))
@@ -4836,10 +4836,10 @@ namespace draw2d_gdiplus
    //   return nRetVal;
    //}
 
-   //u32 graphics::SetMapperFlags(u32 dwFlag)
+   //unsigned int graphics::SetMapperFlags(unsigned int dwFlag)
    //{
    //   //ASSERT(get_handle1() != nullptr);
-   //   u32 dwRetVal = GDI_ERROR;
+   //   unsigned int dwRetVal = GDI_ERROR;
    //   //if(get_handle1() != nullptr && get_handle1() != get_handle2())
    //   //   dwRetVal = ::SetMapperFlags(get_handle1(), dwFlag);
    //   //if(get_handle2() != nullptr)
@@ -4847,14 +4847,14 @@ namespace draw2d_gdiplus
    //   return dwRetVal;
    //}
 
-   typedef u32 (CALLBACK* __GDIGETLAYOUTPROC)(HDC);
-   typedef u32 (CALLBACK* __GDISETLAYOUTPROC)(HDC, u32);
+   typedef unsigned int (CALLBACK* __GDIGETLAYOUTPROC)(HDC);
+   typedef unsigned int (CALLBACK* __GDISETLAYOUTPROC)(HDC, unsigned int);
 
-   u32 graphics::GetLayout()
+   unsigned int graphics::GetLayout()
    {
       HINSTANCE hInst = ::GetModuleHandleA("GDI32.DLL");
       ASSERT(hInst != nullptr);
-      /*      u32 dwGetLayout = LAYOUT_LTR;
+      /*      unsigned int dwGetLayout = LAYOUT_LTR;
             __GDIGETLAYOUTPROC pfn;
             pfn = (__GDIGETLAYOUTPROC) GetProcAddress(hInst, "GetLayout");
             // if they API is available, just call it. If it is not
@@ -4870,11 +4870,11 @@ namespace draw2d_gdiplus
       return 0;
    }
 
-   u32 graphics::SetLayout(u32 dwSetLayout)
+   unsigned int graphics::SetLayout(unsigned int dwSetLayout)
    {
       /*HINSTANCE hInst = ::GetModuleHandleA("GDI32.DLL");
       ASSERT(hInst != nullptr);
-      u32 dwGetLayout = LAYOUT_LTR;
+      unsigned int dwGetLayout = LAYOUT_LTR;
       __GDISETLAYOUTPROC pfn;
       pfn = (__GDISETLAYOUTPROC) GetProcAddress(hInst, "SetLayout");
       // If the API is availalbe, just call it. If it's not available,

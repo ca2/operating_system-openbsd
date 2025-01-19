@@ -390,9 +390,6 @@ if (${GTK_BASED_DESKTOP})
 
     message(STATUS "Adding GTK/X11 dependency.")
 
-    list(APPEND app_common_dependencies
-            desktop_environment_gtk_based)
-
 
     list(APPEND static_app_common_dependencies
             static_desktop_environment_gtk_based
@@ -400,8 +397,26 @@ if (${GTK_BASED_DESKTOP})
             static_node_gtk
             static_node_linux
             static_windowing_x11)
+            
+	set(default_nano_graphics "nano_graphics_cairo")
+            
+if(${HAS_GTK4})
 
+	set(default_acme_windowing "acme_windowing_gtk4")
+	set(default_innate_ui "innate_ui_gtk4")
     set(default_windowing "windowing_gtk4")
+    set(default_node "node_gtk4")
+
+
+endif()
+
+    list(APPEND app_common_dependencies
+            ${default_acme_windowing}
+            ${default_nano_graphics}
+            ${default_innate_ui}
+            ${default_windowing}
+            ${default_node})
+
 
     add_compile_definitions(DESKTOP_ENVIRONMENT_GNOME)
 
@@ -460,6 +475,18 @@ list(APPEND static_acme_libraries
             static_acme_posix
             static_acme_openbsd)
 
+list(APPEND default_acme
+            acme
+            acme_posix
+            acme_openbsd)
+
+list(APPEND default_apex
+            acme
+            acme_posix
+            acme_openbsd
+            apex
+            apex_posix
+            apex_openbsd)
 
 set(LIBCXX_TARGETING_MSVC OFF)
 

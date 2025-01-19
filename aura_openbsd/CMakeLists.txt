@@ -9,8 +9,8 @@ list(APPEND library_source
    _factory.cpp
    appindicator.cpp
    appindicator.h
-   interaction_impl.cpp
-   interaction_impl.h
+   #interaction_impl.cpp
+   #interaction_impl.h
    node.cpp
    node.h
    #../platform/x_window.cpp

@@ -61,7 +61,7 @@ IMPLEMENT_FACTORY(apex_openbsd)
    //pfactory->add_factory_item < ::apex_openbsd::file_context, ::file_context >();
    pfactory->add_factory_item < ::apex_openbsd::service_handler, ::service_handler >();
 
-   pfactory->add_factory_item < ::apex_openbsd::node, ::acme::node >();
+   pfactory->add_factory_item < ::apex_openbsd::node, ::platform::node >();
 
    //add_factory_item < ::openbsd::copydesk, ::user::cop
    // 

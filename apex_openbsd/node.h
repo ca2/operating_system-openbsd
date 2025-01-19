@@ -48,7 +48,7 @@ namespace apex_openbsd
 
       //virtual ::color::color get_default_color(::u64 u);
 
-      //virtual void set_console_colors(::u32 dwScreenColors, ::u32 dwPopupColors, ::u32 dwWindowAlpha);
+      //virtual void set_console_colors(unsigned int dwScreenColors, unsigned int dwPopupColors, unsigned int dwWindowAlpha);
 
       //virtual ::e_status set_system_dark_mode1(bool bSet = true);
 
@@ -89,13 +89,13 @@ namespace apex_openbsd
 //         ::e_status set_last_run_application_path(const string & strAppId) override;
 
 
-      //virtual ::u32       get_file_attributes(const char* pFileName);
-      //virtual ::u32       get_current_directory(string& str);
-      //virtual ::u32       get_temp_path(string& str);
+      //virtual unsigned int       get_file_attributes(const char* pFileName);
+      //virtual unsigned int       get_current_directory(string& str);
+      //virtual unsigned int       get_temp_path(string& str);
       //virtual ::i32        reg_query_value(HKEY hkey, const char* pszSubKey, string& str);
-      //virtual  HICON       extract_icon(HINSTANCE hInst, const char* pszExeFileName, ::u32 nIconIndex);
+      //virtual  HICON       extract_icon(HINSTANCE hInst, const char* pszExeFileName, unsigned int nIconIndex);
       //virtual  bool        delete_file(const char* pFileName);
-      // virtual  i32     get_menu_string(HMENU hMenu, ::u32 uDItem, string& str, ::u32 flags);
+      // virtual  i32     get_menu_string(HMENU hMenu, unsigned int uDItem, string& str, unsigned int flags);
       //virtual  void        time_to_filetime(::matter* pobject, const ::datetime::time& time, LPFILETIME pFileTime);
 
 

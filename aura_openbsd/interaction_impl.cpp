@@ -931,7 +931,7 @@ namespace aura_openbsd
 //      Default();
    // }
 
-//   bool interaction_impl::_EnableToolTips(bool bEnable, ::u32 nFlag)
+//   bool interaction_impl::_EnableToolTips(bool bEnable, unsigned int nFlag)
 //   {
 //      UNREFERENCED_PARAMETER(bEnable);
 //      UNREFERENCED_PARAMETER(nFlag);
@@ -1632,7 +1632,7 @@ namespace aura_openbsd
          return ::linux::interaction_impl::from_handle(hWnd);
       }
    */
-//   i32 interaction_impl::message_box(const char * pszText, const char * pszcaption, ::u32 nType)
+//   i32 interaction_impl::message_box(const char * pszText, const char * pszcaption, unsigned int nType)
 //   {
 //
 //      string strCaption;
@@ -1713,7 +1713,7 @@ namespace aura_openbsd
          return true;
       }
 
-      bool interaction_impl::GetScrollInfo(i32 nBar, LPSCROLLINFO pScrollInfo, ::u32 nMask)
+      bool interaction_impl::GetScrollInfo(i32 nBar, LPSCROLLINFO pScrollInfo, unsigned int nMask)
 
       {
          __UNREFERENCED_PARAMETER(nMask);
@@ -1775,10 +1775,10 @@ namespace aura_openbsd
 //   }
 //
 //
-//   void interaction_impl::CalcWindowRect(RECTANGLE_I32 * pClientRect, ::u32 nAdjustType)
+//   void interaction_impl::CalcWindowRect(RECTANGLE_I32 * pClientRect, unsigned int nAdjustType)
 //   {
 //
-//      /*::u32 dwExStyle = GetExStyle();
+//      /*unsigned int dwExStyle = GetExStyle();
 //      if (nAdjustType == 0)
 //         dwExStyle &= ~WS_EX_CLIENTEDGE;
 //      ::AdjustWindowRectEx(pClientRect, GetStyle(), false, dwExStyle);*/
@@ -1788,7 +1788,7 @@ namespace aura_openbsd
 //   /////////////////////////////////////////////////////////////////////////////
 //   // Special keyboard/system command processing
 //
-//   bool interaction_impl::HandleFloatingSysCommand(::u32 nID, lparam lparam)
+//   bool interaction_impl::HandleFloatingSysCommand(unsigned int nID, lparam lparam)
 //
 //   {
 //      /*      __pointer(::user::interaction) pParent = GetTopLevelParent();
@@ -1898,7 +1898,7 @@ namespace aura_openbsd
 ////      return pWnd->SendChildNotifyLastMsg(pResult);
 //   }
 //
-//   bool interaction_impl::OnChildNotify(::u32 uMsg, wparam wparam, lparam lparam, LRESULT* pResult)
+//   bool interaction_impl::OnChildNotify(unsigned int uMsg, wparam wparam, lparam lparam, LRESULT* pResult)
 //
 //   {
 //
@@ -1906,7 +1906,7 @@ namespace aura_openbsd
 //
 //   }
 //
-//   bool interaction_impl::ReflectChildNotify(::u32 uMsg, wparam wparam, lparam lparam, LRESULT* pResult)
+//   bool interaction_impl::ReflectChildNotify(unsigned int uMsg, wparam wparam, lparam lparam, LRESULT* pResult)
 //
 //   {
 //      UNREFERENCED_PARAMETER(wparam);
@@ -2025,7 +2025,7 @@ namespace aura_openbsd
 //   bool gen_GotScrollLines;
 //
 //
-//   void interaction_impl::OnSettingChange(::u32 uFlags, const char * pszSection)
+//   void interaction_impl::OnSettingChange(unsigned int uFlags, const char * pszSection)
 //
 //   {
 //
@@ -2094,7 +2094,7 @@ namespace aura_openbsd
 ////         m_pthreadProDevian = fork([&]()
 ////         {
 ////
-////            ::u32 tickStart;
+////            unsigned int tickStart;
 ////
 ////            while (::task_get_run())
 ////            {
@@ -2140,7 +2140,7 @@ namespace aura_openbsd
 ////
 ////               }
 ////
-////               ::u32 dwDiff = tickStart.elapsed();
+////               unsigned int dwDiff = tickStart.elapsed();
 ////
 ////               if (dwDiff < 20)
 ////               {
@@ -2234,7 +2234,7 @@ namespace aura_openbsd
 //      oswindow m_hwnd;
 //      HDC m_hdc;
 //
-//      print_window(::object * pobject, oswindow hwnd, HDC hdc, ::u32 tickTimeout) :
+//      print_window(::object * pobject, oswindow hwnd, HDC hdc, unsigned int tickTimeout) :
 //         ::object(pobject)
 //      {
 //         m_event.ResetEvent();
@@ -2500,23 +2500,23 @@ namespace aura_openbsd
 //      return wnd.get_handle() != ((interaction_impl *)this)->get_handle();
 //   }
 //
-//   ::u32 interaction_impl::GetStyle() const
+//   unsigned int interaction_impl::GetStyle() const
 //   {
 //
-//      return (::u32)get_window_long(GWL_STYLE);
+//      return (unsigned int)get_window_long(GWL_STYLE);
 //
 //   }
 //
 //
-//   ::u32 interaction_impl::GetExStyle() const
+//   unsigned int interaction_impl::GetExStyle() const
 //   {
 //
-//      return (::u32)get_window_long(GWL_EXSTYLE);
+//      return (unsigned int)get_window_long(GWL_EXSTYLE);
 //
 //   }
 
 
-//   bool interaction_impl::ModifyStyle(::u32 dwRemove, ::u32 dwAdd, ::u32 nFlags)
+//   bool interaction_impl::ModifyStyle(unsigned int dwRemove, unsigned int dwAdd, unsigned int nFlags)
 //   {
 //
 //      set_window_long(GWL_STYLE, (GetStyle() | dwAdd) & ~(dwRemove));
@@ -2534,7 +2534,7 @@ namespace aura_openbsd
 //   }
 //
 //
-//   bool interaction_impl::ModifyStyleEx(::u32 dwRemove, ::u32 dwAdd, ::u32 nFlags)
+//   bool interaction_impl::ModifyStyleEx(unsigned int dwRemove, unsigned int dwAdd, unsigned int nFlags)
 //   {
 //
 //      set_window_long(GWL_EXSTYLE, (GetExStyle() | dwAdd) & ~(dwRemove));
@@ -2720,7 +2720,7 @@ namespace aura_openbsd
 ////   }
 //
 //
-//   ::u32 interaction_impl::ArrangeIconicWindows()
+//   unsigned int interaction_impl::ArrangeIconicWindows()
 //   {
 //
 //      throw not_implemented();
@@ -2762,7 +2762,7 @@ namespace aura_openbsd
 //   }
 //
 //
-//   void interaction_impl::MapWindowPoints(::user::interaction * puserinteractionTo, POINT_I32 * pPoint, ::u32 nCount)
+//   void interaction_impl::MapWindowPoints(::user::interaction * puserinteractionTo, POINT_I32 * pPoint, unsigned int nCount)
 //
 //   {
 //
@@ -3026,7 +3026,7 @@ namespace aura_openbsd
 ////   }
 ////
 //
-//   ::draw2d::graphics * interaction_impl::GetDCEx(::draw2d::region * prgnClip, ::u32 flags)
+//   ::draw2d::graphics * interaction_impl::GetDCEx(::draw2d::region * prgnClip, unsigned int flags)
 //   {
 //
 //      throw not_implemented();
@@ -3056,7 +3056,7 @@ namespace aura_openbsd
 //   }
 //
 
-//   bool interaction_impl::RedrawWindow(const ::rectangle_i32& rectUpdate, ::draw2d::region * prgnUpdate, ::u32 flags)
+//   bool interaction_impl::RedrawWindow(const ::rectangle_i32& rectUpdate, ::draw2d::region * prgnUpdate, unsigned int flags)
 //   {
 //
 ////      ASSERT(::is_window((oswindow) get_handle()));
@@ -3079,7 +3079,7 @@ namespace aura_openbsd
 //   }
 
    /*
-      bool interaction_impl::EnableScrollBar(i32 nSBFlags, ::u32 nArrowFlags)
+      bool interaction_impl::EnableScrollBar(i32 nSBFlags, unsigned int nArrowFlags)
       {
 
          ASSERT(::is_window((oswindow) get_handle()));
@@ -3101,7 +3101,7 @@ namespace aura_openbsd
 //   }
 
 
-//   bool interaction_impl::DrawCaption(::draw2d::graphics_pointer & pgraphics, const rectangle_i32 & prc, ::u32 uFlags)
+//   bool interaction_impl::DrawCaption(::draw2d::graphics_pointer & pgraphics, const rectangle_i32 & prc, unsigned int uFlags)
 //
 //   {
 //
@@ -3113,7 +3113,7 @@ namespace aura_openbsd
 //   }
 //
 //
-//   bool interaction_impl::SetTimer(uptr uEvent, ::u32 nElapse, PFN_TIMER pfnTimer)
+//   bool interaction_impl::SetTimer(uptr uEvent, unsigned int nElapse, PFN_TIMER pfnTimer)
 //   {
 //
 //      return ::user::interaction_impl::SetTimer(uEvent, nElapse, pfnTimer);
@@ -3270,7 +3270,7 @@ namespace aura_openbsd
 //      return 0; // invalid ID
 //   }
 //
-//   void interaction_impl::CheckDlgButton(i32 nIDButton, ::u32 nCheck)
+//   void interaction_impl::CheckDlgButton(i32 nIDButton, unsigned int nCheck)
 //   {
 //
 //      throw not_implemented();
@@ -3288,7 +3288,7 @@ namespace aura_openbsd
 //
 //   }
 //
-//   i32 interaction_impl::DlgDirList(char * pPathSpec, i32 nIDListBox, i32 nIDStaticPath, ::u32 nFileType)
+//   i32 interaction_impl::DlgDirList(char * pPathSpec, i32 nIDListBox, i32 nIDStaticPath, unsigned int nFileType)
 //
 //   {
 //
@@ -3299,7 +3299,7 @@ namespace aura_openbsd
 //
 //   }
 //
-//   i32 interaction_impl::DlgDirListComboBox(char * pPathSpec, i32 nIDComboBox, i32 nIDStaticPath, ::u32 nFileType)
+//   i32 interaction_impl::DlgDirListComboBox(char * pPathSpec, i32 nIDComboBox, i32 nIDStaticPath, unsigned int nFileType)
 //
 //   {
 //
@@ -3344,7 +3344,7 @@ namespace aura_openbsd
 //   */
 //
 //   /*
-//      ::u32 interaction_impl::GetDlgItemInt(i32 nID, int_bool * pTrans, bool bSigned) const
+//      unsigned int interaction_impl::GetDlgItemInt(i32 nID, int_bool * pTrans, bool bSigned) const
 //
 //      {
 //
@@ -3382,7 +3382,7 @@ namespace aura_openbsd
 //
 //   }
 //
-//   ::u32 interaction_impl::IsDlgButtonChecked(i32 nIDButton) const
+//   unsigned int interaction_impl::IsDlgButtonChecked(i32 nIDButton) const
 //   {
 //
 //      throw not_implemented();
@@ -3402,7 +3402,7 @@ namespace aura_openbsd
 //
 //   }
 //
-//   void interaction_impl::SetDlgItemInt(i32 nID, ::u32 nValue, bool bSigned)
+//   void interaction_impl::SetDlgItemInt(i32 nID, unsigned int nValue, bool bSigned)
 //   {
 //
 //      throw not_implemented();
@@ -3422,7 +3422,7 @@ namespace aura_openbsd
 //
 //   }
 //
-//   i32 interaction_impl::ScrollWindowEx(i32 dx, i32 dy, const rectangle_i32 & pRectScroll, const rectangle_i32 & lpRectClip, ::draw2d::region * prgnUpdate, RECTANGLE_I32 * lpRectUpdate, ::u32 flags)
+//   i32 interaction_impl::ScrollWindowEx(i32 dx, i32 dy, const rectangle_i32 & pRectScroll, const rectangle_i32 & lpRectClip, ::draw2d::region * prgnUpdate, RECTANGLE_I32 * lpRectUpdate, unsigned int flags)
 //
 //   {
 //
@@ -3433,7 +3433,7 @@ namespace aura_openbsd
 //
 //   }
 //
-//   void interaction_impl::ShowScrollBar(::u32 nBar, bool bShow)
+//   void interaction_impl::ShowScrollBar(unsigned int nBar, bool bShow)
 //   {
 //
 //      throw not_implemented();
@@ -3452,7 +3452,7 @@ namespace aura_openbsd
 //
 //   }
 //
-//   ::user::interaction * interaction_impl::ChildWindowFromPoint(const ::point_i32 & point, ::u32 nFlags)
+//   ::user::interaction * interaction_impl::ChildWindowFromPoint(const ::point_i32 & point, unsigned int nFlags)
 //   {
 //
 //      throw not_implemented();
@@ -3479,7 +3479,7 @@ namespace aura_openbsd
 //
 //   }
 //
-//   ::user::interaction * interaction_impl::GetWindow(::u32 nCmd)
+//   ::user::interaction * interaction_impl::GetWindow(unsigned int nCmd)
 //   {
 //
 //      ASSERT(::is_window((oswindow) get_handle()));
@@ -3652,7 +3652,7 @@ namespace aura_openbsd
 //
 //   }
 //
-//   void interaction_impl::Print(::draw2d::graphics_pointer & pgraphics, ::u32 dwFlags) const
+//   void interaction_impl::Print(::draw2d::graphics_pointer & pgraphics, unsigned int dwFlags) const
 //   {
 //
 //      throw not_implemented();
@@ -3661,7 +3661,7 @@ namespace aura_openbsd
 //
 //   }
 //
-//   void interaction_impl::PrintClient(::draw2d::graphics_pointer & pgraphics, ::u32 dwFlags) const
+//   void interaction_impl::PrintClient(::draw2d::graphics_pointer & pgraphics, unsigned int dwFlags) const
 //   {
 //
 //      throw not_implemented();
@@ -3670,7 +3670,7 @@ namespace aura_openbsd
 //
 //   }
 //
-//   bool interaction_impl::SetWindowContextHelpId(::u32 dwContextHelpId)
+//   bool interaction_impl::SetWindowContextHelpId(unsigned int dwContextHelpId)
 //   {
 //
 //      throw not_implemented();
@@ -3679,7 +3679,7 @@ namespace aura_openbsd
 //
 //   }
 //
-//   ::u32 interaction_impl::GetWindowContextHelpId() const
+//   unsigned int interaction_impl::GetWindowContextHelpId() const
 //   {
 //
 //      throw not_implemented();
@@ -3690,11 +3690,11 @@ namespace aura_openbsd
 //
 //
 //   // Default message ::collection::map implementations
-//   void interaction_impl::OnActivateApp(bool, ::u32)
+//   void interaction_impl::OnActivateApp(bool, unsigned int)
 //   {
 //   //Default();
 //   }
-//   void interaction_impl::OnActivate(::u32, ::user::interaction *, bool)
+//   void interaction_impl::OnActivate(unsigned int, ::user::interaction *, bool)
 //   {
 //   //Default();
 //   }
@@ -3747,11 +3747,11 @@ namespace aura_openbsd
 //   {
 //   //Default();
 //   }
-//   LRESULT interaction_impl::OnMenuChar(::u32, ::u32, ::user::menu*)
+//   LRESULT interaction_impl::OnMenuChar(unsigned int, unsigned int, ::user::menu*)
 //   {
 //   //Default();
 //   }
-//   void interaction_impl::OnMenuSelect(::u32, ::u32, HMENU)
+//   void interaction_impl::OnMenuSelect(unsigned int, unsigned int, HMENU)
 //   {
 //   //Default();
 //   }
@@ -3804,15 +3804,15 @@ namespace aura_openbsd
    }
 
 
-//   void interaction_impl::OnShowWindow(bool, ::u32)
+//   void interaction_impl::OnShowWindow(bool, unsigned int)
 //   {
 //   //Default();
 //   }
-//   void interaction_impl::OnSize(::u32, i32, i32)
+//   void interaction_impl::OnSize(unsigned int, i32, i32)
 //   {
 //   //Default();
 //   }
-//   void interaction_impl::OnTcard(::u32, ::u32)
+//   void interaction_impl::OnTcard(unsigned int, unsigned int)
 //   {
 //   //Default();
 //   }
@@ -3856,74 +3856,74 @@ namespace aura_openbsd
 
 //   LRESULT interaction_impl::OnNcHitTest(point)
 //   { return Default(); }
-//   void interaction_impl::OnNcLButtonDblClk(::u32, point_i32)
+//   void interaction_impl::OnNcLButtonDblClk(unsigned int, point_i32)
 //   { Default(); }
-//   void interaction_impl::OnNcLButtonDown(::u32, point_i32)
+//   void interaction_impl::OnNcLButtonDown(unsigned int, point_i32)
 //   { Default(); }
-//   void interaction_impl::OnNcLButtonUp(::u32, point_i32)
+//   void interaction_impl::OnNcLButtonUp(unsigned int, point_i32)
 //   { Default(); }
-//   void interaction_impl::OnNcMButtonDblClk(::u32, point_i32)
+//   void interaction_impl::OnNcMButtonDblClk(unsigned int, point_i32)
 //   { Default(); }
-//   void interaction_impl::OnNcMButtonDown(::u32, point_i32)
+//   void interaction_impl::OnNcMButtonDown(unsigned int, point_i32)
 //   { Default(); }
-//   void interaction_impl::OnNcMButtonUp(::u32, point_i32)
+//   void interaction_impl::OnNcMButtonUp(unsigned int, point_i32)
 //   { Default(); }
-//   void interaction_impl::OnNcMouseMove(::u32, point_i32)
+//   void interaction_impl::OnNcMouseMove(unsigned int, point_i32)
 //   { Default(); }
 //   void interaction_impl::OnNcPaint()
 //   { Default(); }
-//   void interaction_impl::OnNcRButtonDblClk(::u32, point_i32)
+//   void interaction_impl::OnNcRButtonDblClk(unsigned int, point_i32)
 //   { Default(); }
-//   void interaction_impl::OnNcRButtonDown(::u32, point_i32)
+//   void interaction_impl::OnNcRButtonDown(unsigned int, point_i32)
 //   { Default(); }
-//   void interaction_impl::OnNcRButtonUp(::u32, point_i32)
+//   void interaction_impl::OnNcRButtonUp(unsigned int, point_i32)
 //   { Default(); }
-//   void interaction_impl::OnSysChar(::u32, ::u32, ::u32)
+//   void interaction_impl::OnSysChar(unsigned int, unsigned int, unsigned int)
 //   { Default(); }
-//   void interaction_impl::OnSysCommand(::u32, LPARAM)
+//   void interaction_impl::OnSysCommand(unsigned int, LPARAM)
 //   { Default(); }
-//   void interaction_impl::OnSysDeadChar(::u32, ::u32, ::u32)
+//   void interaction_impl::OnSysDeadChar(unsigned int, unsigned int, unsigned int)
 //   { Default(); }
-//   void interaction_impl::OnSysKeyDown(::u32, ::u32, ::u32)
+//   void interaction_impl::OnSysKeyDown(unsigned int, unsigned int, unsigned int)
 //   { Default(); }
-//   void interaction_impl::OnSysKeyUp(::u32, ::u32, ::u32)
+//   void interaction_impl::OnSysKeyUp(unsigned int, unsigned int, unsigned int)
 //   { Default(); }
-//   void interaction_impl::OnCompacting(::u32)
+//   void interaction_impl::OnCompacting(unsigned int)
 //   { Default(); }
 //   void interaction_impl::OnFontChange()
 //   { Default(); }
 //   void interaction_impl::OnPaletteChanged(::user::interaction *)
 //   { Default(); }
-//   void interaction_impl::OnSpoolerStatus(::u32, ::u32)
+//   void interaction_impl::OnSpoolerStatus(unsigned int, unsigned int)
 //   { Default(); }
 //   void interaction_impl::OnTimeChange()
 //   { Default(); }
-//   void interaction_impl::OnChar(::u32, ::u32, ::u32)
+//   void interaction_impl::OnChar(unsigned int, unsigned int, unsigned int)
 //   { Default(); }
-//   void interaction_impl::OnDeadChar(::u32, ::u32, ::u32)
+//   void interaction_impl::OnDeadChar(unsigned int, unsigned int, unsigned int)
 //   { Default(); }
-//   void interaction_impl::OnKeyDown(::u32, ::u32, ::u32)
+//   void interaction_impl::OnKeyDown(unsigned int, unsigned int, unsigned int)
 //   { Default(); }
-//   void interaction_impl::OnKeyUp(::u32, ::u32, ::u32)
+//   void interaction_impl::OnKeyUp(unsigned int, unsigned int, unsigned int)
 //   { Default(); }
-//   void interaction_impl::OnLButtonDblClk(::u32, point_i32)
+//   void interaction_impl::OnLButtonDblClk(unsigned int, point_i32)
 //   { Default(); }
-//   void interaction_impl::OnLButtonDown(::u32, point_i32)
+//   void interaction_impl::OnLButtonDown(unsigned int, point_i32)
 //   { Default(); }
-//   void interaction_impl::OnLButtonUp(::u32, point_i32)
+//   void interaction_impl::OnLButtonUp(unsigned int, point_i32)
 //   { Default(); }
-//   void interaction_impl::OnMButtonDblClk(::u32, point_i32)
+//   void interaction_impl::OnMButtonDblClk(unsigned int, point_i32)
 //   { Default(); }
-//   void interaction_impl::OnMButtonDown(::u32, point_i32)
+//   void interaction_impl::OnMButtonDown(unsigned int, point_i32)
 //   { Default(); }
-//   void interaction_impl::OnMButtonUp(::u32, point_i32)
+//   void interaction_impl::OnMButtonUp(unsigned int, point_i32)
 //   { Default(); }
-//   i32 interaction_impl::OnMouseActivate(::user::interaction *, ::u32, ::u32)
+//   i32 interaction_impl::OnMouseActivate(::user::interaction *, unsigned int, unsigned int)
 //   { return (i32)Default(); }
-//   void interaction_impl::OnMouseMove(::u32, point_i32)
+//   void interaction_impl::OnMouseMove(unsigned int, point_i32)
 //   { Default(); }
 
-//   bool interaction_impl::OnMouseWheel(::u32, short, point_i32)
+//   bool interaction_impl::OnMouseWheel(unsigned int, short, point_i32)
 //   {
 //
 //      return Default() != false;
@@ -3932,19 +3932,19 @@ namespace aura_openbsd
 //
 //   LRESULT interaction_impl::OnRegisteredMouseWheel(WPARAM, LPARAM)
 //   { return Default(); }
-//   void interaction_impl::OnRButtonDblClk(::u32, point_i32)
+//   void interaction_impl::OnRButtonDblClk(unsigned int, point_i32)
 //   { Default(); }
-//   void interaction_impl::OnRButtonDown(::u32, point_i32)
+//   void interaction_impl::OnRButtonDown(unsigned int, point_i32)
 //   { Default(); }
-//   void interaction_impl::OnRButtonUp(::u32, point_i32)
+//   void interaction_impl::OnRButtonUp(unsigned int, point_i32)
 //   { Default(); }
 //   void interaction_impl::OnTimer(uptr)
 //   { Default(); }
 //   void interaction_impl::OnInitMenu(::user::menu*)
 //   { Default(); }
-//   void interaction_impl::OnInitMenuPopup(::user::menu*, ::u32, bool)
+//   void interaction_impl::OnInitMenuPopup(::user::menu*, unsigned int, bool)
 //   { Default(); }
-//   void interaction_impl::OnAskCbFormatName(::u32 nMaxCount, char * lpszName)
+//   void interaction_impl::OnAskCbFormatName(unsigned int nMaxCount, char * lpszName)
 //   {
 //      (nMaxCount);
 //      if(nMaxCount>0)
@@ -3960,20 +3960,20 @@ namespace aura_openbsd
 //   { Default(); }
 //   void interaction_impl::OnDrawClipboard()
 //   { Default(); }
-//   void interaction_impl::OnHScrollClipboard(::user::interaction *, ::u32, ::u32)
+//   void interaction_impl::OnHScrollClipboard(::user::interaction *, unsigned int, unsigned int)
 //   { Default(); }
 //   void interaction_impl::OnPaintClipboard(::user::interaction *, HGLOBAL)
 //   { Default(); }
 //   void interaction_impl::OnRenderAllFormats()
 //   { Default(); }
-//   void interaction_impl::OnRenderFormat(::u32)
+//   void interaction_impl::OnRenderFormat(unsigned int)
 //   { Default(); }
 //   void interaction_impl::OnSizeClipboard(::user::interaction *, HGLOBAL)
 //   { Default(); }
-//   void interaction_impl::OnVScrollClipboard(::user::interaction *, ::u32, ::u32)
+//   void interaction_impl::OnVScrollClipboard(::user::interaction *, unsigned int, unsigned int)
 //   { Default(); }
-//   ::u32 interaction_impl::OnGetDlgCode()
-//   { return (::u32)Default(); }
+//   unsigned int interaction_impl::OnGetDlgCode()
+//   { return (unsigned int)Default(); }
 //   void interaction_impl::OnMDIActivate(bool, ::user::interaction *, ::user::interaction *)
 //   { Default(); }
 //   void interaction_impl::OnEnterMenuLoop(bool)
@@ -3985,14 +3985,14 @@ namespace aura_openbsd
 ////   { Default(); }
 ////   void interaction_impl::OnStyleChanging(i32, LPSTYLESTRUCT)
 ////   { Default(); }
-//   void interaction_impl::OnSizing(::u32, RECTANGLE_I32 *)
+//   void interaction_impl::OnSizing(unsigned int, RECTANGLE_I32 *)
 //   { Default(); }
-//   void interaction_impl::OnMoving(::u32, RECTANGLE_I32 *)
+//   void interaction_impl::OnMoving(unsigned int, RECTANGLE_I32 *)
 //   { Default(); }
 //   void interaction_impl::OncaptureChanged(::user::interaction *)
 //   { Default(); }
 //
-//   bool interaction_impl::OnDeviceChange(::u32, dword_ptr)
+//   bool interaction_impl::OnDeviceChange(unsigned int, dword_ptr)
 //   {
 //
 //      return Default() != false;
@@ -4001,15 +4001,15 @@ namespace aura_openbsd
 //
 //   void interaction_impl::OnWinIniChange(const char *)
 //   { Default(); }
-//   void interaction_impl::OnChangeUIState(::u32, ::u32)
+//   void interaction_impl::OnChangeUIState(unsigned int, unsigned int)
 //   { Default(); }
-//   void interaction_impl::OnUpdateUIState(::u32, ::u32)
+//   void interaction_impl::OnUpdateUIState(unsigned int, unsigned int)
 //   { Default(); }
 //
-//   ::u32 interaction_impl::OnQueryUIState()
+//   unsigned int interaction_impl::OnQueryUIState()
 //   {
 //
-//      return (::u32)Default();
+//      return (unsigned int)Default();
 //
 //   }
 
@@ -4210,7 +4210,7 @@ namespace aura_openbsd
 //    }
 
 
-//   ::user::interaction * interaction_impl::GetNextWindow(::u32 nFlag)
+//   ::user::interaction * interaction_impl::GetNextWindow(unsigned int nFlag)
 //   {
 //
 //      if(nFlag == GW_HWNDNEXT)

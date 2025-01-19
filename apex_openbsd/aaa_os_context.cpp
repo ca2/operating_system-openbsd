@@ -1,7 +1,7 @@
 #include "framework.h"
 #include "os_context.h"
 #include "acme/exception/not_implemented.h"
-#include "acme/filesystem/filesystem/acme_directory.h"
+#include "acme/filesystem/filesystem/directory_system.h"
 #include "apex/platform/node.h"
 #include "apex/filesystem/file/set.h"
 #include "apex/filesystem/filesystem/link.h"
@@ -140,7 +140,7 @@ namespace apex_openbsd
       //      if (!ExitWindowsEx(EWX_REBOOT | EWX_FORCE,
       //      SHTDN_REASON_MAJOR_SOFTWARE | SHTDN_REASON_MINOR_INSTALLATION))
       //      {
-      //      ::u32 dwLastError = ::get_last_error();
+      //      unsigned int dwLastError = ::get_last_error();
       //      return false;
       //      }
             //reset the previlages
@@ -163,13 +163,13 @@ namespace apex_openbsd
 
       //return;
 
-      /*      ::u32 dwPid;
+      /*      unsigned int dwPid;
             while(get_pid_by_title(strName, dwPid))
             {
                HANDLE hProcess = OpenProcess( PROCESS_QUERY_INFORMATION |
                   PROCESS_VM_READ,
                   false, dwPid );
-               TerminateProcess(hProcess, (::u32) -1);
+               TerminateProcess(hProcess, (unsigned int) -1);
                Clos_contexteHandle(hProcess);
                ::EnumWindows((WNDENUMPROC)
                CKillProcessHelper::TerminateAppEnum,
@@ -190,10 +190,10 @@ namespace apex_openbsd
    }
 
 
-//   bool os_context::path_pid(::u32 & dwPid, const ::string & strName)
+//   bool os_context::path_pid(unsigned int & dwPid, const ::string & strName)
 //   {
 //
-//      u32_array dwa;
+//      unsigned_int_array dwa;
 //      get_all_processes(dwa);
 //      for(i32 i = 0; i < dwa.get_count(); i++)
 //      {
@@ -207,10 +207,10 @@ namespace apex_openbsd
 //   }
 //
 //
-//   bool os_context::title_pid(::u32 & dwPid,  const ::string & strName)
+//   bool os_context::title_pid(unsigned int & dwPid,  const ::string & strName)
 //   {
 //
-//      u32_array dwa;
+//      unsigned_int_array dwa;
 //
 //      get_all_processes(dwa);
 //
@@ -233,7 +233,7 @@ namespace apex_openbsd
 //   }
 //
 //
-//   ::file::path os_context::get_process_path(::u32 dwPid)
+//   ::file::path os_context::get_process_path(unsigned int dwPid)
 //   {
 //
 //      throw not_implemented();
@@ -243,7 +243,7 @@ namespace apex_openbsd
 //   }
 //
 //
-//   void os_context::get_all_processes(u32_array & dwa )
+//   void os_context::get_all_processes(unsigned_int_array & dwa )
 //   {
 //
 //      throw not_implemented();
@@ -252,18 +252,18 @@ namespace apex_openbsd
 //
 //      /*
 //            dwa.set_size(0);
-//            ::u32 cbNeeded = 0;
+//            unsigned int cbNeeded = 0;
 //            while(cbNeeded == natural(dwa.get_count()))
 //            {
 //               dwa.set_size(dwa.get_count() + 1024);
 //               if(!EnumProcesses(
 //                  dwa.get_data(),
-//                  (::u32) (dwa.get_count() * sizeof(::u32)),
+//                  (unsigned int) (dwa.get_count() * sizeof(unsigned int)),
 //                  &cbNeeded))
 //               {
 //                  return;
 //               }
-//               dwa.set_size(cbNeeded / sizeof(::u32));
+//               dwa.set_size(cbNeeded / sizeof(unsigned int));
 //            }*/
 //   }
 //
@@ -273,7 +273,7 @@ namespace apex_openbsd
 ////      return "";
 ////      /*
 ////      string strPath;
-////      ::u32 dwSize = 1;
+////      unsigned int dwSize = 1;
 ////      while(natural(strPath.get_length() + 1) == dwSize)
 ////      {
 ////         dwSize = ::GetModuleFileName(
@@ -836,7 +836,7 @@ namespace apex_openbsd
    }
 
 
-   void os_context::raise_exception( ::u32 dwExceptionCode, ::u32 dwExceptionFlags)
+   void os_context::raise_exception( unsigned int dwExceptionCode, unsigned int dwExceptionFlags)
    {
 
       throw not_implemented();
@@ -1067,7 +1067,7 @@ namespace apex_openbsd
    }
 
 
-//   void os_context::list_process(::file::path_array & patha, u32_array & uaPid)
+//   void os_context::list_process(::file::path_array & patha, unsigned_int_array & uaPid)
 //   {
 //
 //      ::output_debug_string("openbsd::os_context::list_process");

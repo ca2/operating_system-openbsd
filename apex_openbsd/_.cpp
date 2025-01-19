@@ -60,7 +60,7 @@ namespace openbsd
 
 
 
-   //::u32 get_current_directory(string& str)
+   //unsigned int get_current_directory(string& str)
    //{
 
    //   return ::GetCurrentDirectoryW(MAX_PATH * 8, wtostring(str, MAX_PATH * 8));
@@ -68,7 +68,7 @@ namespace openbsd
    //}
 
 
-   //::u32 get_temp_path(string& str)
+   //unsigned int get_temp_path(string& str)
    //{
 
    //   return ::GetTempPathW(MAX_PATH * 8, wtostring(str, MAX_PATH * 8));
@@ -110,7 +110,7 @@ namespace openbsd
    //}
 
 
-   //HICON extract_icon(HINSTANCE hInst, const char* pszExeFileName, ::u32 nIconIndex)
+   //HICON extract_icon(HINSTANCE hInst, const char* pszExeFileName, unsigned int nIconIndex)
 
    //{
 

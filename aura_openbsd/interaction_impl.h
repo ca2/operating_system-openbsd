@@ -11,7 +11,7 @@ namespace aura_openbsd
 //   LRESULT CALLBACK __send_message_hook(i32, WPARAM, LPARAM);
 //   // void _::ca2::StandardSubclass(oswindow);
 //   LRESULT CALLBACK __cbt_filter_hook(i32, WPARAM, LPARAM);
-//   LRESULT __call_window_procedure(::user::interaction * pWnd, oswindow hWnd, ::u32 nMsg, WPARAM wParam, LPARAM lParam);
+//   LRESULT __call_window_procedure(::user::interaction * pWnd, oswindow hWnd, unsigned int nMsg, WPARAM wParam, LPARAM lParam);
 
 
    class x11data;
@@ -60,10 +60,10 @@ namespace aura_openbsd
       //bool operator==(const ::user::interaction_impl& wnd) const;
       //bool operator!=(const ::user::interaction_impl& wnd) const;
 
-//      ::u32 GetStyle() const override;
-      //::u32 GetExStyle() const override;
-      //bool ModifyStyle(::u32 dwRemove, ::u32 dwAdd, ::u32 nFlags = 0) override;
-      //bool ModifyStyleEx(::u32 dwRemove, ::u32 dwAdd, ::u32 nFlags = 0) override;
+//      unsigned int GetStyle() const override;
+      //unsigned int GetExStyle() const override;
+      //bool ModifyStyle(unsigned int dwRemove, unsigned int dwAdd, unsigned int nFlags = 0) override;
+      //bool ModifyStyleEx(unsigned int dwRemove, unsigned int dwAdd, unsigned int nFlags = 0) override;
 
       //virtual ::e_status set_tool_window(bool bSet = true) override;
 
@@ -97,7 +97,7 @@ namespace aura_openbsd
       // subclassing/unsubclassing functions
       virtual void pre_subclass_window() override;
 //      bool SubclassWindow(oswindow hWnd);
-//      //bool SubclassDlgItem(::u32 nID, __pointer(::interaction_impl) pParent);
+//      //bool SubclassDlgItem(unsigned int nID, __pointer(::interaction_impl) pParent);
 //      oswindow UnsubclassWindow();
 
       // handling of RT_DLGINIT resource (extension to RT_DIALOG)
@@ -116,7 +116,7 @@ namespace aura_openbsd
 
 //      const char * pszWindowName,
 
-//      ::u32 dwStyle,
+//      unsigned int dwStyle,
 //      const ::rectangle_i32 & rectangle,
 //      ::user::interaction * pParentWnd,
 //      id id,
@@ -146,7 +146,7 @@ namespace aura_openbsd
 
       // Advanced: virtual AdjustWindowRect
 //      enum AdjustType { adjustBorder = 0, adjustOutside = 1 };
-//      virtual void CalcWindowRect(RECTANGLE_I32 * pClientRect, ::u32 nAdjustType = adjustBorder);
+//      virtual void CalcWindowRect(RECTANGLE_I32 * pClientRect, unsigned int nAdjustType = adjustBorder);
 
 
 
@@ -169,7 +169,7 @@ namespace aura_openbsd
 //
 //#if(WINVER >= 0x0500)
 //
-//      ::user::interaction * GetAncestor(::u32 gaFlags) const;
+//      ::user::interaction * GetAncestor(unsigned int gaFlags) const;
 //
 //#endif   // WINVER >= 0x0500
 
@@ -216,8 +216,8 @@ namespace aura_openbsd
 //      virtual void _001OnExitZoomed() override;
 
 
-      //virtual bool set_window_position(iptr z, i32 x, i32 y, i32 cx, i32 cy, ::u32 nFlags);
-//      virtual ::u32 ArrangeIconicWindows();
+      //virtual bool set_window_position(iptr z, i32 x, i32 y, i32 cx, i32 cy, unsigned int nFlags);
+//      virtual unsigned int ArrangeIconicWindows();
       //virtual bool BringWindowToTop();
 //      virtual bool get_window_rect(RECTANGLE_I64 * prectangle);
 
@@ -255,7 +255,7 @@ namespace aura_openbsd
 
 
       // Coordinate Mapping Fufnctions
-//      virtual void MapWindowPoints(::user::interaction * puserinteractionTo, POINT_I32 * pPoint, ::u32 nCount);
+//      virtual void MapWindowPoints(::user::interaction * puserinteractionTo, POINT_I32 * pPoint, unsigned int nCount);
 //
 //      virtual void MapWindowPoints(::user::interaction * puserinteractionTo, RECTANGLE_I32 * prectangle);
 
@@ -264,8 +264,8 @@ namespace aura_openbsd
 //      virtual ::draw2d::graphics * GetDC();
 //      virtual ::draw2d::graphics * GetWindowDC();
 //      virtual bool ReleaseDC(::image * pimage);
-//      virtual void Print(::draw2d::graphics_pointer & pgraphics, ::u32 dwFlags) const;
-//      virtual void PrintClient(::draw2d::graphics_pointer & pgraphics, ::u32 dwFlags) const;
+//      virtual void Print(::draw2d::graphics_pointer & pgraphics, unsigned int dwFlags) const;
+//      virtual void PrintClient(::draw2d::graphics_pointer & pgraphics, unsigned int dwFlags) const;
 
 //      virtual void UpdateWindow();
 //      virtual void SetRedraw(bool bRedraw = true);
@@ -297,38 +297,38 @@ namespace aura_openbsd
       //virtual bool _is_window_visible() override;
       //virtual void ShowOwnedPopups(bool bShow = true);
 
-      //virtual ::draw2d::graphics * GetDCEx(::draw2d::region* prgnClip, ::u32 flags);
+      //virtual ::draw2d::graphics * GetDCEx(::draw2d::region* prgnClip, unsigned int flags);
       //virtual bool LockWindowUpdate();
       //virtual void UnlockWindowUpdate();
 //      virtual bool RedrawWindow(const ::rectangle_i32& rectUpdate = nullptr,
 //                                ::draw2d::region* prgnUpdate = nullptr,
-//                                ::u32 flags = RDW_INVALIDATE | RDW_ERASE);
-      // xxx      virtual bool EnableScrollBar(i32 nSBFlags, ::u32 nArrowFlags = ESB_ENABLE_BOTH);
+//                                unsigned int flags = RDW_INVALIDATE | RDW_ERASE);
+      // xxx      virtual bool EnableScrollBar(i32 nSBFlags, unsigned int nArrowFlags = ESB_ENABLE_BOTH);
 
       virtual void set_origin(::draw2d::graphics_pointer & pgraphics) override;
 
 //
 //      //virtual bool DrawAnimatedRects(i32 idAni, const LPRECTprcFrom, const LPRECTlprcTo);
 //
-//      virtual bool DrawCaption(::draw2d::graphics_pointer & pgraphics, const rectangle_i32 & prc, ::u32 uFlags);
+//      virtual bool DrawCaption(::draw2d::graphics_pointer & pgraphics, const rectangle_i32 & prc, unsigned int uFlags);
 //
 //
 //#if(WINVER >= 0x0500)
 //
-//      virtual bool AnimateWindow(::u32 millis, ::u32 dwFlags);
+//      virtual bool AnimateWindow(unsigned int millis, unsigned int dwFlags);
 //
 //#endif   // WINVER >= 0x0500
 //
 //#if(_WIN32_WINNT >= 0x0501)
 //
-//      virtual bool PrintWindow(::draw2d::graphics_pointer & pgraphics, ::u32 nFlags) const;
+//      virtual bool PrintWindow(::draw2d::graphics_pointer & pgraphics, unsigned int nFlags) const;
 //
 //#endif   // _WIN32_WINNT >= 0x0501
 
 
 
 //      // Timer Functions
-//      virtual bool SetTimer(uptr uEvent, ::u32 nElapse, PFN_TIMER pfnTimer);
+//      virtual bool SetTimer(uptr uEvent, unsigned int nElapse, PFN_TIMER pfnTimer);
 //      virtual bool KillTimer(uptr uEvent);
 
       // oswindow State Functions
