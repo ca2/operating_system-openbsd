@@ -32,7 +32,7 @@ if (MSVC)
    target_link_options(node_openbsd PRIVATE "/DEFAULTLIB:msvcrt$<$<CONFIG:Debug>:d>")
    target_link_options(node_openbsd PRIVATE "/IMPLIB:${LIBRARY_OUTPUT_PATH}/node_openbsd.lib")
    target_link_options(node_openbsd PRIVATE "/DEF:${CMAKE_CURRENT_SOURCE_DIR}/node_openbsd.def")
-   target_link_libraries(node_openbsd PRIVATE ${library_references})
+   target_link_libraries(node_openbsd PRIVATE ${library_references} ${global_library_references})
 
 
 elseif(${OPENBSD})
