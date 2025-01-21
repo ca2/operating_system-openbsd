@@ -406,7 +406,7 @@ if(${HAS_GTK4})
 	set(default_innate_ui "innate_ui_gtk4")
     set(default_windowing "windowing_gtk4")
     set(default_node "node_gtk4")
-
+	set(default_operating_ambient "operating_ambient_gtk4")
 
 endif()
 
@@ -415,7 +415,8 @@ endif()
             ${default_nano_graphics}
             ${default_innate_ui}
             ${default_windowing}
-            ${default_node})
+            ${default_node}
+            ${default_operating_ambient})
 
 
     add_compile_definitions(DESKTOP_ENVIRONMENT_GNOME)

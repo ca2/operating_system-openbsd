@@ -8,17 +8,17 @@
 #pragma once
 
 
-#include "aura_openbsd/node.h"
-#include "node_gtk_based/node.h"
+#include "node_openbsd/node.h"
+#include "node_gtk4/node.h"
 
 
-namespace desktop_environment_gtk_based
+namespace operating_ambient_gtk4
 {
 
 
-   class CLASS_DECL_DESKTOP_ENVIRONMENT_GTK_BASED node :
-      virtual public ::aura_openbsd::node,
-      virtual public ::node_gtk_based::node
+   class CLASS_DECL_OPERATING_AMBIENT_GTK4 node :
+      virtual public ::node_openbsd::node,
+      virtual public ::node_gtk4::node
    {
    public:
 
@@ -101,7 +101,7 @@ namespace desktop_environment_gtk_based
    };
 
 
-} // namespace desktop_environment_gtk_based
+} // namespace operating_ambient_gtk4
 
 
 

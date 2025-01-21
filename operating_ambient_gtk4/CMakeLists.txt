@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.17)
-project(operatin_ambient_gt4 CXX)
+project(operating_ambient_gtk4 CXX)
 
 
 list(APPEND library_source
@@ -37,24 +37,28 @@ list(APPEND library_references
    acme
    acme_posix
    acme_openbsd
+   acme_windowing_gtk4
+   nano_graphics_cairo
    apex
    apex_posix
    apex_openbsd
+   innate_ui_gtk4
    aqua
    aura
    aura_posix
    aura_openbsd
-   windowing_x11
+   windowing_gtk4
    #node_gtk
-   node_gdk
-   node_gtk_based
+   #node_gdk
+   node_openbsd
+   node_gtk4
    )
 
-if(${HAS_GTK4})
-    list(APPEND library_references node_gtk4)
-elseif(${HAS_GTK3})
-    list(APPEND library_references node_gtk3)
-endif()
+#if(${HAS_GTK4})
+ #   list(APPEND library_references node_gtk4)
+#elseif(${HAS_GTK3})
+ #   list(APPEND library_references node_gtk3)
+#endif()
 
 add_library(${PROJECT_NAME} SHARED ${library_source})
 
@@ -69,13 +73,16 @@ if (MSVC)
    target_link_options(${PROJECT_NAME} PRIVATE "/SUBSYSTEM:WINDOWS")
    target_link_libraries(${PROJECT_NAME} PRIVATE ${library_references} ${global_library_references})
 elseif (${OPENBSD})
-   pkg_check_modules(PKGCONFIG glib-2.0 gtk+-3.0 gdk-3.0 ${APPINDICATOR_PKG_MODULE})
+
+   pkg_check_modules(PKGCONFIG gtk4 ${APPINDICATOR_PKG_MODULE})
+   
    target_compile_options(${PROJECT_NAME} PRIVATE -fpermissive)
    target_compile_options(${PROJECT_NAME} PRIVATE ${PKGCONFIG_CFLAGS})
    target_link_options(${PROJECT_NAME} PRIVATE ${PKGCONFIG_LDFLAGS})
    #target_link_options(${PROJECT_NAME} PRIVATE "-Wl,-rpath=\$ORIGIN")
    target_link_libraries(${PROJECT_NAME} PRIVATE ${library_references} ${global_library_references} ${PKGCONFIG_LIBRARIES})
    target_link_options(${PROJECT_NAME} PRIVATE -Wl,-z,defs)
+   
 endif ()
 
 list(APPEND library_include_directories ${CMAKE_CURRENT_SOURCE_DIR})

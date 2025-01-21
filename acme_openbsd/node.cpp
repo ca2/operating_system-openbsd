@@ -717,7 +717,7 @@ namespace acme_openbsd
    string node::audio_get_default_implementation_name()
    {
 
-      return "alsa";
+      return "sndio";
 
    }
 

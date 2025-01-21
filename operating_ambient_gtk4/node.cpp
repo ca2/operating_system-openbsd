@@ -14,7 +14,7 @@
 void gdk_branch(const ::procedure & procedure);
 
 
-namespace desktop_environment_gtk_based
+namespace operating_ambient_gtk4
 {
 
 
@@ -24,11 +24,11 @@ namespace desktop_environment_gtk_based
    node::node()
    {
 
-      m_pNodeDesktopEnvironmentGtkBased = this;
+      //m_pNodeDesktopEnvironmentGtkBased = this;
 
       //deferx_initializex_x11();
 
-      m_pGtkSettingsDefault = nullptr;
+      //m_pGtkSettingsDefault = nullptr;
 
    }
 
@@ -36,12 +36,12 @@ namespace desktop_environment_gtk_based
    node::~node()
    {
 
-      if(m_pGtkSettingsDefault)
-      {
+      //if(m_pGtkSettingsDefault)
+      //{
 
-         g_object_unref(m_pGtkSettingsDefault);
+        // g_object_unref(m_pGtkSettingsDefault);
 
-      }
+      //}
 
    }
 
@@ -197,7 +197,7 @@ namespace desktop_environment_gtk_based
 
       ///auto estatus =
 
-      ::aura_openbsd::node::initialize(pparticle);
+      ::node_openbsd::node::initialize(pparticle);
 
 //      if(!estatus)
 //      {
@@ -208,7 +208,7 @@ namespace desktop_environment_gtk_based
 
       //estatus =
 
-      ::node_gtk_based::node::initialize(pparticle);
+      ::node_gtk4::node::initialize(pparticle);
 
 //      if(!estatus)
 //      {
@@ -709,7 +709,7 @@ namespace desktop_environment_gtk_based
 //   }
 
 
-} // namespace desktop_environment_gtk_based
+} // namespace operating_ambient_gtk4
 
 
 
