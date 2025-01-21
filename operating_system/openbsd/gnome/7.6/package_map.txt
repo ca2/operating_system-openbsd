@@ -1,6 +1,6 @@
 default_node=operating-system-openbsd/node_openbsd
 default_acme_windowing=operating-system-posix/acme_windowing_gtk4
-default_nano_graphics=operating-system-posix/nano_graphics_gtk4
+default_nano_graphics=operating-system-posix/nano_graphics_cairo
 default_windowing=operating-system-posix/windowing_gtk4
 default_innate_ui=operating-system-posix/innate_ui_gtk4
 default_node=operating-system-openbsd/node_gtk4
