@@ -50,7 +50,7 @@ endif ()
 
 
 
-list(APPEND static_library_references ${library_references} ${global_library_references})
+list(APPEND static_library_references ${library_references})
 
 list(TRANSFORM static_library_references PREPEND static_)
 
