@@ -1,8 +1,8 @@
 #pragma once
 
 
-#include "aura_openbsd/_.h"
-#include "node_gtk_based/_.h"
+#include "node_openbsd/_.h"
+#include "node_gtk4/_.h"
 
 
 #if defined(_operating_ambient_gtk4_project)
