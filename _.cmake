@@ -78,6 +78,16 @@ elseif (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
 
     #add_compile_options(-pthread -gdwarf-4 -fPIC -fexceptions -fnon-call-exceptions -frtti)
     
+   message(STATUS "CMAKE_BUILD_TYPE is ${CMAKE_BUILD_TYPE}")
+    
+   if(${CMAKE_BUILD_TYPE} STREQUAL "Debug")
+   
+      message(STATUS "Debug build selecting dwarf-4 symbols")
+    
+      add_compile_options(-gdwarf-4)
+    
+   endif()
+    
     add_compile_options(-pthread -fPIC -fexceptions -fnon-call-exceptions -frtti)
 
     link_libraries(pthread)
