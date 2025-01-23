@@ -2,7 +2,7 @@
 #include "node.h"
 #include "acme/operating_system/summary.h"
 #include "acme/filesystem/filesystem/file_system.h"
-
+#include <sys/utsname.h>
 
 //::user::enum_desktop _get_edesktop();
 
@@ -782,71 +782,75 @@ namespace acme_openbsd
       else
       {
       
-//         printf("/etc/os-release doesnt exist?!?!");
-      
-         ::string strUnameA = get_posix_shell_command_output("uname -a");
-
-         ::string strUnameR = get_posix_shell_command_output("uname -r");
+         struct utsname utsname;
          
-         strUnameA.trim();
+         int iRet = uname(&utsname);
          
-         strUnameR.trim();
-         
-         if(strUnameA.case_insensitive_begins("openbsd ") && strUnameR.has_character())
+         if(iRet >= 0)
          {
-         
-            psummary->m_strDistro = "openbsd";
-//            psummary->m_strDistroBranch = "bsd";
-            psummary->m_strDistroRelease = strUnameR;
-            psummary->m_strDistroFamily = "openbsd";
-         
+      
+            ::string strSysName = utsname.sysname;
+
+            ::string strRelease = utsname.release;
+            
+            strSysName.trim();
+            
+            strRelease.trim();
+            
+            informationf("utsname.sysname : %s", strSysName.c_str());
+            
+            informationf("utsname.release : %s", strRelease.c_str());
+            
+            if(strSysName.case_insensitive_equals("openbsd") && strRelease.has_character())
+            {
+            
+               psummary->m_strDistro = "openbsd";
+               psummary->m_strDistroRelease = strRelease;
+               psummary->m_strDistroFamily = "openbsd";
+            
+            }
+      
          }
       
       }
 
-
       auto strLowerCaseCurrentDesktop = this->get_environment_variable("XDG_CURRENT_DESKTOP").lowered();
 
-      //# echo "lower case xdg_current_desktop is $__SYSTEM_LOWER_CASE_CURRENT_DESKTOP"
+      informationf("lower case xdg_current_desktop is %s", strLowerCaseCurrentDesktop.c_str());
+      
       if (strLowerCaseCurrentDesktop.equals("gnome"))
       {
-         //      if contains
-         //      $__SYSTEM_LOWER_CASE_CURRENT_DESKTOP
-         //      "gnome";
-         //      then
-         //
-         //# echo "lower case xdg_current_desktop contains gnome"
+         
+         informationf("Detected GNOME");
 
          psummary->m_strDesktopEnvironment = "gnome";
 
       }
       else if (strLowerCaseCurrentDesktop.equals("kde"))
       {
-         //      elif
-         //      contains
-         //      $__SYSTEM_LOWER_CASE_CURRENT_DESKTOP
-         //      "kde";
-         //      then
-         //
-         //# echo "lower case xdg_current_desktop contains gnome"
+         
+         informationf("Detected KDE");
 
          psummary->m_strDesktopEnvironment = "kde";
 
       }
       else if (strLowerCaseCurrentDesktop.equals("lxde"))
       {
-         //      elif
-         //      contains
-         //      $__SYSTEM_LOWER_CASE_CURRENT_DESKTOP
-         //      "lxde";
-         //      then
-         //
-         //# echo "lower case xdg_current_desktop contains lxde"
+         
+         informationf("Detected LXDE");
 
          psummary->m_strDesktopEnvironment = "lxde";
 
       }
+      else if (strLowerCaseCurrentDesktop.equals("xfce"))
+      {
+         
+         informationf("Detected XFCE");
 
+         psummary->m_strDesktopEnvironment = "xfce";
+
+      }
+      
       if(psummary->m_strDistroBranch.is_empty())
       {
 
@@ -861,11 +865,13 @@ namespace acme_openbsd
       psummary->m_strSlashedIntegration = psummary->m_strSlashedStore;
 
       psummary->m_strUnderscoreOperatingSystem.find_replace("/", "_");
-
-      this->set_environment_variable("__SYSTEM_DISTRO", psummary->m_strDistro);
-      this->set_environment_variable("__SYSTEM_DISTRO_FAMILY", psummary->m_strDistroFamily);
-      this->set_environment_variable("__SYSTEM_DISTRO_BRANCH", psummary->m_strDistroBranch);
-      this->set_environment_variable("__SYSTEM_DISTRO_RELEASE", psummary->m_strDistroRelease);
+      
+      psummary->m_strSudoInstall = "doas pkg_add";
+      
+      this->set_environment_variable("__OPERATING_SYSTEM", psummary->m_strDistro);
+      this->set_environment_variable("__OPERATING_SYSTEM_FAMILY", psummary->m_strDistroFamily);
+      this->set_environment_variable("__OPERATING_SYSTEM_BRANCH", psummary->m_strDistroBranch);
+      this->set_environment_variable("__OPERATING_SYSTEM_RELEASE", psummary->m_strDistroRelease);
       this->set_environment_variable("__SYSTEM_DESKTOP_ENVIRONMENT", psummary->m_strDesktopEnvironment);
       this->set_environment_variable("__SYSTEM_SLASHED_STORE", psummary->m_strSlashedStore);
       this->set_environment_variable("__SYSTEM_SLASHED_INTEGRATION", psummary->m_strSlashedIntegration);
