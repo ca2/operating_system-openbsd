@@ -1,6 +1,7 @@
 #include "framework.h"
 #include "node.h"
 #include "acme/operating_system/summary.h"
+#include "acme/filesystem/filesystem/directory_system.h"
 #include "acme/filesystem/filesystem/file_system.h"
 #include <sys/utsname.h>
 
@@ -757,26 +758,26 @@ namespace acme_openbsd
 
          auto set = file_system()->parse_standard_configuration("/etc/os-release");
 
-         psummary->m_strDistro = set["ID"];
-         psummary->m_strDistroBranch = set["VARIANT_ID"];
-         psummary->m_strDesktopEnvironment = psummary->m_strDistroBranch;
-         psummary->m_strDistroRelease = set["VERSION_ID"];
-         psummary->m_strDistroFamily = set["ID_LIKE"];
+         psummary->m_strSystem = set["ID"];
+         psummary->m_strSystemBranch = set["VARIANT_ID"];
+         psummary->m_strAmbient = psummary->m_strSystemBranch;
+         psummary->m_strSystemRelease = set["VERSION_ID"];
+         psummary->m_strSystemFamily = set["ID_LIKE"];
 
-         auto iDot = psummary->m_strDistroRelease.find_index('.');
+         auto iDot = psummary->m_strSystemRelease.find_index('.');
 
          if(iDot > 0)
          {
 
-            psummary->m_strDistroRelease = psummary->m_strDistroRelease.left(iDot);
+            psummary->m_strSystemRelease = psummary->m_strSystemRelease.left(iDot);
 
          }
 
-         psummary->m_strDistro.make_lower();
-         psummary->m_strDistroBranch.make_lower();
-         psummary->m_strDesktopEnvironment.make_lower();
-         psummary->m_strDistroRelease.make_lower();
-         psummary->m_strDistroFamily.make_lower();
+         psummary->m_strSystem.make_lower();
+         psummary->m_strSystemBranch.make_lower();
+         psummary->m_strAmbient.make_lower();
+         psummary->m_strSystemRelease.make_lower();
+         psummary->m_strSystemFamily.make_lower();
 
       }
       else
@@ -804,9 +805,9 @@ namespace acme_openbsd
             if(strSysName.case_insensitive_equals("openbsd") && strRelease.has_character())
             {
             
-               psummary->m_strDistro = "openbsd";
-               psummary->m_strDistroRelease = strRelease;
-               psummary->m_strDistroFamily = "openbsd";
+               psummary->m_strSystem = "openbsd";
+               psummary->m_strSystemRelease = strRelease;
+               psummary->m_strSystemFamily = "openbsd";
             
             }
       
@@ -823,7 +824,7 @@ namespace acme_openbsd
          
          informationf("Detected GNOME");
 
-         psummary->m_strDesktopEnvironment = "gnome";
+         psummary->m_strAmbient = "gnome";
 
       }
       else if (strLowerCaseCurrentDesktop.equals("kde"))
@@ -831,7 +832,7 @@ namespace acme_openbsd
          
          informationf("Detected KDE");
 
-         psummary->m_strDesktopEnvironment = "kde";
+         psummary->m_strAmbient = "kde";
 
       }
       else if (strLowerCaseCurrentDesktop.equals("lxde"))
@@ -839,7 +840,7 @@ namespace acme_openbsd
          
          informationf("Detected LXDE");
 
-         psummary->m_strDesktopEnvironment = "lxde";
+         psummary->m_strAmbient = "lxde";
 
       }
       else if (strLowerCaseCurrentDesktop.equals("xfce"))
@@ -847,37 +848,44 @@ namespace acme_openbsd
          
          informationf("Detected XFCE");
 
-         psummary->m_strDesktopEnvironment = "xfce";
+         psummary->m_strAmbient = "xfce";
 
       }
       
-      if(psummary->m_strDistroBranch.is_empty())
+      if(psummary->m_strSystemBranch.is_empty())
       {
 
-         psummary->m_strDistroBranch = psummary->m_strDesktopEnvironment;
+         psummary->m_strSystemBranch = psummary->m_strAmbient;
 
       }
 
-      psummary->m_strSlashedStore=psummary->m_strDistro + "/" + psummary->m_strDistroBranch + "/" + psummary->m_strDistroRelease;
+      psummary->m_strSystemAmbientRelease=psummary->m_strSystem + "/" + psummary->m_strSystemBranch + "/" + psummary->m_strSystemRelease;
 
-      psummary->m_strUnderscoreOperatingSystem = psummary->m_strSlashedStore;
+      //psummary->m_strSystemAmbientRelease = psummary->m_strSlashedStore;
 
-      psummary->m_strSlashedIntegration = psummary->m_strSlashedStore;
+      //psummary->m_strSlashedIntegration = psummary->m_strSlashedStore;
 
-      psummary->m_strUnderscoreOperatingSystem.find_replace("/", "_");
+      //psummary->m_strSystemAmbientRelease.find_replace("/", "_");
       
       psummary->m_strSudoInstall = "doas pkg_add";
       
-      this->set_environment_variable("__OPERATING_SYSTEM", psummary->m_strDistro);
-      this->set_environment_variable("__OPERATING_SYSTEM_FAMILY", psummary->m_strDistroFamily);
-      this->set_environment_variable("__OPERATING_SYSTEM_BRANCH", psummary->m_strDistroBranch);
-      this->set_environment_variable("__OPERATING_SYSTEM_RELEASE", psummary->m_strDistroRelease);
-      this->set_environment_variable("__SYSTEM_DESKTOP_ENVIRONMENT", psummary->m_strDesktopEnvironment);
-      this->set_environment_variable("__SYSTEM_SLASHED_STORE", psummary->m_strSlashedStore);
-      this->set_environment_variable("__SYSTEM_SLASHED_INTEGRATION", psummary->m_strSlashedIntegration);
-      this->set_environment_variable("__SYSTEM_UNDERSCORE_OPERATING_SYSTEM", psummary->m_strUnderscoreOperatingSystem);
+      auto pathHomeBin = directory_system()->home() / "bin";
+      
+      auto pathToolBin = directory_system()->home() / "cmake/operating_system/tool-openbsd/bin";
+      
+      psummary->m_strPathPrefix = ::string(pathHomeBin) + ":" + ::string(pathToolBin);
+      
+      this->set_environment_variable("__SYSTEM", psummary->m_strSystem);
+      this->set_environment_variable("__SYSTEM_FAMILY", psummary->m_strSystemFamily);
+      this->set_environment_variable("__SYSTEM_BRANCH", psummary->m_strSystemBranch);
+      this->set_environment_variable("__SYSTEM_RELEASE", psummary->m_strSystemRelease);
+      this->set_environment_variable("__SYSTEM_AMBIENT_RELEASE", psummary->m_strSystemAmbientRelease);
+      ///this->set_environment_variable("__SYSTEM_SLASHED_INTEGRATION", psummary->m_strSlashedIntegration);
+      //this->set_environment_variable("__SYSTEM_UNDERSCORE_OPERATING_SYSTEM", psummary->m_strSystemAmbientRelease);
       this->set_environment_variable("__SYSTEM_SUDO_INSTALL", psummary->m_strSudoInstall);
       this->set_environment_variable("__SYSTEM_TERMINAL", psummary->m_strTerminal);
+      this->set_environment_variable("__AMBIENT", psummary->m_strAmbient);
+      this->set_environment_variable("__PATH_PREFIX", psummary->m_strPathPrefix);
 
       return psummary;
 
