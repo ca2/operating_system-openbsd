@@ -10,6 +10,8 @@ if (NOT ${CMAKE_SYSTEM_NAME} STREQUAL "OpenBSD")
 endif ()
 
 
+include(FindPkgConfig REQUIRED)
+
 add_compile_definitions(__BSD__ OPENBSD)
 
 set(__BSD__ TRUE)
@@ -276,14 +278,111 @@ set(INTERPROCESS_COMMUNICATION_SYSTEM_5 TRUE)
 add_compile_definitions(WITH_X11)
 add_compile_definitions(WITH_SN)
 add_compile_definitions(WITH_XI)
-include(FindPkgConfig)
 
-if (EXISTS $ENV{HOME}/__config/xfce.txt)
 
-    set(LINUX_XFCE TRUE)
-    message(STATUS "Adding Xfce/X11 dependency.")
 
-endif ()
+
+list(APPEND acme_libraries
+   acme
+   acme_posix
+   acme_openbsd)
+
+
+list(APPEND static_acme_libraries
+   static_acme
+   static_acme_posix
+   static_acme_openbsd)
+
+
+list(APPEND apex_libraries
+   ${acme_libraries}
+   apex
+   apex_posix
+   apex_openbsd
+)
+
+list(APPEND aura_libraries
+   ${apex_libraries}
+   aura
+   aura_posix
+   aura_openbsd
+   node_openbsd
+)
+
+set(default_nano_graphics nano_graphics_cairo)
+
+
+
+#if (EXISTS $ENV{HOME}/__config/xfce.txt)
+
+    #set(LINUX_XFCE TRUE)
+    #message(STATUS "Adding Xfce/X11 dependency.")
+
+#endif ()
+
+#if(${HAS_GTK3})
+
+    #set(WITH_XCB TRUE)
+    #add_compile_definitions(WITH_XCB=1)
+
+#endif()
+
+set(default_draw2d "draw2d_cairo")
+set(default_imaging "imaging_freeimage")
+set(default_write_text "write_text_pango")
+set(default_audio "audio_sndio")
+set(default_music_midi "music_midi_alsa")
+set(default_node "node_openbsd")
+set(default_audio_mixer "audio_mixer_alsa")
+set(default_gpu "gpu_opengl")
+set(default_networking "networking_bsd")
+#add_compile_definitions(default_draw2d=draw2d_cairo)
+#add_compile_definitions(default_imaging=imaging_freeimage)
+#add_compile_definitions(default_write_text=write_text_pango)
+#add_compile_definitions(default_audio=audio_alsa)
+#add_compile_definitions(default_music_midi=music_midi_alsa)
+#add_compile_definitions(default_node=node_linux)
+
+list(APPEND global_library_references
+            c)
+
+
+#if (LXDE_DESKTOP)
+
+    #list(APPEND app_common_dependencies
+            #desktop_environment_gnome)
+
+##    list(APPEND static_app_common_dependencies
+##            static_desktop_environment_gnome
+##            static_node_gnome
+##            static_node_gtk
+##            static_windowing_x11)
+
+    #set(default_windowing "windowing_x11")
+
+    #add_compile_definitions(DESKTOP_ENVIRONMENT_GNOME)
+
+    #add_compile_definitions(default_windowing=windowing_x11)
+
+#endif ()
+
+
+#if (XFCE_DESKTOP)
+
+    #list(APPEND app_common_dependencies
+            #desktop_environment_xfce)
+
+    #list(APPEND static_app_common_dependencies
+            #static_desktop_environment_xfce)
+
+    #set(default_windowing "windowing_x11")
+
+    #add_compile_definitions(DESKTOP_ENVIRONMENT_XFCE)
+
+    #add_compile_definitions(default_windowing=windowing_x11)
+
+#endif ()
+
 
 if (${KDE_DESKTOP})
 
@@ -350,135 +449,71 @@ if (${KDE_DESKTOP})
     #        if(knotifications_libs STREQUAL "")
     #            set(knotifications_cflags -I/usr/include/KF5/KNotifications)
     #        endif()
-endif ()
 
-if(${HAS_GTK3})
-
-    set(WITH_XCB TRUE)
-    add_compile_definitions(WITH_XCB=1)
-
-endif()
-
-set(default_draw2d "draw2d_cairo")
-set(default_imaging "imaging_freeimage")
-set(default_write_text "write_text_pango")
-set(default_audio "audio_sndio")
-set(default_music_midi "music_midi_alsa")
-set(default_node "node_openbsd")
-set(default_audio_mixer "audio_mixer_alsa")
-set(default_gpu "gpu_opengl")
-set(default_networking "networking_bsd")
-#add_compile_definitions(default_draw2d=draw2d_cairo)
-#add_compile_definitions(default_imaging=imaging_freeimage)
-#add_compile_definitions(default_write_text=write_text_pango)
-#add_compile_definitions(default_audio=audio_alsa)
-#add_compile_definitions(default_music_midi=music_midi_alsa)
-#add_compile_definitions(default_node=node_linux)
-
-list(APPEND global_library_references
-            c)
+elseif (${GTK_BASED_DESKTOP})
 
 
-if (LXDE_DESKTOP)
-
-    list(APPEND app_common_dependencies
-            desktop_environment_gnome)
-
-#    list(APPEND static_app_common_dependencies
-#            static_desktop_environment_gnome
-#            static_node_gnome
-#            static_node_gtk
-#            static_windowing_x11)
-
-    set(default_windowing "windowing_x11")
-
-    add_compile_definitions(DESKTOP_ENVIRONMENT_GNOME)
-
-    add_compile_definitions(default_windowing=windowing_x11)
-
-endif ()
+   include("operating_system/operating_system-posix/_default_gtk_based_windowing.cmake")
+    #message(STATUS "Adding GTK/X11 dependency.")
 
 
-if (XFCE_DESKTOP)
-
-    list(APPEND app_common_dependencies
-            desktop_environment_xfce)
-
-    list(APPEND static_app_common_dependencies
-            static_desktop_environment_xfce)
-
-    set(default_windowing "windowing_x11")
-
-    add_compile_definitions(DESKTOP_ENVIRONMENT_XFCE)
-
-    add_compile_definitions(default_windowing=windowing_x11)
-
-endif ()
-
-
-if (${GTK_BASED_DESKTOP})
-
-
-    message(STATUS "Adding GTK/X11 dependency.")
-
-
-    list(APPEND static_app_common_dependencies
-            static_desktop_environment_gtk_based
-            static_node_gnome
-            static_node_gtk
-            static_node_linux
-            static_windowing_x11)
+    #list(APPEND static_app_common_dependencies
+            #static_desktop_environment_gtk_based
+            #static_node_gnome
+            #static_node_gtk
+            #static_node_linux
+            #static_windowing_x11)
             
-	set(default_nano_graphics "nano_graphics_cairo")
+	#set(default_nano_graphics "nano_graphics_cairo")
             
-if(${HAS_GTK4})
+#if(${HAS_GTK4})
 
-	set(default_acme_windowing "acme_windowing_gtk4")
-	set(default_innate_ui "innate_ui_gtk4")
-    set(default_windowing "windowing_gtk4")
-    set(default_node "node_gtk4")
-	set(default_operating_ambient "operating_ambient_gtk4")
+	#set(default_acme_windowing "acme_windowing_gtk4")
+	#set(default_innate_ui "innate_ui_gtk4")
+    #set(default_windowing "windowing_gtk4")
+    #set(default_node "node_gtk4")
+	#set(default_operating_ambient "operating_ambient_gtk4")
 
-endif()
+#endif()
 
-    list(APPEND app_common_dependencies
-            ${default_acme_windowing}
-            ${default_nano_graphics}
-            ${default_innate_ui}
-            ${default_windowing}
-            ${default_node}
-            ${default_operating_ambient})
-
-
-    add_compile_definitions(DESKTOP_ENVIRONMENT_GNOME)
-
-endif ()
+    #list(APPEND app_common_dependencies
+            #${default_acme_windowing}
+            #${default_nano_graphics}
+            #${default_innate_ui}
+            #${default_windowing}
+            #${default_node}
+            #${default_operating_ambient})
 
 
-if (KDE_DESKTOP)
+    #add_compile_definitions(DESKTOP_ENVIRONMENT_GNOME)
 
-    list(APPEND app_common_dependencies
-            desktop_environment_kde)
+#endif ()
 
-#    list(APPEND static_app_common_dependencies
-#            static_desktop_environment_kde
-#            static_node_kde
-#            static_windowing_xcb
-#            KF5::Notifications
-#            KF5::ConfigWidgets
-#            KF5::IconThemes
-#            KF5::KIOCore
-#            KF5::KIOFileWidgets
-#            KF5::KIOWidgets
-#            KF5::KIONTLM
-#            PW::KWorkspace
-#            )
 
-    set(default_windowing "windowing_xcb")
+#if (KDE_DESKTOP)
 
-    add_compile_definitions(DESKTOP_ENVIRONMENT_KDE)
+    #list(APPEND app_common_dependencies
+            #desktop_environment_kde)
 
-    add_compile_definitions(default_windowing=windowing_xcb)
+##    list(APPEND static_app_common_dependencies
+##            static_desktop_environment_kde
+##            static_node_kde
+##            static_windowing_xcb
+##            KF5::Notifications
+##            KF5::ConfigWidgets
+##            KF5::IconThemes
+##            KF5::KIOCore
+##            KF5::KIOFileWidgets
+##            KF5::KIOWidgets
+##            KF5::KIONTLM
+##            PW::KWorkspace
+##            )
+
+    #set(default_windowing "windowing_xcb")
+
+    #add_compile_definitions(DESKTOP_ENVIRONMENT_KDE)
+
+    #add_compile_definitions(default_windowing=windowing_xcb)
 
 endif ()
 
@@ -502,23 +537,51 @@ endif ()
 #endif()
 #
 
-list(APPEND static_acme_libraries
-            static_acme
-            static_acme_posix
-            static_acme_openbsd)
+#list(APPEND static_acme_libraries
+            #static_acme
+            #static_acme_posix
+            #static_acme_openbsd)
 
-list(APPEND default_acme
-            acme
-            acme_posix
-            acme_openbsd)
+#list(APPEND default_acme
+            #acme
+            #acme_posix
+            #acme_openbsd)
 
-list(APPEND default_apex
-            acme
-            acme_posix
-            acme_openbsd
-            apex
-            apex_posix
-            apex_openbsd)
+#list(APPEND default_apex
+            #acme
+            #acme_posix
+            #acme_openbsd
+            #apex
+            #apex_posix
+            #apex_openbsd)
+
+
+list(APPEND acme_windowing_libraries
+   ${default_nano_graphics}
+   ${default_acme_windowing}
+)
+
+
+list(APPEND innate_ui_libraries
+   ${acme_windowing_libraries}
+   ${default_innate_ui}
+)
+
+
+list(APPEND operating_ambient_libraries
+   ${innate_ui_libraries}
+   ${default_common_windowing}
+   ${default_windowing_common}
+   ${default_windowing}
+   ${default_node}
+   ${default_operating_ambient}
+)
+
+
+list(APPEND app_common_dependencies
+   ${aura_libraries}
+   ${operating_ambient_libraries}
+)
 
 set(LIBCXX_TARGETING_MSVC OFF)
 

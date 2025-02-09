@@ -3,6 +3,7 @@
 #include "acme/operating_system/summary.h"
 #include "acme/filesystem/filesystem/directory_system.h"
 #include "acme/filesystem/filesystem/file_system.h"
+#include "acme/filesystem/filesystem/path_system.h"
 #include <sys/utsname.h>
 
 //::user::enum_desktop _get_edesktop();
@@ -871,7 +872,7 @@ namespace acme_openbsd
       
       auto pathHomeBin = directory_system()->home() / "bin";
       
-      auto pathToolBin = directory_system()->home() / "cmake/operating_system/tool-openbsd/bin";
+      auto pathToolBin = path_system()->tool_folder_path() / "bin";
       
       psummary->m_strPathPrefix = ::string(pathHomeBin) + ":" + ::string(pathToolBin);
       
