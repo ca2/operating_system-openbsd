@@ -3,6 +3,33 @@
 message(STATUS "CMAKE_SYSTEM_NAME is ${CMAKE_SYSTEM_NAME}")
 
 
+if (NOT ${CMAKE_SYSTEM_NAME} STREQUAL "OpenBSD")
+
+    message(FATAL_ERROR "File originally designed for OpenBSD systems...")
+
+endif ()
+
+
+add_compile_definitions(__BSD__ OPENBSD)
+
+set(__BSD__ TRUE)
+
+set(OPENBSD TRUE)
+
+set(DONT_USE_PKG_CONFIG FALSE)
+
+set(APPINDICATOR_PKG_MODULE "")
+
+set(HAS_NO_APPINDICATOR TRUE)
+
+message(STATUS "__BSD__ has been set TRUE")
+
+message(STATUS "OPENBSD has been set TRUE")
+
+message(STATUS "added __BSD__ compile definition!!")
+
+message(STATUS "added OPENBSD compile definition!!")
+
 
 execute_process(COMMAND uname -m OUTPUT_VARIABLE __SYSTEM_ARCHITECTURE)
 string(STRIP ${__SYSTEM_ARCHITECTURE} __SYSTEM_ARCHITECTURE)
@@ -51,13 +78,6 @@ if ("${CMAKE_BUILD_TYPE}" STREQUAL "")
     set(CMAKE_BUILD_TYPE Debug)
 
 endif()
-
-
-if (NOT ${CMAKE_SYSTEM_NAME} STREQUAL "OpenBSD")
-
-    message(FATAL_ERROR "File originally designed for OpenBSD systems...")
-
-endif ()
 
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
@@ -129,10 +149,10 @@ message(STATUS "DESKTOP_ENVIRONMENT_NAME is ${DESKTOP_ENVIRONMENT_NAME}")
 
 set(UNDERSCORE_OPERATING_SYSTEM $ENV{__SYSTEM_UNDERSCORE_OPERATING_SYSTEM})
 set(SLASHED_OPERATING_SYSTEM $ENV{__SYSTEM_SLASHED_OPERATING_SYSTEM})
-set(OPERATING_SYSTEM $ENV{__OPERATING_SYSTEM})
+set(OPERATING_SYSTEM ${CMAKE_SYSTEM_NAME}})
 set(OPERATING_SYSTEM_RELEASE $ENV{__OPERATING_SYSTEM_RELEASE})
 
-
+string(TOLOWER ${OPERATING_SYSTEM} OPERATING_SYSTEM)
 string(TOLOWER ${CMAKE_BUILD_TYPE} tolower_cmake_build_type)
 
 
@@ -199,51 +219,51 @@ set(USE_OPENSSL TRUE)
 set(PTHREAD TRUE)
 
 
-message(STATUS "OPERATING_SYSTEM is ${OPERATING_SYSTEM}")
+#message(STATUS "OPERATING_SYSTEM is ${OPERATING_SYSTEM}")
 
-if (${OPERATING_SYSTEM} STREQUAL "openbsd")
+#if (${OPERATING_SYSTEM} STREQUAL "openbsd")
 
-    set(OPENBSD TRUE)
+    #set(OPENBSD TRUE)
 
-    message(STATUS "OPENBSD has been set TRUE")
+    #message(STATUS "OPENBSD has been set TRUE")
 
-    set(BSD_LIKE TRUE)
+    #set(BSD_LIKE TRUE)
     
-    set(__BSD__ TRUE)
+    #set(__BSD__ TRUE)
 
-    set(DONT_USE_PKG_CONFIG FALSE)
+    #set(DONT_USE_PKG_CONFIG FALSE)
 
-    add_compile_definitions(OPENBSD)
+    #add_compile_definitions(OPENBSD)
 
-    message(STATUS "added OPENBSD compile definition!!")
+    #message(STATUS "added OPENBSD compile definition!!")
 
-    add_compile_definitions(__BSD__)
+    #add_compile_definitions(__BSD__)
 
-    message(STATUS "added __BSD__ compile definition!!")
+    #message(STATUS "added __BSD__ compile definition!!")
 
-    set(APPINDICATOR_PKG_MODULE "")
+    #set(APPINDICATOR_PKG_MODULE "")
 
-    set(HAS_NO_APPINDICATOR TRUE)
+    #set(HAS_NO_APPINDICATOR TRUE)
 
-elseif (${OPERATING_SYSTEM} STREQUAL "netbsd")
+#elseif (${OPERATING_SYSTEM} STREQUAL "netbsd")
 
-    set(NETBSD TRUE)
+    #set(NETBSD TRUE)
 
-    add_compile_definitions(NETBSD)
+    #add_compile_definitions(NETBSD)
 
-    message(STATUS "NETBSD has been set TRUE")
+    #message(STATUS "NETBSD has been set TRUE")
 
-    add_compile_definitions(__BSD__)
+    #add_compile_definitions(__BSD__)
 
-    message(STATUS "added __BSD__ compile definition!!")
+    #message(STATUS "added __BSD__ compile definition!!")
 
-    set(APPINDICATOR_PKG_MODULE "ayatana-appindicator3-0.1")
+    #set(APPINDICATOR_PKG_MODULE "ayatana-appindicator3-0.1")
 
-else ()
+#else ()
 
-    set(APPINDICATOR_PKG_MODULE "appindicator3-0.1")
+    #set(APPINDICATOR_PKG_MODULE "appindicator3-0.1")
 
-endif ()
+#endif ()
 
 
 message(STATUS "DISTRO_RELEASE is ${DISTRO_RELEASE}")
