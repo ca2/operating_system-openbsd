@@ -26,9 +26,13 @@ list(APPEND library_source
    framework.h
    node.cpp
    node.h
+   node_processes_identifiers.cpp
+   node_tell_whether_modules_are_loaded.cpp
    path_system.cpp
    path_system.h
    )
+set_source_files_properties(node_processes_identifiers.cpp PROPERTIES SKIP_PRECOMPILE_HEADERS ON)
+
 
 
 

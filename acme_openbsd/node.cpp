@@ -1,13 +1,22 @@
 #include "framework.h"
 #include "node.h"
+#include "acme/exception/not_implemented.h"
 #include "acme/operating_system/summary.h"
 #include "acme/filesystem/filesystem/directory_system.h"
 #include "acme/filesystem/filesystem/file_system.h"
 #include "acme/filesystem/filesystem/path_system.h"
+#include "acme/prototype/collection/str_array.h"
 #include <sys/utsname.h>
 
 //::user::enum_desktop _get_edesktop();
+//#include <sys/types.h>
+//#include <sys/sysctl.h>
+//#include <sys/proc.h>
+//#include <stdio.h>
+//#include <stdint.h>
 
+long long * openbsd_processes_identifiers_dup(int & count);
+const char ** openbsd_tell_whether_modules_are_loaded(long & c, int iPid, const char ** modulesfullpath);
 
 namespace acme_openbsd
 {
@@ -594,64 +603,202 @@ namespace acme_openbsd
 //      output_debug_string("test01");
 
    }
-//
-//
-//   int g_iMemoryCountersStartable = 0;
-//
-//   bool node::memcnts()
-//   {
-//
-//      if (g_iMemoryCountersStartable && g_iMemoryCounters < 0)
-//      {
-//
-//         g_iMemoryCounters = file_exists(m_psystem->m_pnodedir->config() / "system/memory_counters.txt") ? 1 : 0;
-//
-//         if (g_iMemoryCounters)
-//         {
-//
-//            g_pmutexMemoryCounters = new ::mutex(e_create_new, false, "Global\\ca2_memory_counters");
-//
-//         }
-//
-//      }
-//
-//      return g_iMemoryCountersStartable && g_iMemoryCounters;
-//
-//   }
-//
-//
-//   ::file::path* g_pMemoryCounters = nullptr;
-//
-//
-//   CLASS_DCL_ACME::file::path node::memcnts_base_path()
-//   {
-//
-//      if (g_iMemoryCountersStartable && g_pMemoryCounters == nullptr)
-//      {
-//
-//         g_pMemoryCounters = new ::file::path();
-//
-//#if defined(_UWP)
-//
-//         string strBasePath = m_psystem->m_pnodedir->system() / "memory_counters";
-//
-//#else
-//
-//         ::file::path strModule = module_path_from_pid(getpid());
-//
-//         string strBasePath = m_psystem->m_pnodedir->system() / "memory_counters" / strModule.title() / __str(getpid());
-//
-//#endif
-//
-//         * g_pMemoryCounters = strBasePath;
-//
-//      }
-//
-//      return *g_pMemoryCounters;
-//
-//   }
-//
-//
+   
+   
+   ::process_identifier_array node::processes_identifiers() 
+   {
+      
+      int c = 0;
+      
+      auto pll = openbsd_processes_identifiers_dup(c);
+      
+      ::process_identifier_array processidentifiera;
+      
+      for(int i = 0;i < c; i++)
+      {
+         
+         processidentifiera.add(pll[i]);
+         
+      }
+      
+      free(pll);
+      
+      return ::transfer(processidentifiera);
+      
+   }
+   
+   
+   ::file::path_array node::process_identifier_modules_paths(process_identifier processidentifier)
+   {
+      
+      throw not_implemented();
+      
+      return {};
+      
+      //long l = 0;
+      
+      //auto pp = openbsd_list_loaded_modules(l, processidentifier);
+      
+          //auto stra=::transfer(string_array_from_strdup_count(pp, l));
+      
+      //::file::path_array a;
+      
+      
+      //for(auto & str : stra)
+      //{
+         
+         //a.add(str);
+         
+      //}
+      
+      //return ::transfer(a);
+      
+   }
+   
+   bool node::are_any_shared_libraries_mapped(const ::file::path_array & patha)
+   {
+      
+      throw not_implemented();
+      
+            long c = 0;
+
+      
+      //if(patha.is_empty())
+      //{
+         
+         //return false;
+         
+      //}
+      
+      //::string_array stra;
+      
+      //for(auto & path: patha)
+      //{
+         
+         //stra.add(path);
+         
+      //}
+      
+      //auto pp = strdupa_from_stringa(stra);
+      
+      //auto pids = processes_identifiers();
+      
+      
+      //for(auto & pid:pids)
+      //{
+         
+      //auto p = openbsd_tell_whether_modules_are_loaded(c, pid, (const char **) pp);
+      
+      //if(p)
+      //{
+         
+         //free((void *) p);
+         
+      //}
+      
+      //if(c >0)
+      //{
+         
+         //break;
+         
+      //}
+      
+   //}
+      
+      //free(pp);
+      
+      return c>0;
+      
+   }
+   
+   bool node::is_application_running_good_effort(const ::scoped_string & scopedstrRepos, const ::scoped_string & scopedstrApp)
+   {
+      
+      return false;
+      
+   }
+   //bool node::are_framework_shared_libraries_busy(const ::scoped_string & scopedstrRepos, const ::scoped_string & scopedstrApp)
+//{
+
+   //string_array stra;
+
+   //stra.add(this->library_file_name("acme"));
+   //stra.add(this->library_file_name("apex"));
+   //stra.add(this->library_file_name("aqua"));
+   //stra.add(this->library_file_name("aura"));
+
+   //::file::path_array patha;
+
+   //::file::path pathBin = directory_system()->home() / "application" / scopedstrRepos / scopedstrApp / "binary";
+
+   //patha = pathBin / stra;
+
+//return are_shared_libraries_busy(patha);
+
+//}
+
+   
+   
+
+   //return false;
+////
+////
+////   int g_iMemoryCountersStartable = 0;
+////
+////   bool node::memcnts()
+////   {
+////
+////      if (g_iMemoryCountersStartable && g_iMemoryCounters < 0)
+////      {
+////
+////         g_iMemoryCounters = file_exists(m_psystem->m_pnodedir->config() / "system/memory_counters.txt") ? 1 : 0;
+////
+////         if (g_iMemoryCounters)
+////         {
+////
+////            g_pmutexMemoryCounters = new ::mutex(e_create_new, false, "Global\\ca2_memory_counters");
+////
+////         }
+////
+////      }
+////
+////      return g_iMemoryCountersStartable && g_iMemoryCounters;
+////
+////   }
+////
+////
+////   ::file::path* g_pMemoryCounters = nullptr;
+////
+////
+////   CLASS_DCL_ACME::file::path node::memcnts_base_path()
+////   {
+////
+////      if (g_iMemoryCountersStartable && g_pMemoryCounters == nullptr)
+////      {
+////
+////         g_pMemoryCounters = new ::file::path();
+////
+////#if defined(_UWP)
+////
+////         string strBasePath = m_psystem->m_pnodedir->system() / "memory_counters";
+////
+////#else
+////
+////         ::file::path strModule = module_path_from_pid(getpid());
+////
+////         string strBasePath = m_psystem->m_pnodedir->system() / "memory_counters" / strModule.title() / __str(getpid());
+////
+////#endif
+////
+////         * g_pMemoryCounters = strBasePath;
+////
+////      }
+////
+////      return *g_pMemoryCounters;
+////
+////   }
+////
+////
 
 
 //   ::e_status node::datetime_to_filetime(::filetime_t * pfiletime, const ::datetime::time& time)

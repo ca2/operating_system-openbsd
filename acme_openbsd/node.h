@@ -50,6 +50,13 @@ namespace acme_openbsd
       virtual void install_crash_dump_reporting(const string & strModuleNameWithTheExeExtension) override;
 
 
+      ::process_identifier_array processes_identifiers() override;
+      
+      ::file::path_array process_identifier_modules_paths(process_identifier processidentifier) override;
+      
+      bool are_any_shared_libraries_mapped(const ::file::path_array & patha) override;
+      bool is_application_running_good_effort(const ::scoped_string & scopedstrRepos, const ::scoped_string & scopedstrApp) override;
+      
       //virtual bool memcnts();
 
       //virtual ::file::path memcnts_base_path();
