@@ -16,6 +16,7 @@ default_apex_platform1=operating_system-openbsd/apex_openbsd
 default_apex_platform2=operating_system-posix/apex_posix
 default_aura_platform1=operating_system-openbsd/aura_openbsd
 default_aura_platform2=operating_system-posix/aura_posix
+default_nano_idn=app/nano_idn_libidn
 port/archive=none
 port/base/iconv=none
 port/libcrypto=none
