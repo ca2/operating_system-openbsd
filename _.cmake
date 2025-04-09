@@ -40,6 +40,9 @@ execute_process(COMMAND uname -s OUTPUT_VARIABLE __OPERATING_SYSTEM)
 string(STRIP ${__OPERATING_SYSTEM} __OPERATING_SYSTEM)
 string(TOLOWER ${__OPERATING_SYSTEM} __OPERATING_SYSTEM)
 
+set(OPERATING_SYSTEM_POSIX_PATH "${WORKSPACE_FOLDER}/operating_system/operating_system-posix")
+
+
 
 #FIND_PACKAGE(PkgConfig)
 
@@ -144,6 +147,14 @@ elseif ($ENV{XDG_CURRENT_DESKTOP} STREQUAL "LXDE")
     set(LXDE_DESKTOP TRUE)
     message(STATUS "System is LXDE")
     set(DESKTOP_ENVIRONMENT_NAME "lxde")
+elseif ($ENV{XDG_CURRENT_DESKTOP} STREQUAL "XFCE")
+    set(XFCE_DESKTOP TRUE)
+    set(GTK_BASED_DESKTOP TRUE)
+    message(STATUS "System is XFCE")
+    set(DESKTOP_ENVIRONMENT_NAME "xfce")
+    set(GTK_DESKTOP_CMAKE_PATH "${OPERATING_SYSTEM_POSIX_PATH}/_gtk_desktop.cmake")
+    message(STATUS "including ${GTK_DESKTOP_CMAKE_PATH}")
+    include(${GTK_DESKTOP_CMAKE_PATH})
 endif ()
 
 
@@ -211,7 +222,7 @@ set(CMAKE_INSTALL_RPATH $ORIGIN)
 
 set(OPERATING_SYSTEM_NAME "openbsd")
 set(OPERATING_SYSTEM_POSIX TRUE)
-set(FILE_SYSTEM_INOTIFY TRUE)
+set(FILE_SYSTEM_INOTIFY FALSE)
 set(POSIX_SPAWN TRUE)
 set(POSIX_LIST_SERIAL_PORTS TRUE)
 set(WITH_X11 TRUE)
@@ -453,7 +464,7 @@ if (${KDE_DESKTOP})
 elseif (${GTK_BASED_DESKTOP})
 
 
-   include("operating_system/operating_system-posix/_default_gtk_based_windowing.cmake")
+   include("operating_system/operating_system-posix/_default_gtk_windowing.cmake")
     #message(STATUS "Adding GTK/X11 dependency.")
 
 
