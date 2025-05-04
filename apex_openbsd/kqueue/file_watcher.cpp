@@ -391,7 +391,7 @@ namespace file_watcher
          {
             if(nev == -1)
             {
-               perror("kevent");
+               fprintf(stderr, "kevent error");
             }
             else
             {

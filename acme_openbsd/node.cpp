@@ -17,6 +17,35 @@
 
 long long * openbsd_processes_identifiers_dup(int & count);
 const char ** openbsd_tell_whether_modules_are_loaded(long & c, int iPid, const char ** modulesfullpath);
+void install_operating_system_default_signal_handlers();
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <signal.h>
+#include <sys/wait.h>
+#include <errno.h>
+#include <string.h>
+
+void sigchld_handler(int signum) {
+    int saved_errno = errno;
+    int status;
+    pid_t pid;
+    
+    printf_line("Child exited!!");
+    
+    preempt(5_s);
+
+    // Reap all dead children
+    while ((pid = waitpid(-1, &status, WNOHANG)) > 0) {
+        if (WIFEXITED(status)) {
+            printf("Child %d exited with status %d\n", pid, WEXITSTATUS(status));
+        } else if (WIFSIGNALED(status)) {
+            printf("Child %d terminated by signal %d (%s)\n", pid, WTERMSIG(status), strsignal(WTERMSIG(status)));
+        }
+    }
+
+    errno = saved_errno;
+}
 
 namespace acme_openbsd
 {
@@ -42,6 +71,9 @@ namespace acme_openbsd
       //auto estatus =
 
       ::acme_posix::node::initialize(pparticle);
+      
+      install_operating_system_default_signal_handlers();
+         
 
 //      if (!estatus)
 //      {
