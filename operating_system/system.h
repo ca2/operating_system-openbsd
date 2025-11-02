@@ -23,7 +23,7 @@
 #include <cstddef>
 #include <strings.h>
 #include <stdio.h>
-
+#include <string.h>
 
 //#include "clear_cstddef"
 //#ifdef _TIME_H_
