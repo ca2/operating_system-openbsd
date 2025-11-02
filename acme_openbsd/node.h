@@ -47,14 +47,14 @@ namespace acme_openbsd
       //virtual ::file::path roaming() override;
 
 
-      virtual void install_crash_dump_reporting(const string & strModuleNameWithTheExeExtension) override;
+      virtual void install_crash_dump_reporting(const ::scoped_string &strModuleNameWithTheExeExtension) override;
 
 
       ::process_identifier_array processes_identifiers() override;
       
-      ::file::path_array process_identifier_modules_paths(process_identifier processidentifier) override;
+      ::file::path_array_base process_identifier_modules_paths(process_identifier processidentifier) override;
       
-      bool are_any_shared_libraries_mapped(const ::file::path_array & patha) override;
+      bool are_any_shared_libraries_mapped(const ::file::path_array_base & patha) override;
       bool is_application_running_good_effort(const ::scoped_string & scopedstrRepos, const ::scoped_string & scopedstrApp) override;
       
       //virtual bool memcnts();
@@ -70,7 +70,7 @@ namespace acme_openbsd
       string audio_get_default_implementation_name() override;
 
 
-      void shell_open(const ::file::path & path, const ::string & strParams = "", const ::file::path & pathFolder = "") override;
+      void shell_open(const ::file::path & path, const ::scoped_string & strParams = "", const ::file::path & pathFolder = "") override;
 
 
       ::pointer <::operating_system::summary > operating_system_summary() override;

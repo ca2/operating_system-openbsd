@@ -48,11 +48,11 @@ namespace acme_openbsd
       virtual ::file::path public_root() override; // writable common root (non-bin, non-exe)
       virtual ::file::path bookmark() override;
       virtual ::file::path home() override;
-      virtual ::file::path pathfind(const string& pszEnv, const string& pszTopic, const string& pszMode) override;
+      virtual ::file::path pathfind(const ::scoped_string & pszEnv, const ::scoped_string & pszTopic, const ::scoped_string & pszMode) override;
       virtual ::file::path program_files_x86() override;
       virtual ::file::path program_files() override;
       //virtual ::file::path program_data() override;
-      virtual ::file::path stage(string strAppId, string strPlatform, string strConfiguration) override;
+      virtual ::file::path stage(const ::scoped_string & strAppId, const ::scoped_string & strPlatform, const ::scoped_string & strConfiguration) override;
       virtual ::file::path sys_temp() override;
       virtual ::string dir_root() override;
       //virtual ::file::path home() override;
@@ -67,17 +67,17 @@ namespace acme_openbsd
 
       //::file::path inplace_install(string strAppId, string strPlatform, string strConfiguration) override;
       //virtual ::file::path inplace_install(string strAppId, string strPlatform, string strConfiguration) override;
-      virtual ::file::path inplace_install(string strAppId, string strPlatform, string strConfiguration) override;
-      virtual ::file::path inplace_matter_install(string strAppId, string strPlatform, string strConfiguration) override;
+      virtual ::file::path inplace_install(const ::scoped_string & strAppId, const ::scoped_string & strPlatform, const ::scoped_string & strConfiguration) override;
+      virtual ::file::path inplace_matter_install(const ::scoped_string & strAppId, const ::scoped_string & strPlatform, const ::scoped_string & strConfiguration) override;
 
 
-      virtual void set_path_install_folder(const ::string & strPath) override;
+      virtual void set_path_install_folder(const ::scoped_string & strPath) override;
 
       //virtual  bool        _shell_get_special_folder_path(HWND hwnd, ::file::path& str, i32 csidl, bool fCreate);
       //virtual ::file::path _shell_get_special_folder_path(i32 csidl, bool fCreate = true, ::windowing::window* pwindow = nullptr);
       //virtual ::file::path _get_known_folder(REFKNOWNFOLDERID kfid);
 
-      //virtual ::file::path pathfind(const string& pszEnv, const string& pszTopic, const string& pszMode) override;
+      //virtual ::file::path pathfind(const ::scoped_string & pszEnv, const ::scoped_string & pszTopic, const ::scoped_string & pszMode) override;
 
       virtual ::file::path user_appdata_local() override;
 

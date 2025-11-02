@@ -13,12 +13,50 @@
 
 #define __cdecl
 #define _stdcall
-
+#define __POSIX_VISIBLE 202405
+//#define _BSD_SOURCE 1
+//#define __BSD_VISIBLE 1
 #define _NORMAL_BLOCK  1
 
 #include <stdarg.h>
 
 #include <cstddef>
+#include <strings.h>
+#include <stdio.h>
+
+
+//#include "clear_cstddef"
+//#ifdef _TIME_H_
+//#error "time.h already include"
+//#endif
+#include <time.h>
+
+
+#ifdef _XOPEN_SOURCE
+# if (_XOPEN_SOURCE - 0 >= 800)
+#error "_XOPEN_SOURCE >= 800"
+# elif (_XOPEN_SOURCE - 0 >= 700)
+#error "_XOPEN_SOURCE >= 700"
+# elif (_XOPEN_SOURCE - 0 >= 600)
+#error "_XOPEN_SOURCE >= 600"
+# elif (_XOPEN_SOURCE - 0 >= 520)
+#error "_XOPEN_SOURCE >= 520"
+# elif (_XOPEN_SOURCE - 0 >= 500)
+#error "_XOPEN_SOURCE >= 500"
+# elif (_XOPEN_SOURCE_EXTENDED - 0 == 1)
+#error "_XOPEN_SOURCE_EXTENDED == 1"
+# elif (_XOPEN_VERSION - 0 >= 4)
+#error "_XOPEN_VERSION >= 4"
+# else
+#error "_XOPEN going to be defaults"
+# endif
+#endif
+
+//#if __POSIX_VISIBLE >= 202405
+//#error "__POSIX_VISIBLE >= 202405"
+//#else
+//#error "Not __POSIX_VISIBLE >= 202405"
+//#endif
 
 // Ubuntu apt-get install libx11-dev
 // CentOS yum install libX11-devel
@@ -316,6 +354,6 @@ typedef void * PVOID;
 
 
 
-#ifdef _TIME_H_
-#error "time.h already included WHAT!!!!!!"
-#endif
+//#ifdef _TIME_H_
+//#error "time.h already included WHAT!!!!!!"
+//#endif

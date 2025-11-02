@@ -26,26 +26,26 @@ void install_operating_system_default_signal_handlers();
 #include <errno.h>
 #include <string.h>
 
-void sigchld_handler(int signum) {
-    int saved_errno = errno;
-    int status;
-    pid_t pid;
+//void sigchld_handler(int signum) {
+    //int saved_errno = errno;
+    //int status;
+    //pid_t pid;
     
-    printf_line("Child exited!!");
+    //printf_line("Child exited!!");
     
-    preempt(5_s);
+    //preempt(5_s);
 
-    // Reap all dead children
-    while ((pid = waitpid(-1, &status, WNOHANG)) > 0) {
-        if (WIFEXITED(status)) {
-            printf("Child %d exited with status %d\n", pid, WEXITSTATUS(status));
-        } else if (WIFSIGNALED(status)) {
-            printf("Child %d terminated by signal %d (%s)\n", pid, WTERMSIG(status), strsignal(WTERMSIG(status)));
-        }
-    }
+    //// Reap all dead children
+    //while ((pid = waitpid(-1, &status, WNOHANG)) > 0) {
+        //if (WIFEXITED(status)) {
+            //printf("Child %d exited with status %d\n", pid, WEXITSTATUS(status));
+        //} else if (WIFSIGNALED(status)) {
+            //printf("Child %d terminated by signal %d (%s)\n", pid, WTERMSIG(status), strsignal(WTERMSIG(status)));
+        //}
+    //}
 
-    errno = saved_errno;
-}
+    //errno = saved_errno;
+//}
 
 namespace acme_openbsd
 {
@@ -613,7 +613,7 @@ namespace acme_openbsd
 // enzymes: Liveedu.tv, Twitch.tv and Mixer.com streamers and viewers
 // Mummi and bilbo!!
 // create call to :
-   void node::install_crash_dump_reporting(const string & strModuleNameWithTheExeExtension)
+   void node::install_crash_dump_reporting(const ::scoped_string &strModuleNameWithTheExeExtension)
    {
 
 //      ::openbsd::registry::key k;
@@ -660,7 +660,7 @@ namespace acme_openbsd
    }
    
    
-   ::file::path_array node::process_identifier_modules_paths(process_identifier processidentifier)
+   ::file::path_array_base node::process_identifier_modules_paths(process_identifier processidentifier)
    {
       
       throw not_implemented();
@@ -673,7 +673,7 @@ namespace acme_openbsd
       
           //auto stra=::transfer(string_array_from_strdup_count(pp, l));
       
-      //::file::path_array a;
+      //::file::path_array_base a;
       
       
       //for(auto & str : stra)
@@ -687,7 +687,7 @@ namespace acme_openbsd
       
    }
    
-   bool node::are_any_shared_libraries_mapped(const ::file::path_array & patha)
+   bool node::are_any_shared_libraries_mapped(const ::file::path_array_base & patha)
    {
       
       throw not_implemented();
@@ -759,7 +759,7 @@ namespace acme_openbsd
    //stra.add(this->library_file_name("aqua"));
    //stra.add(this->library_file_name("aura"));
 
-   //::file::path_array patha;
+   //::file::path_array_base patha;
 
    //::file::path pathBin = directory_system()->home() / "application" / scopedstrRepos / scopedstrApp / "binary";
 
@@ -903,7 +903,7 @@ namespace acme_openbsd
    }
 
 
-   void node::shell_open(const ::file::path & path, const ::string & strParams, const ::file::path & pathFolder)
+   void node::shell_open(const ::file::path & path, const ::scoped_string &  strParams, const ::file::path & pathFolder)
    {
 
       string str(path);
@@ -921,7 +921,7 @@ namespace acme_openbsd
    ::pointer <::operating_system::summary > node::operating_system_summary()
    {
 
-      auto psummary = __create_new < ::operating_system::summary >();
+      auto psummary = øcreate_new < ::operating_system::summary >();
 
 
       //::particle::initialize(pparticle);
@@ -936,7 +936,11 @@ namespace acme_openbsd
       
 //         printf("/etc/os-release exists?!?!");
 
-         auto set = file_system()->parse_standard_configuration("/etc/os-release");
+		 auto str = file_system()->as_string("/etc/os-release");
+		 
+		 ::property_set set;
+
+         set.parse_standard_configuration(str);
 
          psummary->m_strSystem = set["ID"];
          psummary->m_strSystemBranch = set["VARIANT_ID"];
@@ -978,9 +982,9 @@ namespace acme_openbsd
             
             strRelease.trim();
             
-            informationf("utsname.sysname : %s", strSysName.c_str());
+            //informationf("utsname.sysname : %s", strSysName.c_str());
             
-            informationf("utsname.release : %s", strRelease.c_str());
+            //informationf("utsname.release : %s", strRelease.c_str());
             
             if(strSysName.case_insensitive_equals("openbsd") && strRelease.has_character())
             {
@@ -997,12 +1001,12 @@ namespace acme_openbsd
 
       auto strLowerCaseCurrentDesktop = this->get_environment_variable("XDG_CURRENT_DESKTOP").lowered();
 
-      informationf("lower case xdg_current_desktop is %s", strLowerCaseCurrentDesktop.c_str());
+      //informationf("lower case xdg_current_desktop is %s", strLowerCaseCurrentDesktop.c_str());
       
       if (strLowerCaseCurrentDesktop.equals("gnome"))
       {
          
-         informationf("Detected GNOME");
+         //informationf("Detected GNOME");
 
          psummary->m_strAmbient = "gnome";
 
@@ -1010,7 +1014,7 @@ namespace acme_openbsd
       else if (strLowerCaseCurrentDesktop.equals("kde"))
       {
          
-         informationf("Detected KDE");
+         //informationf("Detected KDE");
 
          psummary->m_strAmbient = "kde";
 
@@ -1018,7 +1022,7 @@ namespace acme_openbsd
       else if (strLowerCaseCurrentDesktop.equals("lxde"))
       {
          
-         informationf("Detected LXDE");
+         //informationf("Detected LXDE");
 
          psummary->m_strAmbient = "lxde";
 
@@ -1026,7 +1030,7 @@ namespace acme_openbsd
       else if (strLowerCaseCurrentDesktop.equals("xfce"))
       {
          
-         informationf("Detected XFCE");
+         //informationf("Detected XFCE");
 
          psummary->m_strAmbient = "xfce";
 
@@ -1070,7 +1074,6 @@ namespace acme_openbsd
       return psummary;
 
    }
-
 
 
 } // namespace acme_openbsd

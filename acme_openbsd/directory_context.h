@@ -26,7 +26,7 @@ namespace acme_openbsd
 
 
 
-      ::file::listing& root_ones(::file::listing& listing) override;
+      ::file::listing_base & root_ones(::file::listing_base & listing) override;
 
 
    };

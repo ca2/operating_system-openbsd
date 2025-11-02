@@ -202,7 +202,7 @@ namespace acme_openbsd
 
 
 
-   ::file::path directory_system::inplace_install(string strAppId, string strPlatform, string strConfiguration)
+   ::file::path directory_system::inplace_install(const ::scoped_string & strAppId, const ::scoped_string & strPlatform, const ::scoped_string & strConfiguration)
    {
 
    #ifdef OPENBSD_DESKTOP
@@ -259,7 +259,7 @@ namespace acme_openbsd
    }
 
 
-   ::file::path directory_system::inplace_matter_install(string strAppId, string strPlatform, string strConfiguration)
+   ::file::path directory_system::inplace_matter_install(const ::scoped_string & strAppId, const ::scoped_string & strPlatform, const ::scoped_string & strConfiguration)
    {
 
    #ifdef OPENBSD_DESKTOP
@@ -352,7 +352,7 @@ namespace acme_openbsd
 
    }
 
-   ::file::path directory_system::stage(string strAppId, string strPlatform, string strConfiguration)
+   ::file::path directory_system::stage(const ::scoped_string & strAppId, const ::scoped_string & strPlatform, const ::scoped_string & strConfiguration)
    {
 
       return inplace_install(strAppId, strPlatform, strConfiguration) / "time" / strPlatform / strConfiguration;
@@ -368,7 +368,7 @@ namespace acme_openbsd
    }
 
 
-   void directory_system::set_path_install_folder(const ::string & strPath)
+   void directory_system::set_path_install_folder(const ::scoped_string &  strPath)
    {
 
       m_pathInstallFolder = strPath;
@@ -499,7 +499,7 @@ namespace acme_openbsd
    //}
 
 
-   ::file::path directory_system::pathfind(const string& pszEnv, const string& pszTopic, const string& pszMode)
+   ::file::path directory_system::pathfind(const ::scoped_string & pszEnv, const ::scoped_string & pszTopic, const ::scoped_string & pszMode)
    {
 
       ::file::path_array stra;
