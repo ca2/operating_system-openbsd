@@ -10,6 +10,9 @@ if (NOT ${CMAKE_SYSTEM_NAME} STREQUAL "OpenBSD")
 endif ()
 
 
+set(INCLUDE_FREEIMAGE)
+
+
 include(FindPkgConfig REQUIRED)
 
 add_compile_definitions(__BSD__ OPENBSD)
