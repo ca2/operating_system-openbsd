@@ -10,9 +10,6 @@ if (NOT ${CMAKE_SYSTEM_NAME} STREQUAL "OpenBSD")
 endif ()
 
 
-set(INCLUDE_FREEIMAGE)
-
-
 include(FindPkgConfig REQUIRED)
 
 add_compile_definitions(__BSD__ OPENBSD)
@@ -58,6 +55,7 @@ set(USE_PKGCONFIG TRUE)
 set(NO_PRECOMPILED_HEADER TRUE)
 set(PLATFORM_NAME "openbsd")
 set(TOOL_RELEASE_NAME "openbsd")
+set(OPERATING_SYSTEM_LOWERED_NAME "openbsd")
 set(OPERATING_SYSTEM_TOOL_FOLDER "tool-openbsd")
 set(MAIN_STORE_SLASHED_OPERATING_SYSTEM "openbsd")
 set(HAS_ALSA FALSE)
@@ -695,8 +693,6 @@ set(LIBCXX_TARGETING_MSVC OFF)
 add_compile_definitions(UNICODE)
 add_compile_definitions(_UNICODE)
 
-
-#list(APPEND app_common_dependencies _console_application_build_helper)
 
 
 #set(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/time-${OPERATING_SYSTEM_NAME}/x64/basis)
