@@ -27,4 +27,7 @@ port/pcre=none
 port/libmpg123=none
 port/mpg123=none
 port/swresample=none
+port/idn=none
 app-core/text_to_speech_sapi=none
+app-core/redshift=none
+port/graphics3d/assimp=none
