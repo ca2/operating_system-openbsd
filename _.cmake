@@ -135,6 +135,7 @@ if ($ENV{XDG_CURRENT_DESKTOP} STREQUAL "KDE")
     set(KDE_DESKTOP TRUE)
     message(STATUS "System is KDE")
     set(DESKTOP_ENVIRONMENT_NAME "kde")
+    include(${WORKSPACE_FOLDER}/operating_system/operating_system-posix/_kde_desktop.cmake)
 elseif ($ENV{XDG_CURRENT_DESKTOP} STREQUAL "ubuntu:GNOME")
     set(GNOME_DESKTOP TRUE)
     message(STATUS "System is GNOME")
@@ -323,7 +324,7 @@ list(APPEND aura_libraries
    node_openbsd
 )
 
-set(default_nano_graphics nano_graphics_cairo)
+
 
 
 
@@ -350,6 +351,10 @@ set(default_node "node_openbsd")
 set(default_audio_mixer "audio_mixer_sndio")
 set(default_gpu "gpu_opengl")
 set(default_networking "networking_bsd")
+#set(default_input "input_libinput")
+set(default_acme "acme_openbsd")
+set(default_apex "apex_openbsd")
+set(default_nano_graphics "nano_graphics_cairo")
 #add_compile_definitions(default_draw2d=draw2d_cairo)
 #add_compile_definitions(default_imaging=imaging_freeimage)
 #add_compile_definitions(default_write_text=write_text_pango)
@@ -358,6 +363,7 @@ set(default_networking "networking_bsd")
 list(APPEND global_library_references
             c)
 
+set(default_windowing_common windowing_posix)
 
 #if (LXDE_DESKTOP)
 
@@ -398,11 +404,16 @@ list(APPEND global_library_references
 
 if (${KDE_DESKTOP})
 
+	if(${HAS_KDE5})
+	
+	
+	message(STATUS "it HAS_KDE5")
+
     set(WITH_XCB TRUE)
     add_compile_definitions(WITH_XCB=1)
 
-    set(QT_MIN_VERSION "5.3.0")
-    set(KF5_MIN_VERSION "5.2.0")
+    set(QT_MIN_VERSION "5.0.0")
+    set(KF6_MIN_VERSION "5.0.0")
 
     # apt install extra-cmake-modules
     # dnf install extra-cmake-modules
@@ -428,7 +439,7 @@ if (${KDE_DESKTOP})
     #  Core    # QCommandLineParser, QStringLiteral
     #  Widgets # QApplication
     #  )
-    find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
+    find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
             # CoreAddons      # KAboutData
             #          I18n            # KLocalizedString
             #         WidgetsAddons   # KMessageBox
@@ -437,22 +448,25 @@ if (${KDE_DESKTOP})
             ConfigWidgets
             KIO
             IconThemes
+            StatusNotifierItem
             )
 
     find_package(LibKWorkspace CONFIG REQUIRED)
 
-    find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS
+    find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS
             Core
             DBus
             UiTools
-            X11Extras
+            #X11Extras
             )
+
+	set(HAS_KDE6 TRUE)
 
     # Find KDE modules
 
     #feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
     #        find_package(KDE5 REQUIRED)
-    message(STATUS "Adding KDE/xcb dependency.")
+    message(STATUS "Adding KDE 6 dependency.")
     #        file (STRINGS $ENV{HOME}/__config/knotifications/cflags.txt knotifications_cflags)
     #        file (STRINGS $ENV{HOME}/__config/knotifications/libs.txt knotifications_libs)
     #        if(knotifications_cflags STREQUAL "")
@@ -461,6 +475,86 @@ if (${KDE_DESKTOP})
     #        if(knotifications_libs STREQUAL "")
     #            set(knotifications_cflags -I/usr/include/KF5/KNotifications)
     #        endif()
+    elseif(${HAS_KDE6})
+    
+	message(STATUS "it HAS_KDE6")
+
+    set(WITH_XCB TRUE)
+    add_compile_definitions(WITH_XCB=1)
+
+    set(QT_MIN_VERSION "6.0.0")
+    set(KF6_MIN_VERSION "6.0.0")
+
+    # apt install extra-cmake-modules
+    # dnf install extra-cmake-modules
+    find_package(ECM 1.0.0 REQUIRED NO_MODULE)
+    set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+
+    # apt install libkf5notifications-dev
+    # dnf install kf5-knotifications-devel
+
+    #include(KDEInstallDirs)
+    #include(KDECMakeSettings)
+    #include(KDECompilerSettings NO_POLICY_SCOPE)
+    #    find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
+    # CoreAddons      # KAboutData
+    #          I18n            # KLocalizedString
+    #         WidgetsAddons   # KMessageBox
+    #      Notifications
+    #     )
+    #include(FeatureSummary)
+
+    # Find Qt modules
+    #find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
+    #  Core    # QCommandLineParser, QStringLiteral
+    #  Widgets # QApplication
+    #  )
+    find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
+            # CoreAddons      # KAboutData
+            #          I18n            # KLocalizedString
+            #         WidgetsAddons   # KMessageBox
+            CoreAddons
+            Notifications
+            ConfigWidgets
+            KIO
+            IconThemes
+            StatusNotifierItem
+            )
+
+    find_package(LibKWorkspace CONFIG REQUIRED)
+
+    find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS
+            Core
+            DBus
+            UiTools
+            #X11Extras
+            )
+
+	set(HAS_KDE6 TRUE)
+
+    # Find KDE modules
+
+    #feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
+    #        find_package(KDE5 REQUIRED)
+    message(STATUS "Adding KDE 6 dependency.")
+    #        file (STRINGS $ENV{HOME}/__config/knotifications/cflags.txt knotifications_cflags)
+    #        file (STRINGS $ENV{HOME}/__config/knotifications/libs.txt knotifications_libs)
+    #        if(knotifications_cflags STREQUAL "")
+    #            set(knotifications_cflags -I/usr/include/KF5/KNotifications)
+    #        endif()
+    #        if(knotifications_libs STREQUAL "")
+    #            set(knotifications_cflags -I/usr/include/KF5/KNotifications)
+    #        endif()
+    
+    set(default_acme_windowing "acme_windowing_kde6")
+    set(default_innate_ui "innate_ui_kde6")
+    set(default_windowing "windowing_kde6")
+    set(default_operating_ambient "operating_ambient_kde6")
+    
+    endif()
+    
+    
+    
 
 elseif (${GTK_BASED_DESKTOP})
 
