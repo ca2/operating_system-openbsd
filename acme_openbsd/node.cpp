@@ -1043,7 +1043,7 @@ namespace acme_openbsd
 
       }
 
-      psummary->m_strSystemAmbientRelease=psummary->m_strSystem + "/" + psummary->m_strSystemBranch + "/" + psummary->m_strSystemRelease;
+      psummary->m_strSystemAmbientReleaseArchitecture=psummary->m_strSystem + "/" + psummary->m_strSystemBranch + "/" + psummary->m_strSystemRelease;
 
       //psummary->m_strSystemAmbientRelease = psummary->m_strSlashedStore;
 
@@ -1063,7 +1063,7 @@ namespace acme_openbsd
       this->set_environment_variable("__SYSTEM_FAMILY", psummary->m_strSystemFamily);
       this->set_environment_variable("__SYSTEM_BRANCH", psummary->m_strSystemBranch);
       this->set_environment_variable("__SYSTEM_RELEASE", psummary->m_strSystemRelease);
-      this->set_environment_variable("__SYSTEM_AMBIENT_RELEASE", psummary->m_strSystemAmbientRelease);
+      this->set_environment_variable("__SYSTEM_AMBIENT_RELEASE_ARCHITECTURE", psummary->m_strSystemAmbientReleaseArchitecture);
       ///this->set_environment_variable("__SYSTEM_SLASHED_INTEGRATION", psummary->m_strSlashedIntegration);
       //this->set_environment_variable("__SYSTEM_UNDERSCORE_OPERATING_SYSTEM", psummary->m_strSystemAmbientRelease);
       this->set_environment_variable("__SYSTEM_SUDO_INSTALL", psummary->m_strSudoInstall);
