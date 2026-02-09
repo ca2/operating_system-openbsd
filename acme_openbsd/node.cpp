@@ -1,10 +1,11 @@
 #include "framework.h"
 #include "node.h"
 #include "acme/exception/not_implemented.h"
-#include "acme/operating_system/summary.h"
 #include "acme/filesystem/filesystem/directory_system.h"
 #include "acme/filesystem/filesystem/file_system.h"
 #include "acme/filesystem/filesystem/path_system.h"
+#include "acme/operating_system/cpu_features.h"
+#include "acme/operating_system/summary.h"
 #include "acme/prototype/collection/str_array.h"
 #include <sys/utsname.h>
 
@@ -998,6 +999,8 @@ namespace acme_openbsd
          }
       
       }
+      
+      auto strArchitecture = ::operating_system::machine_architecture();
 
       auto strLowerCaseCurrentDesktop = this->get_environment_variable("XDG_CURRENT_DESKTOP").lowered();
 
@@ -1042,8 +1045,10 @@ namespace acme_openbsd
          psummary->m_strSystemBranch = psummary->m_strAmbient;
 
       }
+      
+      psummary->m_strSystemArchitecture = strArchitecture;
 
-      psummary->m_strSystemAmbientReleaseArchitecture=psummary->m_strSystem + "/" + psummary->m_strSystemBranch + "/" + psummary->m_strSystemRelease;
+      psummary->m_strSystemAmbientReleaseArchitecture=psummary->m_strSystem + "/" + psummary->m_strSystemBranch + "/" + psummary->m_strSystemRelease + "/" + psummary->m_strSystemArchitecture;
 
       //psummary->m_strSystemAmbientRelease = psummary->m_strSlashedStore;
 
